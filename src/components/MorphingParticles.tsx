@@ -160,7 +160,7 @@ const ParticlesRenderer = ({ activeSection }: ParticlesRendererProps) => {
     timeRef.current += delta;
     const time = timeRef.current;
 
-    // Organic drift
+    // Organic drift rotation
     pointsRef.current.rotation.y = time * 0.035;
     pointsRef.current.rotation.x = time * 0.015;
 
@@ -178,7 +178,6 @@ const ParticlesRenderer = ({ activeSection }: ParticlesRendererProps) => {
       const targetY = targetCoords[i + 1];
       const targetZ = targetCoords[i + 2];
 
-      // Add fluid wave distortions based on time and position
       const waveX = Math.sin(time * 0.4 + targetY) * 0.08;
       const waveY = Math.cos(time * 0.4 + targetX) * 0.08;
 
@@ -208,12 +207,12 @@ const ParticlesRenderer = ({ activeSection }: ParticlesRendererProps) => {
         />
       </bufferGeometry>
       <pointsMaterial
-        color="#00F0FF"
-        size={0.06}
+        color="#E60012"
+        size={0.065}
         sizeAttenuation={true}
         transparent={true}
-        opacity={0.55}
-        blending={THREE.AdditiveBlending}
+        opacity={0.65}
+        blending={THREE.NormalBlending}
       />
     </points>
   );
@@ -250,7 +249,8 @@ const CanvasFallback = ({ activeSection }: ParticlesRendererProps) => {
     }));
 
     const animate = () => {
-      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = '#F4F4F6';
+      ctx.fillRect(0, 0, width, height);
 
       particles.forEach((p, idx) => {
         let targetX = p.originX;
@@ -288,13 +288,12 @@ const CanvasFallback = ({ activeSection }: ParticlesRendererProps) => {
           targetY = height * 0.22 + nodeIdx * (height * 0.11);
         }
 
-        // Fluid morphing transition
         p.x += (targetX - p.x) * 0.06;
         p.y += (targetY - p.y) * 0.06;
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 240, 255, 0.3)';
+        ctx.fillStyle = 'rgba(230, 0, 18, 0.45)';
         ctx.fill();
       });
 
@@ -309,7 +308,7 @@ const CanvasFallback = ({ activeSection }: ParticlesRendererProps) => {
     };
   }, [activeSection]);
 
-  return <canvas ref={containerRef} className="absolute inset-0 w-full h-full opacity-30" />;
+  return <canvas ref={containerRef} className="absolute inset-0 w-full h-full opacity-60 pointer-events-auto" />;
 };
 
 export const MorphingParticles = ({ activeSection }: ParticlesRendererProps) => {
@@ -320,17 +319,17 @@ export const MorphingParticles = ({ activeSection }: ParticlesRendererProps) => 
   }, []);
 
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none select-none overflow-hidden bg-[#030304]">
+    <div className="fixed inset-0 z-0 pointer-events-none select-none overflow-hidden bg-[#F4F4F6]">
       {useWebGL ? (
-        <Canvas camera={{ position: [0, 0, 5], fov: 60 }}>
-          <ambientLight intensity={0.5} />
+        <Canvas camera={{ position: [0, 0, 5], fov: 60 }} style={{ background: '#F4F4F6' }}>
+          <ambientLight intensity={0.8} />
           <ParticlesRenderer activeSection={activeSection} />
         </Canvas>
       ) : (
         <CanvasFallback activeSection={activeSection} />
       )}
-      {/* Radial shade vignette overlay */}
-      <div className="absolute inset-0 bg-radial-[circle_at_center,transparent_45%,rgba(3,3,4,0.95)_95%] pointer-events-none" />
+      {/* Light vignetting overlay */}
+      <div className="absolute inset-0 bg-radial-[circle_at_center,transparent_55%,rgba(244,244,246,0.75)_95%] pointer-events-none" />
     </div>
   );
 };

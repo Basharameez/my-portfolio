@@ -2,100 +2,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono&display=swap');
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
   margin: 0;
-  background-color: #030304;
-  color: #E2E8F0;
+  background-color: #F4F4F6;
+  color: #0c0c0e;
   font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   overflow-x: hidden;
 }
 
-/* Custom scrollbar matching fluid cinematic style */
+/* Scrollbar styling - solid technical black */
 ::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #030304;
+  background: #F4F4F6;
 }
 ::-webkit-scrollbar-thumb {
-  background: #111115;
-  border-radius: 2px;
+  background: #000000;
+  border: 1px solid #F4F4F6;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00F0FF;
+  background: #E60012;
 }
 
-/* Slowly moving atmospheric gradient fields */
-.glow-spot-ambient {
-  background: radial-gradient(circle at center, rgba(0, 240, 255, 0.04) 0%, rgba(3, 3, 4, 0) 70%);
-  animation: floatGlow 18s ease-in-out infinite alternate;
+/* Slanted panels style templates */
+.slanted-panel-white {
+  transform: skewY(-1.5deg);
+  border: 3px solid #000000;
+  background-color: #FFFFFF;
+  color: #000000;
+  box-shadow: 6px 6px 0px #000000;
 }
 
-.glow-purple-ambient {
-  background: radial-gradient(circle at center, rgba(112, 0, 255, 0.035) 0%, rgba(3, 3, 4, 0) 70%);
-  animation: floatGlowPurple 24s ease-in-out infinite alternate;
+.slanted-panel-black {
+  transform: skewY(-1.5deg);
+  border: 3px solid #000000;
+  background-color: #000000;
+  color: #FFFFFF;
+  box-shadow: 6px 6px 0px #E60012;
 }
 
-@keyframes floatGlow {
-  0% {
-    transform: translate(-10%, -10%) scale(1);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translate(15%, 5%) scale(1.15);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-5%, 15%) scale(0.9);
-    opacity: 0.7;
-  }
+.slanted-panel-red {
+  transform: skewY(-1.5deg);
+  border: 3px solid #000000;
+  background-color: #E60012;
+  color: #FFFFFF;
+  box-shadow: 6px 6px 0px #000000;
 }
 
-@keyframes floatGlowPurple {
-  0% {
-    transform: translate(15%, 10%) scale(0.9);
-    opacity: 0.7;
-  }
-  50% {
-    transform: translate(-10%, -15%) scale(1.2);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(10%, -5%) scale(1);
-    opacity: 0.8;
-  }
+/* Counter-skew to keep child text perfectly straight and readable */
+.unslanted-content {
+  transform: skewY(1.5deg);
 }
 
-/* Linear thin technical divider lines */
-.tech-divider {
-  height: 1px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.06) 50%, rgba(255, 255, 255, 0.02) 100%);
-}
-
-/* Typography styles */
+/* Persona 5 typography scales */
 .display-title {
   font-family: 'Outfit', sans-serif;
-  font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
 }
 
 .mono-tag {
   font-family: 'Space Mono', monospace;
   font-size: 10px;
-  letter-spacing: 0.2em;
-  color: #00F0FF;
+  letter-spacing: 0.25em;
+  color: #E60012;
+  font-weight: bold;
   text-transform: uppercase;
 }
 
-/* Custom visual surface style overlays */
-.translucent-surface {
-  background: rgba(18, 19, 25, 0.25);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.025);
+/* Decorative visual block highlights */
+.red-slash-highlight {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.red-slash-highlight::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: 2px;
+  height: 38%;
+  background-color: #E60012;
+  z-index: -1;
+  transform: skewX(-15deg);
 }
