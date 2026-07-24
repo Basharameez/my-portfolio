@@ -23,6 +23,7 @@ const ThreeNodeNetwork: React.FC = () => {
   const meshRef = useRef<THREE.Points>(null);
   const lineMeshRef = useRef<THREE.LineSegments>(null);
   const { mouse, viewport } = useThree();
+  const timeRef = useRef(0);
 
   // Create initial random node positions
   const [positions] = useState(() => {
@@ -46,11 +47,12 @@ const ThreeNodeNetwork: React.FC = () => {
     return arr;
   });
 
-  useFrame((state) => {
+  useFrame((_, delta) => {
     if (!meshRef.current) return;
 
+    timeRef.current += delta;
+    const time = timeRef.current;
     const points = meshRef.current.geometry.attributes.position.array as Float32Array;
-    const time = state.clock.getElapsedTime();
 
     // 1. Move nodes according to velocity and slow rotation
     meshRef.current.rotation.y = time * 0.03;

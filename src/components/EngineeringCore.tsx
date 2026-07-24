@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Cpu, LayoutGrid, Terminal, BarChart2 } from 'lucide-react';
+import { SkeletonLoader } from './SkeletonLoader';
 
 interface DomainData {
   id: string;
@@ -52,6 +53,17 @@ export const EngineeringCore = ({ onSelectProject }: EngineeringCoreProps) => {
   ];
 
   const [activeDomain, setActiveDomain] = useState<DomainData>(domains[0]);
+  const [loading, setLoading] = useState(false);
+
+  // Trigger loading skeleton simulation when active domain switches
+  const handleDomainChange = (domain: DomainData) => {
+    if (domain.id === activeDomain.id) return;
+    setLoading(true);
+    setActiveDomain(domain);
+    setTimeout(() => {
+      setLoading(false);
+    }, 450);
+  };
 
   return (
     <div className="w-full grid grid-cols-1 lg:grid-cols-5 gap-6 select-none font-mono">
@@ -64,7 +76,7 @@ export const EngineeringCore = ({ onSelectProject }: EngineeringCoreProps) => {
           return (
             <button
               key={domain.id}
-              onClick={() => setActiveDomain(domain)}
+              onClick={() => handleDomainChange(domain)}
               className={`flex items-center gap-4 p-4 rounded-lg text-left transition-all ${
                 isActive
                   ? 'border border-[#00F0FF] bg-[#121319] text-[#00F0FF] shadow-[0_0_15px_rgba(0,240,255,0.1)]'
@@ -90,55 +102,61 @@ export const EngineeringCore = ({ onSelectProject }: EngineeringCoreProps) => {
           <Terminal size={240} className="text-[#00F0FF]" />
         </div>
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeDomain.id}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="flex flex-col gap-6 relative z-10"
-          >
-            {/* Header info */}
-            <div>
-              <span className="text-[10px] text-[#7000FF] font-bold uppercase tracking-wider">Module Telemetry</span>
-              <h3 className="text-xl font-bold font-sans text-[#E2E8F0] mt-1">{activeDomain.title}</h3>
-              <p className="text-sm text-gray-400 font-sans mt-3 leading-relaxed">{activeDomain.description}</p>
-            </div>
-
-            {/* Target Technologies */}
-            <div>
-              <span className="text-[10px] text-gray-500 uppercase tracking-widest">Active Tooling Stack</span>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {activeDomain.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-xs px-2.5 py-1 rounded bg-[#0A0A0C] border border-[#1E202B] text-gray-300 font-semibold"
-                  >
-                    {tech}
-                  </span>
-                ))}
+        {loading ? (
+          <div className="flex-grow flex items-center justify-center">
+            <SkeletonLoader />
+          </div>
+        ) : (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeDomain.id}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="flex flex-col gap-6 relative z-10 w-full"
+            >
+              {/* Header info */}
+              <div>
+                <span className="text-[10px] text-[#7000FF] font-bold uppercase tracking-wider">Module Telemetry</span>
+                <h3 className="text-xl font-bold font-sans text-[#E2E8F0] mt-1">{activeDomain.title}</h3>
+                <p className="text-sm text-gray-400 font-sans mt-3 leading-relaxed">{activeDomain.description}</p>
               </div>
-            </div>
 
-            {/* Linked Projects */}
-            <div>
-              <span className="text-[10px] text-gray-500 uppercase tracking-widest block mb-2">Linked Project Node Targets</span>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {activeDomain.projects.map((proj) => (
-                  <button
-                    key={proj}
-                    onClick={() => onSelectProject(proj)}
-                    className="flex items-center justify-between p-3 rounded bg-[#0A0A0C] border border-[#1E202B] hover:border-[#00F0FF] text-left text-xs transition-colors"
-                  >
-                    <span className="text-gray-300 font-sans font-semibold">{proj}</span>
-                    <span className="text-[9px] text-[#00F0FF] uppercase tracking-widest">Open Schema &rarr;</span>
-                  </button>
-                ))}
+              {/* Target Technologies */}
+              <div>
+                <span className="text-[10px] text-gray-500 uppercase tracking-widest">Active Tooling Stack</span>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {activeDomain.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-xs px-2.5 py-1 rounded bg-[#0A0A0C] border border-[#1E202B] text-gray-300 font-semibold"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
+
+              {/* Linked Projects */}
+              <div>
+                <span className="text-[10px] text-gray-500 uppercase tracking-widest block mb-2">Linked Project Node Targets</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {activeDomain.projects.map((proj) => (
+                    <button
+                      key={proj}
+                      onClick={() => onSelectProject(proj)}
+                      className="flex items-center justify-between p-3 rounded bg-[#0A0A0C] border border-[#1E202B] hover:border-[#00F0FF] text-left text-xs transition-colors"
+                    >
+                      <span className="text-gray-300 font-sans font-semibold">{proj}</span>
+                      <span className="text-[9px] text-[#00F0FF] uppercase tracking-widest">Open Schema &rarr;</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        )}
 
         {/* Console status footer */}
         <div className="border-t border-[#1E202B] pt-4 mt-6 flex items-center justify-between text-[9px] text-gray-500 uppercase tracking-wider relative z-10">

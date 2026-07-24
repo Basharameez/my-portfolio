@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, X, FileSpreadsheet, Orbit, GitFork, Play, Brain, GraduationCap } from 'lucide-react';
+import { SkeletonLoader } from './SkeletonLoader';
 
 interface Project {
   id: string;
@@ -127,14 +128,28 @@ export const ProjectExplorer = ({ activeProjectName, onCloseName }: ProjectExplo
   ];
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [loading, setLoading] = useState(false);
 
   // Sync state if selection is triggered from parent EngineeringCore
   useEffect(() => {
     if (activeProjectName) {
       const match = projects.find(p => p.id === activeProjectName || p.name === activeProjectName);
-      if (match) setSelectedProject(match);
+      if (match) {
+        setSelectedProject(match);
+        setLoading(true);
+        const timer = setTimeout(() => setLoading(false), 450);
+        return () => clearTimeout(timer);
+      }
     }
   }, [activeProjectName]);
+
+  const handleSelectLocalProject = (proj: Project) => {
+    setSelectedProject(proj);
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 450);
+  };
 
   const handleClose = () => {
     setSelectedProject(null);
@@ -150,7 +165,7 @@ export const ProjectExplorer = ({ activeProjectName, onCloseName }: ProjectExplo
           return (
             <div
               key={proj.id}
-              onClick={() => setSelectedProject(proj)}
+              onClick={() => handleSelectLocalProject(proj)}
               className="tactile-card border border-[#1E202B] bg-[#121319] hover:border-[#00F0FF] p-6 cursor-pointer flex flex-col justify-between h-[220px]"
             >
               <div className="flex flex-col gap-2">
@@ -184,63 +199,69 @@ export const ProjectExplorer = ({ activeProjectName, onCloseName }: ProjectExplo
             >
               {/* Left Column: Tech Details & Specifications */}
               <div className="lg:w-1/2 p-6 md:p-8 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[#1E202B]">
-                <div className="flex flex-col gap-6">
-                  {/* Title Bar */}
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <span className="text-[9px] text-[#7000FF] font-bold uppercase tracking-wider">{selectedProject.category}</span>
-                      <h2 className="text-2xl font-bold font-sans text-[#E2E8F0] mt-1">{selectedProject.name}</h2>
-                    </div>
-                    <div className="flex gap-2">
-                      {selectedProject.github && (
-                        <a
-                          href={selectedProject.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-2 rounded bg-[#0A0A0C] border border-[#1E202B] hover:border-[#00F0FF] text-gray-400 hover:text-[#00F0FF] transition-colors"
+                {loading ? (
+                  <div className="flex-grow flex items-center justify-center h-full">
+                    <SkeletonLoader />
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-6 w-full">
+                    {/* Title Bar */}
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="text-[9px] text-[#7000FF] font-bold uppercase tracking-wider">{selectedProject.category}</span>
+                        <h2 className="text-2xl font-bold font-sans text-[#E2E8F0] mt-1">{selectedProject.name}</h2>
+                      </div>
+                      <div className="flex gap-2">
+                        {selectedProject.github && (
+                          <a
+                            href={selectedProject.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 rounded bg-[#0A0A0C] border border-[#1E202B] hover:border-[#00F0FF] text-gray-400 hover:text-[#00F0FF] transition-colors"
+                          >
+                            <ExternalLink size={16} />
+                          </a>
+                        )}
+                        <button
+                          onClick={handleClose}
+                          className="p-2 rounded bg-[#0A0A0C] border border-[#1E202B] hover:border-red-500 text-gray-400 hover:text-red-500 transition-colors"
                         >
-                          <ExternalLink size={16} />
-                        </a>
-                      )}
-                      <button
-                        onClick={handleClose}
-                        className="p-2 rounded bg-[#0A0A0C] border border-[#1E202B] hover:border-red-500 text-gray-400 hover:text-red-500 transition-colors"
-                      >
-                        <X size={16} />
-                      </button>
+                          <X size={16} />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Copy */}
+                    <div>
+                      <span className="text-[9px] text-gray-500 uppercase tracking-widest block mb-2">Target Problem</span>
+                      <p className="text-sm text-gray-300 font-sans leading-relaxed">{selectedProject.problem}</p>
+                    </div>
+
+                    {/* Architecture & Decisions */}
+                    <div>
+                      <span className="text-[9px] text-gray-500 uppercase tracking-widest block mb-2">Engineering Decision</span>
+                      <p className="text-xs text-gray-400 font-sans leading-relaxed">{selectedProject.decisions}</p>
+                    </div>
+
+                    {/* Limitations */}
+                    <div>
+                      <span className="text-[9px] text-red-500/80 uppercase tracking-widest block mb-2">System Limitations</span>
+                      <p className="text-xs text-gray-400 font-sans leading-relaxed">{selectedProject.limitations}</p>
+                    </div>
+
+                    {/* Tech Badges List */}
+                    <div className="mt-8 pt-6 border-t border-[#1E202B]">
+                      <span className="text-[9px] text-gray-500 uppercase tracking-widest block mb-3">Tooling Stack</span>
+                      <div className="flex flex-wrap gap-2">
+                        {selectedProject.technologies.map((t) => (
+                          <span key={t} className="text-xs px-2.5 py-1 rounded bg-[#0A0A0C] border border-[#1E202B] text-gray-300">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-
-                  {/* Copy */}
-                  <div>
-                    <span className="text-[9px] text-gray-500 uppercase tracking-widest block mb-2">Target Problem</span>
-                    <p className="text-sm text-gray-300 font-sans leading-relaxed">{selectedProject.problem}</p>
-                  </div>
-
-                  {/* Architecture & Decisions */}
-                  <div>
-                    <span className="text-[9px] text-gray-500 uppercase tracking-widest block mb-2">Engineering Decision</span>
-                    <p className="text-xs text-gray-400 font-sans leading-relaxed">{selectedProject.decisions}</p>
-                  </div>
-
-                  {/* Limitations */}
-                  <div>
-                    <span className="text-[9px] text-red-500/80 uppercase tracking-widest block mb-2">System Limitations</span>
-                    <p className="text-xs text-gray-400 font-sans leading-relaxed">{selectedProject.limitations}</p>
-                  </div>
-                </div>
-
-                {/* Tech Badges List */}
-                <div className="mt-8 pt-6 border-t border-[#1E202B]">
-                  <span className="text-[9px] text-gray-500 uppercase tracking-widest block mb-3">Tooling Stack</span>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedProject.technologies.map((t) => (
-                      <span key={t} className="text-xs px-2.5 py-1 rounded bg-[#0A0A0C] border border-[#1E202B] text-gray-300">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                )}
               </div>
 
               {/* Right Column: Sanitized Interactive Technical Visualizer */}
@@ -284,7 +305,6 @@ const RotorDynWidget = () => {
   const [amp, setAmp] = useState(60);
   const [phase, setPhase] = useState(0);
 
-  // Generate lissajous ellipse track matching vibration metrics
   const points: string[] = [];
   const cx = 100;
   const cy = 100;
