@@ -2,9 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
-// ----------------------------------------------------
 // WebGL Detector Helper
-// ----------------------------------------------------
 const checkWebGL = (): boolean => {
   try {
     const canvas = document.createElement('canvas');
@@ -17,9 +15,7 @@ const checkWebGL = (): boolean => {
 
 const count = 500;
 
-// ----------------------------------------------------
-// Target Coordinate Generators
-// ----------------------------------------------------
+// Coordinate generators
 const generateSphere = () => {
   const arr = new Float32Array(count * 3);
   for (let i = 0; i < count; i++) {
@@ -27,7 +23,7 @@ const generateSphere = () => {
     const v = Math.random();
     const theta = u * 2.0 * Math.PI;
     const phi = Math.acos(2.0 * v - 1.0);
-    const r = 2.0 + Math.random() * 0.4;
+    const r = 2.0 + Math.random() * 0.3;
     arr[i * 3] = r * Math.sin(phi) * Math.cos(theta);
     arr[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
     arr[i * 3 + 2] = r * Math.cos(phi);
@@ -39,10 +35,10 @@ const generateRings = () => {
   const arr = new Float32Array(count * 3);
   for (let i = 0; i < count; i++) {
     const ring = i % 3;
-    const radius = ring === 0 ? 1.2 : ring === 1 ? 2.0 : 2.8;
+    const radius = ring === 0 ? 1.3 : ring === 1 ? 2.1 : 2.9;
     const theta = Math.random() * Math.PI * 2;
     arr[i * 3] = radius * Math.cos(theta);
-    arr[i * 3 + 1] = (Math.random() - 0.5) * 0.2;
+    arr[i * 3 + 1] = (Math.random() - 0.5) * 0.15;
     arr[i * 3 + 2] = radius * Math.sin(theta);
   }
   return arr;
@@ -51,12 +47,12 @@ const generateRings = () => {
 const generateTree = () => {
   const arr = new Float32Array(count * 3);
   for (let i = 0; i < count; i++) {
-    const level = i % 4; 
+    const level = i % 4;
     const y = 2.0 - level * 1.2;
     const branchCount = Math.pow(2, level);
     const branchIndex = i % branchCount;
-    const x = (branchIndex - (branchCount - 1) / 2) * (3.5 / branchCount) + (Math.random() - 0.5) * 0.15;
-    const z = (Math.random() - 0.5) * 0.3;
+    const x = (branchIndex - (branchCount - 1) / 2) * (3.2 / branchCount) + (Math.random() - 0.5) * 0.15;
+    const z = (Math.random() - 0.5) * 0.25;
     arr[i * 3] = x;
     arr[i * 3 + 1] = y;
     arr[i * 3 + 2] = z;
@@ -70,12 +66,12 @@ const generateCylinder = () => {
     const isShaft = i % 5 === 0;
     if (isShaft) {
       arr[i * 3] = (Math.random() - 0.5) * 0.05;
-      arr[i * 3 + 1] = (Math.random() - 0.5) * 3.5;
+      arr[i * 3 + 1] = (Math.random() - 0.5) * 3.2;
       arr[i * 3 + 2] = (Math.random() - 0.5) * 0.05;
     } else {
       const theta = Math.random() * Math.PI * 2;
-      const r = 1.2;
-      const y = (Math.random() - 0.5) * 2.8;
+      const r = 1.3;
+      const y = (Math.random() - 0.5) * 2.6;
       arr[i * 3] = r * Math.cos(theta);
       arr[i * 3 + 1] = y;
       arr[i * 3 + 2] = r * Math.sin(theta);
@@ -88,9 +84,9 @@ const generatePipeline = () => {
   const arr = new Float32Array(count * 3);
   for (let i = 0; i < count; i++) {
     const conduit = i % 3;
-    const y = (conduit - 1) * 0.8;
-    const x = (Math.random() - 0.5) * 4.5;
-    const z = (Math.random() - 0.5) * 0.3;
+    const y = (conduit - 1) * 0.7;
+    const x = (Math.random() - 0.5) * 4.2;
+    const z = (Math.random() - 0.5) * 0.25;
     arr[i * 3] = x;
     arr[i * 3 + 1] = y;
     arr[i * 3 + 2] = z;
@@ -103,11 +99,11 @@ const generateNeuralLayers = () => {
   const layers = 4;
   for (let i = 0; i < count; i++) {
     const layerIdx = i % layers;
-    const x = (layerIdx - (layers - 1) / 2) * 1.6;
+    const x = (layerIdx - (layers - 1) / 2) * 1.5;
     const nodesInLayer = layerIdx === 0 ? 8 : layerIdx === 1 ? 12 : layerIdx === 2 ? 8 : 4;
     const nodeIdx = i % nodesInLayer;
-    const y = (nodeIdx - (nodesInLayer - 1) / 2) * (3.2 / nodesInLayer) + (Math.random() - 0.5) * 0.1;
-    const z = (Math.random() - 0.5) * 0.2;
+    const y = (nodeIdx - (nodesInLayer - 1) / 2) * (3.0 / nodesInLayer) + (Math.random() - 0.5) * 0.1;
+    const z = (Math.random() - 0.5) * 0.15;
     arr[i * 3] = x;
     arr[i * 3 + 1] = y;
     arr[i * 3 + 2] = z;
@@ -118,14 +114,13 @@ const generateNeuralLayers = () => {
 const generateGrid = () => {
   const arr = new Float32Array(count * 3);
   for (let i = 0; i < count; i++) {
-    arr[i * 3] = (Math.random() - 0.5) * 6.0;
-    arr[i * 3 + 1] = (Math.random() - 0.5) * 6.0;
-    arr[i * 3 + 2] = (Math.random() - 0.5) * 4.0;
+    arr[i * 3] = (Math.random() - 0.5) * 6.5;
+    arr[i * 3 + 1] = (Math.random() - 0.5) * 6.5;
+    arr[i * 3 + 2] = (Math.random() - 0.5) * 4.5;
   }
   return arr;
 };
 
-// Compile shapes mapping
 const targets = [
   generateSphere(),         // 0. Hero
   generateRings(),          // 1. Identity / Core
@@ -136,9 +131,18 @@ const targets = [
   generateGrid()            // 6. Contact
 ];
 
-// ----------------------------------------------------
-// 3D Particles R3F Renderer
-// ----------------------------------------------------
+// Scroll-linked camera target coordinates
+const cameraTargets = [
+  new THREE.Vector3(0, 0, 5),       // 0. Hero
+  new THREE.Vector3(0, -1, 4.2),    // 1. Identity / Core
+  new THREE.Vector3(-1.8, 0.8, 3.2),// 2. CodeOrigin
+  new THREE.Vector3(1.8, -1.0, 3.0),// 3. RotorDyn
+  new THREE.Vector3(-1.5, -1.8, 3.2),// 4. Compiler
+  new THREE.Vector3(1.6, 1.8, 3.0),  // 5. Explainable AI
+  new THREE.Vector3(0, 0, 5.8)      // 6. Contact
+];
+
+// R3F Points Renderer
 interface ParticlesRendererProps {
   activeSection: number;
 }
@@ -147,28 +151,45 @@ const ParticlesRenderer = ({ activeSection }: ParticlesRendererProps) => {
   const pointsRef = useRef<THREE.Points>(null);
   const timeRef = useRef(0);
 
-  // Initialize particles positions as Layout 0
   const [initialPositions] = useState(() => new Float32Array(targets[0]));
 
-  useFrame((_, delta) => {
+  useFrame((state, delta) => {
     if (!pointsRef.current) return;
     const array = pointsRef.current.geometry.attributes.position.array as Float32Array;
 
     timeRef.current += delta;
     const time = timeRef.current;
 
-    // Slow organic drift rotation
-    pointsRef.current.rotation.y = time * 0.04;
-    pointsRef.current.rotation.x = time * 0.02;
+    // Organic drift
+    pointsRef.current.rotation.y = time * 0.035;
+    pointsRef.current.rotation.x = time * 0.015;
+
+    // Smoothly interpolate camera position
+    const targetCam = cameraTargets[activeSection] || cameraTargets[0];
+    state.camera.position.lerp(targetCam, delta * 2.0);
+    state.camera.lookAt(0, 0, 0);
 
     const targetCoords = targets[activeSection] || targets[0];
     let needsUpdate = false;
 
-    // Lerp current array values to target layout
-    for (let i = 0; i < count * 3; i++) {
-      const diff = targetCoords[i] - array[i];
-      if (Math.abs(diff) > 0.001) {
-        array[i] += diff * delta * 3.5; // Lerp speed coefficient
+    // Morph coordinates with a fluid wave displacement
+    for (let i = 0; i < count * 3; i += 3) {
+      const targetX = targetCoords[i];
+      const targetY = targetCoords[i + 1];
+      const targetZ = targetCoords[i + 2];
+
+      // Add fluid wave distortions based on time and position
+      const waveX = Math.sin(time * 0.4 + targetY) * 0.08;
+      const waveY = Math.cos(time * 0.4 + targetX) * 0.08;
+
+      const dx = (targetX + waveX - array[i]) * delta * 3.2;
+      const dy = (targetY + waveY - array[i + 1]) * delta * 3.2;
+      const dz = (targetZ - array[i + 2]) * delta * 3.2;
+
+      if (Math.abs(dx) > 0.0005 || Math.abs(dy) > 0.0005 || Math.abs(dz) > 0.0005) {
+        array[i] += dx;
+        array[i + 1] += dy;
+        array[i + 2] += dz;
         needsUpdate = true;
       }
     }
@@ -188,19 +209,17 @@ const ParticlesRenderer = ({ activeSection }: ParticlesRendererProps) => {
       </bufferGeometry>
       <pointsMaterial
         color="#00F0FF"
-        size={0.065}
+        size={0.06}
         sizeAttenuation={true}
         transparent={true}
-        opacity={0.6}
+        opacity={0.55}
         blending={THREE.AdditiveBlending}
       />
     </points>
   );
 };
 
-// ----------------------------------------------------
 // 2D HTML Canvas Fallback Renderer
-// ----------------------------------------------------
 const CanvasFallback = ({ activeSection }: ParticlesRendererProps) => {
   const containerRef = useRef<HTMLCanvasElement>(null);
 
@@ -221,12 +240,11 @@ const CanvasFallback = ({ activeSection }: ParticlesRendererProps) => {
     };
     window.addEventListener('resize', handleResize);
 
-    // Initial random positions
     const particles = Array.from({ length: 150 }).map(() => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
       originX: Math.random() * width,
       originY: Math.random() * height
     }));
@@ -234,56 +252,49 @@ const CanvasFallback = ({ activeSection }: ParticlesRendererProps) => {
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Define visual behaviors based on active section in 2D space
       particles.forEach((p, idx) => {
         let targetX = p.originX;
         let targetY = p.originY;
 
         if (activeSection === 0) {
-          // Circular orbit
-          const angle = (idx / particles.length) * Math.PI * 2 + Date.now() * 0.0001;
-          const radius = Math.min(width, height) * 0.25;
+          const angle = (idx / particles.length) * Math.PI * 2 + Date.now() * 0.00008;
+          const radius = Math.min(width, height) * 0.28;
           targetX = width / 2 + radius * Math.cos(angle);
           targetY = height / 2 + radius * Math.sin(angle);
         } else if (activeSection === 1) {
-          // Flattened rings
-          const angle = (idx / particles.length) * Math.PI * 2 + Date.now() * 0.0002;
-          const rx = Math.min(width, height) * 0.35;
-          const ry = 40;
+          const angle = (idx / particles.length) * Math.PI * 2 + Date.now() * 0.00015;
+          const rx = Math.min(width, height) * 0.38;
+          const ry = 50;
           targetX = width / 2 + rx * Math.cos(angle);
           targetY = height / 2 + ry * Math.sin(angle);
         } else if (activeSection === 2) {
-          // Vertical columns tree shape
           const col = idx % 5;
           targetX = (width / 6) * (col + 1);
-          targetY = height * 0.2 + (idx % 8) * (height * 0.08);
+          targetY = height * 0.22 + (idx % 8) * (height * 0.08);
         } else if (activeSection === 3) {
-          // Tight rapid cluster (Rotor)
-          const angle = idx * 0.5 + Date.now() * 0.001;
-          const r = 30 + (idx % 4) * 15;
+          const angle = idx * 0.45 + Date.now() * 0.0008;
+          const r = 25 + (idx % 4) * 18;
           targetX = width / 2 + r * Math.cos(angle);
           targetY = height / 2 + r * Math.sin(angle);
         } else if (activeSection === 4) {
-          // Linear pipeline tubes
           const row = idx % 3;
           targetX = ((idx % 12) / 11) * width;
-          targetY = height / 3 + row * (height / 6);
+          targetY = height / 3.2 + row * (height / 6.5);
         } else if (activeSection === 5) {
-          // Layered neural map
           const layer = idx % 4;
-          targetX = width * 0.2 + layer * (width * 0.2);
+          targetX = width * 0.22 + layer * (width * 0.18);
           const nodes = layer === 1 ? 8 : 4;
           const nodeIdx = idx % nodes;
-          targetY = height * 0.25 + nodeIdx * (height * 0.1);
+          targetY = height * 0.22 + nodeIdx * (height * 0.11);
         }
 
-        // Smooth transition lerp
-        p.x += (targetX - p.x) * 0.08;
-        p.y += (targetY - p.y) * 0.08;
+        // Fluid morphing transition
+        p.x += (targetX - p.x) * 0.06;
+        p.y += (targetY - p.y) * 0.06;
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 240, 255, 0.4)';
+        ctx.fillStyle = 'rgba(0, 240, 255, 0.3)';
         ctx.fill();
       });
 
@@ -298,17 +309,10 @@ const CanvasFallback = ({ activeSection }: ParticlesRendererProps) => {
     };
   }, [activeSection]);
 
-  return <canvas ref={containerRef} className="absolute inset-0 w-full h-full opacity-35" />;
+  return <canvas ref={containerRef} className="absolute inset-0 w-full h-full opacity-30" />;
 };
 
-// ----------------------------------------------------
-// Combined Layout Container
-// ----------------------------------------------------
-interface MorphingParticlesProps {
-  activeSection: number;
-}
-
-export const MorphingParticles = ({ activeSection }: MorphingParticlesProps) => {
+export const MorphingParticles = ({ activeSection }: ParticlesRendererProps) => {
   const [useWebGL, setUseWebGL] = useState(false);
 
   useEffect(() => {
@@ -316,17 +320,17 @@ export const MorphingParticles = ({ activeSection }: MorphingParticlesProps) => 
   }, []);
 
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none select-none overflow-hidden bg-[#050507]">
+    <div className="fixed inset-0 z-0 pointer-events-none select-none overflow-hidden bg-[#030304]">
       {useWebGL ? (
-        <Canvas camera={{ position: [0, 0, 5], fdx: 60 } as any}>
+        <Canvas camera={{ position: [0, 0, 5], fov: 60 }}>
           <ambientLight intensity={0.5} />
           <ParticlesRenderer activeSection={activeSection} />
         </Canvas>
       ) : (
         <CanvasFallback activeSection={activeSection} />
       )}
-      {/* Immersive radial layout vignetting shadow overlay */}
-      <div className="absolute inset-0 bg-radial-[circle_at_center,transparent_40%,rgba(5,5,7,0.9)_90%] pointer-events-none" />
+      {/* Radial shade vignette overlay */}
+      <div className="absolute inset-0 bg-radial-[circle_at_center,transparent_45%,rgba(3,3,4,0.95)_95%] pointer-events-none" />
     </div>
   );
 };

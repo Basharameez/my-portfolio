@@ -16,15 +16,15 @@ export default function App() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // Section observer hook to trigger 3D morphing coordinates
+  // Section observer hook to trigger 3D morphing and camera coordinates
   const sectionRefs = [
     useRef<HTMLDivElement>(null), // 0. Hero
-    useRef<HTMLDivElement>(null), // 1. Identity
-    useRef<HTMLDivElement>(null), // 2. Core
-    useRef<HTMLDivElement>(null), // 3. CodeOrigin
-    useRef<HTMLDivElement>(null), // 4. RotorDyn
-    useRef<HTMLDivElement>(null), // 5. Compiler
-    useRef<HTMLDivElement>(null)  // 6. AI / Contact
+    useRef<HTMLDivElement>(null), // 1. Identity / Core
+    useRef<HTMLDivElement>(null), // 2. CodeOrigin
+    useRef<HTMLDivElement>(null), // 3. RotorDyn
+    useRef<HTMLDivElement>(null), // 4. Compiler
+    useRef<HTMLDivElement>(null), // 5. AI Research
+    useRef<HTMLDivElement>(null)  // 6. Contact
   ];
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function App() {
             setActiveSection(idx);
           }
         },
-        { threshold: 0.35 } // Trigger when 35% of the section is visible
+        { threshold: 0.35 }
       );
 
       if (ref.current) observer.observe(ref.current);
@@ -50,7 +50,7 @@ export default function App() {
   }, [booting]);
 
   return (
-    <div className="min-h-screen bg-[#050507] text-[#E2E8F0] selection:bg-[#00F0FF]/30 selection:text-white relative">
+    <div className="min-h-screen bg-[#030304] text-[#E2E8F0] selection:bg-[#00F0FF]/30 selection:text-white relative overflow-x-hidden">
       <AnimatePresence>
         {booting && (
           <BootScreen onComplete={() => setBooting(false)} />
@@ -62,10 +62,16 @@ export default function App() {
           {/* Morphing Particles Fixed Background */}
           <MorphingParticles activeSection={activeSection} />
 
+          {/* Slow drifting atmospheric ambient gradient fields */}
+          <div className="fixed inset-0 z-0 pointer-events-none select-none overflow-hidden">
+            <div className="absolute top-[-10%] left-[-10%] w-[80vw] h-[80vh] rounded-full glow-spot-ambient" />
+            <div className="absolute bottom-[-10%] right-[-10%] w-[80vw] h-[80vh] rounded-full glow-purple-ambient" />
+          </div>
+
           {/* Sticky Navigation Overlay */}
           <header className="fixed top-6 left-0 right-0 z-50 px-6 pointer-events-none">
             <nav className="max-w-7xl mx-auto flex items-center justify-between pointer-events-auto select-none">
-              <span className="font-mono text-xs font-bold tracking-widest text-[#E2E8F0]">
+              <span className="font-mono text-xs font-bold tracking-widest text-[#E2E8F0] hover:text-[#00F0FF] transition-colors">
                 SRB // <span className="text-[#00F0FF]">SYSTEMS</span>
               </span>
               <div className="flex gap-6 font-mono text-[10px] tracking-wider text-gray-500 uppercase">
@@ -83,13 +89,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={() => sectionRefs[2].current?.scrollIntoView({ behavior: 'smooth' })}
-                  className={`hover:text-[#00F0FF] transition-colors ${activeSection === 2 ? 'text-[#00F0FF] font-bold' : ''}`}
-                >
-                  Core
-                </button>
-                <button
-                  onClick={() => sectionRefs[3].current?.scrollIntoView({ behavior: 'smooth' })}
-                  className={`hover:text-[#00F0FF] transition-colors ${activeSection >= 3 && activeSection <= 5 ? 'text-[#00F0FF] font-bold' : ''}`}
+                  className={`hover:text-[#00F0FF] transition-colors ${activeSection >= 2 && activeSection <= 5 ? 'text-[#00F0FF] font-bold' : ''}`}
                 >
                   Systems
                 </button>
@@ -112,39 +112,45 @@ export default function App() {
               className="min-h-screen flex flex-col justify-center max-w-7xl mx-auto px-6 py-24 select-none relative z-10 w-full"
             >
               <div className="max-w-4xl flex flex-col gap-6">
-                <span className="mono-tag text-[#7000FF] font-bold">SYSTEM CORE INITIALIZED</span>
-                <h1 className="text-4xl sm:text-6xl md:text-7xl font-sans font-bold tracking-tight text-[#E2E8F0] uppercase leading-none">
+                <span className="mono-tag text-[#7000FF] font-bold">SYSTEM ENGINE ACTIVE</span>
+                <h1 className="text-4xl sm:text-6xl md:text-8xl font-sans font-bold tracking-tight text-[#E2E8F0] uppercase leading-none">
                   I BUILD SYSTEMS<br />
-                  THAT TURN COMPLEX<br />
-                  PROBLEMS INTO<br />
-                  WORKING SOFTWARE.
+                  FOR COMPLEX<br />
+                  PROBLEMS.
                 </h1>
-                <p className="text-sm sm:text-base text-gray-400 font-sans leading-relaxed max-w-xl">
-                  Software Engineer focused on full-stack systems, AI/ML models, developer tooling, high-frequency data telemetry, and engineering platforms.
+                
+                <div className="flex flex-col sm:flex-row gap-4 sm:items-center mt-4">
+                  <div className="flex flex-col leading-snug border-l border-[#00F0FF]/30 pl-4">
+                    <span className="text-sm font-bold text-gray-200">SHAIK RAMEEZ BASHA</span>
+                    <span className="text-[11px] text-gray-500 font-mono tracking-wide uppercase">Software Engineer &bull; Full-Stack &bull; AI/ML &bull; DevTools</span>
+                  </div>
+                </div>
+
+                <p className="text-sm sm:text-base text-gray-400 font-sans leading-relaxed max-w-xl mt-2">
+                  Focused on core systems development, compiler runtimes, AST compliance auditors, industrial diagnostic telemetry, and explainable neural model pipelines.
                 </p>
-                <div className="flex gap-4 font-mono text-[10px] mt-4">
+                
+                <div className="flex gap-4 font-mono text-[10px] mt-6">
                   <button
                     onClick={() => sectionRefs[1].current?.scrollIntoView({ behavior: 'smooth' })}
-                    className="px-5 py-2.5 bg-[#00F0FF]/10 border border-[#00F0FF] hover:bg-[#00F0FF]/25 text-[#00F0FF] font-bold uppercase tracking-wider rounded transition-all"
+                    className="px-6 py-3 bg-[#00F0FF]/5 hover:bg-[#00F0FF]/15 border border-[#00F0FF]/30 hover:border-[#00F0FF] text-[#00F0FF] font-bold uppercase tracking-wider rounded transition-all active:scale-[0.98]"
                   >
-                    Initiate Journey &darr;
+                    Enter Narrative &darr;
                   </button>
                 </div>
               </div>
             </div>
 
-            {/* 1. IDENTITY SCREEN */}
+            {/* 1. IDENTITY & CORE MATRIX */}
             <div
               ref={sectionRefs[1]}
               className="min-h-screen flex flex-col justify-center max-w-7xl mx-auto px-6 py-24 z-10 w-full"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                {/* Visual Identity / Credentials card */}
+                {/* Credentials / Status */}
                 <div className="lg:col-span-5 flex flex-col gap-6">
-                  <div className="border border-[#1E202B] bg-[#121319]/70 rounded-xl p-6 shadow-2xl font-mono relative overflow-hidden select-none">
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-[#00F0FF]/5 rounded-bl-full pointer-events-none" />
-                    
-                    <div className="flex items-center justify-between border-b border-[#1E202B] pb-4 text-[10px] text-gray-500 uppercase">
+                  <div className="translucent-surface rounded-xl p-6 shadow-2xl font-mono relative overflow-hidden select-none">
+                    <div className="flex items-center justify-between border-b border-white/5 pb-4 text-[10px] text-gray-500 uppercase">
                       <span className="flex items-center gap-1.5 text-green-400 font-bold">
                         <ShieldCheck size={14} /> ACTIVE NODE
                       </span>
@@ -155,81 +161,54 @@ export default function App() {
                       <img
                         src="/avatar.jpg"
                         alt="Shaik Rameez Basha"
-                        className="w-20 h-20 rounded-lg border border-[#00F0FF]/30 object-cover bg-[#0A0A0C] shadow-lg shadow-[#00F0FF]/5"
+                        className="w-20 h-20 rounded-lg border border-white/10 object-cover bg-[#030304]"
                       />
                       <div className="flex flex-col gap-1 text-[11px] text-gray-400 leading-snug">
                         <div><strong>IDENTITY:</strong> Shaik Rameez Basha</div>
-                        <div><strong>COHORT:</strong> 2026 B.Tech CSE (AI)</div>
-                        <div><strong>METRIC:</strong> CGPA 7.79 / 10.00</div>
-                        <div><strong>LOCATION:</strong> India &bull; Open Reloc</div>
+                        <div><strong>COHORT:</strong> B.Tech CSE (AI) &bull; 2026</div>
+                        <div><strong>CGPA:</strong> 7.79 / 10.00</div>
+                        <div><strong>LOCATION:</strong> India (Open Reloc)</div>
                       </div>
                     </div>
 
-                    <div className="border-t border-[#1E202B] pt-4 mt-5 flex flex-col gap-1 text-[9px] text-gray-500 uppercase">
+                    <div className="border-t border-white/5 pt-4 mt-5 flex flex-col gap-1 text-[9px] text-gray-500 uppercase">
                       <div><strong>ACADEMICS:</strong> Narasaraopeta Engineering College</div>
                       <div><strong>RESEARCH:</strong> Explainable AI (IEEE Xplore, 2026)</div>
                     </div>
                   </div>
                 </div>
 
-                {/* Narrative Profile */}
+                {/* Editorial content */}
                 <div className="lg:col-span-7 flex flex-col gap-6">
                   <span className="mono-tag">SECTION 01 // IDENTITY</span>
-                  <h2 className="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-gray-200 uppercase">
+                  <h2 className="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-gray-200 uppercase leading-tight">
                     SYSTEM ARCHITECT & GRADUATE ENGINEER
                   </h2>
                   <p className="text-sm sm:text-base text-gray-400 font-sans leading-relaxed">
                     I design software structures and logic that prioritize core computing fundamentals, code audibility, and reliable integration. From engineering proprietary vibration diagnostics telemetry to researching neural models interpretation in published IEEE works, I seek problems requiring rigorous logical solutions.
                   </p>
-                  <p className="text-sm text-gray-500 font-sans leading-relaxed">
-                    Clear documentation, performance profiling, and modular structure guide my development process.
-                  </p>
+                  <div className="tech-divider my-2" />
+                  <div className="grid grid-cols-2 gap-4 text-xs font-mono text-gray-500 uppercase">
+                    <div>
+                      <span className="text-[#00F0FF] block mb-1">01 / Full-Stack</span>
+                      React, TS, FastAPI, Postgres
+                    </div>
+                    <div>
+                      <span className="text-[#00F0FF] block mb-1">02 / AI & ML</span>
+                      PyTorch, NumPy, Explainable AI
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* 2. ENGINEERING CORE */}
+            {/* 2. CODEORIGIN (SYSTEM 1) */}
             <div
               ref={sectionRefs[2]}
               className="min-h-screen flex flex-col justify-center max-w-7xl mx-auto px-6 py-24 z-10 w-full"
             >
-              <div className="flex flex-col gap-12">
-                <div className="max-w-2xl">
-                  <span className="mono-tag">SECTION 02 // ENGINEERING CORE</span>
-                  <h2 className="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-gray-200 uppercase mt-2">
-                    CORE OPERATIONAL MATRIX
-                  </h2>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {[
-                    { title: 'Software Engineering', desc: 'Implementing clean algorithms, data encapsulation, modular logic, and strict test scopes.' },
-                    { title: 'AI / ML', desc: 'Developing explainable deep architectures, weights mapping, and adaptive evaluation matrices.' },
-                    { title: 'Full-Stack Systems', desc: 'Building reliable decoupled web services, persistent SQL data structures, and optimized UI flows.' },
-                    { title: 'Developer Tools', desc: 'Engineering code evaluation tools using Abstract Syntax Tree (AST) visitors and security scans.' },
-                    { title: 'Data Processing', desc: 'Ingesting high-frequency datasets and mapping binary spreadsheets inside client-side browser threads.' },
-                    { title: 'Engineering Software', desc: 'Creating robust, cross-platform diagnostic software clients utilizing local WebSocket routing and Plotly.' }
-                  ].map((core, i) => (
-                    <div
-                      key={i}
-                      className="p-5 border border-transparent hover:border-[#1E202B] hover:bg-[#121319]/20 rounded-lg transition-all flex flex-col gap-3 font-mono"
-                    >
-                      <span className="text-[10px] text-[#00F0FF]">0{i + 1} //</span>
-                      <h3 className="text-sm font-sans font-bold text-gray-200 uppercase">{core.title}</h3>
-                      <p className="text-xs text-gray-500 font-sans leading-relaxed">{core.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* 3. CODEORIGIN (SYSTEM 1) */}
-            <div
-              ref={sectionRefs[3]}
-              className="min-h-screen flex flex-col justify-center max-w-7xl mx-auto px-6 py-24 z-10 w-full"
-            >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                {/* Left: Copy details */}
+                {/* Visual Description */}
                 <div className="lg:col-span-6 flex flex-col gap-6">
                   <div className="flex items-center gap-3">
                     <span className="mono-tag">SYSTEM 01 // DEVTOOLS</span>
@@ -237,12 +216,12 @@ export default function App() {
                       href="https://github.com/Basharameez/codeorigin"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-1 text-gray-500 hover:text-[#00F0FF]"
+                      className="p-1 text-gray-500 hover:text-[#00F0FF] transition-colors"
                     >
                       <ExternalLink size={14} />
                     </a>
                   </div>
-                  <h2 className="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-gray-200 uppercase leading-none">
+                  <h2 className="text-3xl sm:text-5xl font-sans font-bold tracking-tight text-gray-200 uppercase leading-none">
                     CODEORIGIN // AST AUDIT INTELLIGENCE
                   </h2>
                   
@@ -262,41 +241,41 @@ export default function App() {
 
                   <div className="flex flex-wrap gap-2 pt-2">
                     {['FastAPI', 'Python', 'React', 'TypeScript', 'PostgreSQL', 'AST Parsing'].map(t => (
-                      <span key={t} className="text-[10px] px-2 py-0.5 border border-[#1E202B] rounded bg-[#121319]/40 font-mono text-gray-400">{t}</span>
+                      <span key={t} className="text-[10px] px-2 py-0.5 border border-white/5 rounded bg-white/5 font-mono text-gray-400">{t}</span>
                     ))}
                   </div>
                 </div>
 
-                {/* Right: Interactive AST flow widget */}
+                {/* Spatial telemetry widget */}
                 <div className="lg:col-span-6 flex justify-center">
-                  <div className="w-full max-w-md p-6 border border-[#1E202B] bg-[#121319]/40 rounded-xl flex flex-col gap-4 font-mono">
-                    <span className="text-[9px] text-[#00F0FF] uppercase tracking-wider block border-b border-[#1E202B] pb-2">AST PARSE FLOW TELEMETRY</span>
+                  <div className="w-full max-w-md p-6 translucent-surface rounded-xl flex flex-col gap-4 font-mono">
+                    <span className="text-[9px] text-[#00F0FF] uppercase tracking-wider block border-b border-white/5 pb-2">AST PARSE FLOW TELEMETRY</span>
                     <CodeOriginWidget />
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* 4. ROTORDYN (SYSTEM 2) */}
+            {/* 3. ROTORDYN (SYSTEM 2) */}
             <div
-              ref={sectionRefs[4]}
+              ref={sectionRefs[3]}
               className="min-h-screen flex flex-col justify-center max-w-7xl mx-auto px-6 py-24 z-10 w-full"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                {/* Left: Interactive mechanical / orbit widget */}
+                {/* Visual telemetry widget */}
                 <div className="lg:col-span-6 order-2 lg:order-1 flex justify-center">
-                  <div className="w-full max-w-md p-6 border border-[#1E202B] bg-[#121319]/40 rounded-xl flex flex-col gap-4 font-mono">
-                    <span className="text-[9px] text-red-400 uppercase tracking-wider block border-b border-[#1E202B] pb-2">
+                  <div className="w-full max-w-md p-6 translucent-surface rounded-xl flex flex-col gap-4 font-mono">
+                    <span className="text-[9px] text-red-400 uppercase tracking-wider block border-b border-white/5 pb-2">
                       SANITIZED DIAGNOSTIC TELEMETRY DEMO
                     </span>
                     <RotorDynWidget />
                   </div>
                 </div>
 
-                {/* Right: Copy details */}
+                {/* Visual Description */}
                 <div className="lg:col-span-6 order-1 lg:order-2 flex flex-col gap-6">
-                  <span className="mono-tag">SYSTEM 02 // INDUSTRIAL ANALYTICS</span>
-                  <h2 className="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-gray-200 uppercase leading-none">
+                  <span className="mono-tag">SYSTEM 02 // INDUSTRIAL TELEMETRY</span>
+                  <h2 className="text-3xl sm:text-5xl font-sans font-bold tracking-tight text-gray-200 uppercase leading-none">
                     ROTORDYN // VIBRATION DIAGNOSTICS
                   </h2>
                   
@@ -316,20 +295,20 @@ export default function App() {
 
                   <div className="flex flex-wrap gap-2 pt-2">
                     {['Python', 'FastAPI', 'PySide6', 'PostgreSQL', 'Qt WebEngine', 'Plotly.js'].map(t => (
-                      <span key={t} className="text-[10px] px-2 py-0.5 border border-[#1E202B] rounded bg-[#121319]/40 font-mono text-gray-400">{t}</span>
+                      <span key={t} className="text-[10px] px-2 py-0.5 border border-white/5 rounded bg-white/5 font-mono text-gray-400">{t}</span>
                     ))}
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* 5. PYTHON WEB COMPILER (SYSTEM 3) */}
+            {/* 4. PYTHON WEB COMPILER (SYSTEM 3) */}
             <div
-              ref={sectionRefs[5]}
+              ref={sectionRefs[4]}
               className="min-h-screen flex flex-col justify-center max-w-7xl mx-auto px-6 py-24 z-10 w-full"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                {/* Left: Copy details */}
+                {/* Visual Description */}
                 <div className="lg:col-span-6 flex flex-col gap-6">
                   <div className="flex items-center gap-3">
                     <span className="mono-tag">SYSTEM 03 // RUNTIMES</span>
@@ -337,13 +316,13 @@ export default function App() {
                       href="https://github.com/Basharameez/python_web_compiler"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-1 text-gray-500 hover:text-[#00F0FF]"
+                      className="p-1 text-gray-500 hover:text-[#00F0FF] transition-colors"
                     >
                       <ExternalLink size={14} />
                     </a>
                   </div>
-                  <h2 className="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-gray-200 uppercase leading-none">
-                    COMPILER // PYTHON PLAYGROUND
+                  <h2 className="text-3xl sm:text-5xl font-sans font-bold tracking-tight text-gray-200 uppercase leading-none">
+                    COMPILER // RUNTIME INTERFACE
                   </h2>
                   
                   <div>
@@ -362,32 +341,31 @@ export default function App() {
 
                   <div className="flex flex-wrap gap-2 pt-2">
                     {['Python', 'Flask', 'Matplotlib', 'Pandas', 'HTML5', 'JavaScript'].map(t => (
-                      <span key={t} className="text-[10px] px-2 py-0.5 border border-[#1E202B] rounded bg-[#121319]/40 font-mono text-gray-400">{t}</span>
+                      <span key={t} className="text-[10px] px-2 py-0.5 border border-white/5 rounded bg-white/5 font-mono text-gray-400">{t}</span>
                     ))}
                   </div>
                 </div>
 
-                {/* Right: Code compiler widget */}
+                {/* Spatial telemetry widget */}
                 <div className="lg:col-span-6 flex justify-center">
-                  <div className="w-full max-w-md p-6 border border-[#1E202B] bg-[#121319]/40 rounded-xl flex flex-col gap-4 font-mono">
-                    <span className="text-[9px] text-[#00F0FF] uppercase tracking-wider block border-b border-[#1E202B] pb-2">PLAYGROUND TELEMETRY BUFFER</span>
+                  <div className="w-full max-w-md p-6 translucent-surface rounded-xl flex flex-col gap-4 font-mono">
+                    <span className="text-[9px] text-[#00F0FF] uppercase tracking-wider block border-b border-white/5 pb-2">COMPILATION STAGE TELEMETRY</span>
                     <CompilerWidget />
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* 6. AI RESEARCH & CONTACT SCREEN */}
+            {/* 5. AI RESEARCH & CONTACT SCREEN */}
             <div
-              ref={sectionRefs[6]}
+              ref={sectionRefs[5]}
               className="min-h-screen flex flex-col justify-between max-w-7xl mx-auto px-6 pt-24 pb-12 z-10 w-full"
             >
-              {/* Research Showcase section */}
+              {/* Research section */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center my-auto">
-                {/* Left: Copy details */}
                 <div className="lg:col-span-6 flex flex-col gap-6">
                   <span className="mono-tag">SYSTEM 04 // AI RESEARCH</span>
-                  <h2 className="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-gray-200 uppercase leading-none">
+                  <h2 className="text-3xl sm:text-5xl font-sans font-bold tracking-tight text-gray-200 uppercase leading-none">
                     EXPLAINABLE AI RESEARCH
                   </h2>
                   <p className="text-xs font-mono text-[#00F0FF]">
@@ -409,17 +387,33 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Right: Neural connections map */}
+                {/* Neural connection map widget */}
                 <div className="lg:col-span-6 flex justify-center">
-                  <div className="w-full max-w-md p-6 border border-[#1E202B] bg-[#121319]/40 rounded-xl flex flex-col gap-4 font-mono">
-                    <span className="text-[9px] text-[#00F0FF] uppercase tracking-wider block border-b border-[#1E202B] pb-2">NEURAL WEIGHTS ATTRACTION MATRICES</span>
+                  <div className="w-full max-w-md p-6 translucent-surface rounded-xl flex flex-col gap-4 font-mono">
+                    <span className="text-[9px] text-[#00F0FF] uppercase tracking-wider block border-b border-white/5 pb-2">NEURAL ATTENTION MATRIX</span>
                     <XaiWidget />
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Minimal Contact Deck at the absolute bottom */}
-              <div className="border-t border-[#1E202B] pt-12 mt-12 flex flex-col sm:flex-row justify-between items-center gap-6 font-mono text-xs select-none">
+            {/* 6. CONTACT & COMMUNICATION SIGNALS */}
+            <div
+              ref={sectionRefs[6]}
+              className="min-h-[80vh] flex flex-col justify-between max-w-7xl mx-auto px-6 pt-24 pb-12 z-10 w-full"
+            >
+              <div className="max-w-2xl my-auto flex flex-col gap-6">
+                <span className="mono-tag">SECTION 04 // TRANSMISSION</span>
+                <h2 className="text-3xl sm:text-5xl font-sans font-bold tracking-tight text-gray-200 uppercase leading-none">
+                  ESTABLISH DATA SIGNAL
+                </h2>
+                <p className="text-sm text-gray-400 leading-relaxed font-sans max-w-lg">
+                  Initiate full-time software engineering communications or review telemetry schemas. Currently open to relocation and onsite roles.
+                </p>
+              </div>
+
+              {/* Minimalist contact links bar */}
+              <div className="border-t border-white/5 pt-12 flex flex-col sm:flex-row justify-between items-center gap-6 font-mono text-xs select-none">
                 <div className="flex gap-6 items-center">
                   <a
                     href="https://github.com/Basharameez"
@@ -444,13 +438,13 @@ export default function App() {
                   <div className="flex gap-2">
                     <a
                       href="mailto:shaikbashah20@gmail.com"
-                      className="px-3 py-1.5 border border-[#1E202B] bg-[#121319]/50 hover:border-[#00F0FF] text-gray-300 rounded transition-all"
+                      className="px-4 py-2 border border-white/10 hover:border-[#00F0FF] hover:text-[#00F0FF] bg-white/5 rounded transition-all"
                     >
                       Signal &rarr;
                     </a>
                     <button
                       onClick={copyEmail}
-                      className="p-1.5 border border-[#1E202B] hover:text-[#00F0FF] rounded transition-all"
+                      className="p-2 border border-white/10 hover:text-[#00F0FF] rounded transition-all"
                     >
                       {copied ? <Check size={14} className="text-green-400" /> : <Copy size={14} />}
                     </button>
@@ -462,7 +456,7 @@ export default function App() {
           </main>
 
           {/* Cinematic subtle footer bar */}
-          <footer className="w-full border-t border-[#1E202B]/30 py-6 text-center text-[10px] font-mono text-gray-600 uppercase tracking-widest bg-[#050507] relative z-10 select-none">
+          <footer className="w-full border-t border-white/5 py-8 text-center text-[10px] font-mono text-gray-600 uppercase tracking-widest bg-[#030304] relative z-10 select-none">
             <span>&copy; {new Date().getFullYear()} Shaik Rameez Basha &bull; Systems Active</span>
           </footer>
         </div>
@@ -494,8 +488,8 @@ const CodeOriginWidget = () => {
             onClick={() => setActiveStep(idx)}
             className={`p-3 rounded text-left border text-xs transition-all flex justify-between items-center ${
               activeStep === idx
-                ? 'border-[#00F0FF] bg-[#121319]/80 text-[#00F0FF]'
-                : 'border-[#1E202B] bg-[#050507]/40 text-gray-400'
+                ? 'border-[#00F0FF] bg-white/5 text-[#00F0FF]'
+                : 'border-white/5 bg-[#030304]/40 text-gray-400'
             }`}
           >
             <span>{idx + 1}. {s.title}</span>
@@ -505,7 +499,7 @@ const CodeOriginWidget = () => {
           </button>
         ))}
       </div>
-      <div className="p-3 bg-[#121319]/80 border border-[#1E202B] rounded text-[11px] text-gray-400 leading-relaxed min-h-[60px]">
+      <div className="p-3 bg-white/5 border border-white/5 rounded text-[11px] text-gray-400 leading-relaxed min-h-[60px]">
         <strong>Telemetry:</strong> {steps[activeStep].desc}
       </div>
     </div>
@@ -529,18 +523,18 @@ const RotorDynWidget = () => {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="w-[180px] h-[180px] border border-[#1E202B] rounded-lg bg-[#050507]/60 relative mx-auto flex items-center justify-center overflow-hidden">
+      <div className="w-[180px] h-[180px] border border-white/5 rounded-lg bg-[#030304]/60 relative mx-auto flex items-center justify-center overflow-hidden">
         <svg className="w-full h-full">
-          <line x1="0" y1="90" x2="180" y2="90" stroke="#1E202B" strokeWidth="1" />
-          <line x1="90" y1="0" x2="90" y2="180" stroke="#1E202B" strokeWidth="1" />
-          <circle cx="90" cy="90" r="25" stroke="#1E202B" fill="none" strokeWidth="1" strokeDasharray="3,3" />
-          <circle cx="90" cy="90" r="50" stroke="#1E202B" fill="none" strokeWidth="1" strokeDasharray="3,3" />
+          <line x1="0" y1="90" x2="180" y2="90" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+          <line x1="90" y1="0" x2="90" y2="180" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+          <circle cx="90" cy="90" r="25" stroke="rgba(255,255,255,0.03)" fill="none" strokeWidth="1" strokeDasharray="3,3" />
+          <circle cx="90" cy="90" r="50" stroke="rgba(255,255,255,0.03)" fill="none" strokeWidth="1" strokeDasharray="3,3" />
           <polyline points={points.map(p => p.split(',').map(n => Number(n)*0.9).join(',')).join(' ')} fill="none" stroke="#00F0FF" strokeWidth="2" />
         </svg>
         <span className="absolute bottom-2 left-2 text-[8px] text-gray-500 tracking-wider">SPECTRUM ORBIT TRACK</span>
       </div>
 
-      <div className="flex flex-col gap-2 text-xs">
+      <div className="flex flex-col gap-2 text-xs font-mono">
         <div className="flex justify-between items-center text-gray-400">
           <span>Speed Factor</span>
           <input
@@ -607,12 +601,12 @@ const CompilerWidget = () => {
       <button
         onClick={runCodeSimulation}
         disabled={running}
-        className="w-full py-2 bg-[#121319]/80 border border-[#1E202B] text-xs hover:border-[#00F0FF] text-gray-300 font-bold uppercase rounded active:bg-[#050507]/80 transition-all"
+        className="w-full py-2 bg-white/5 border border-white/10 text-xs hover:border-[#00F0FF] text-gray-300 font-bold uppercase rounded active:bg-[#030304]/80 transition-all"
       >
         {running ? 'Executing Code...' : 'Simulate Web Compiler'}
       </button>
 
-      <div className="h-40 border border-[#1E202B] bg-[#050507]/60 rounded p-3 font-mono text-[10px] text-gray-400 overflow-y-auto flex flex-col gap-1.5 leading-relaxed">
+      <div className="h-40 border border-white/5 bg-[#030304]/60 rounded p-3 font-mono text-[10px] text-gray-400 overflow-y-auto flex flex-col gap-1.5 leading-relaxed">
         {outputs.map((line, idx) => (
           <div key={idx} className="flex gap-1.5 items-start">
             <span className="text-[#00F0FF]">&gt;</span>
@@ -636,7 +630,7 @@ const XaiWidget = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-4 text-xs">
+    <div className="flex flex-col gap-4 text-xs font-mono">
       <div className="grid grid-cols-2 gap-2">
         {nodeConnections.map((node, idx) => (
           <button
@@ -645,8 +639,8 @@ const XaiWidget = () => {
             onMouseLeave={() => setActiveNode(null)}
             className={`p-2.5 rounded border text-[11px] text-left transition-all ${
               activeNode === idx
-                ? 'border-[#00F0FF] bg-[#121319]/80 text-[#00F0FF]'
-                : 'border-[#1E202B] bg-[#050507]/40 text-gray-400'
+                ? 'border-[#00F0FF] bg-white/5 text-[#00F0FF]'
+                : 'border-white/5 bg-[#030304]/40 text-gray-400'
             }`}
           >
             {node.label}
@@ -654,11 +648,11 @@ const XaiWidget = () => {
         ))}
       </div>
 
-      <div className="p-3 border border-[#1E202B] bg-[#121319]/80 rounded flex flex-col gap-2 min-h-[90px] text-[11px]">
+      <div className="p-3 border border-white/5 bg-white/5 rounded flex flex-col gap-2 min-h-[90px] text-[11px]">
         {activeNode !== null ? (
           <>
             <span className="text-[9px] text-[#7000FF] font-bold uppercase tracking-wider">Estimated Attention Tensors</span>
-            <div className="flex flex-col gap-1 mt-1 text-gray-400">
+            <div className="flex flex-col gap-1 mt-1 text-gray-400 font-mono">
               <div>Output Layer Channel 1: {nodeConnections[activeNode].weights[0]}</div>
               <div>Output Layer Channel 2: {nodeConnections[activeNode].weights[1]}</div>
               <div>Output Layer Channel 3: {nodeConnections[activeNode].weights[2]}</div>
