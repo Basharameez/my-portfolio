@@ -106,8 +106,8 @@ export default function App() {
               className="min-h-screen flex flex-col justify-center max-w-7xl mx-auto px-6 py-24 select-none relative z-10 w-full"
             >
               <div className="max-w-4xl flex flex-col gap-6 items-start">
-                <span className="mono-tag bg-[#E60012] text-white px-2 py-0.5 border-2 border-black inline-block shadow-[2px_2px_0px_#000000]">
-                  SYSTEM ENGINE ACTIVE
+                <span className="mono-tag bg-[#E60012] text-white px-2.5 py-0.5 border-2 border-black inline-block shadow-[2px_2px_0px_#000000]">
+                  SYSTEM ENGINE ACTIVE // NODE-0x0
                 </span>
                 
                 <h1 className="text-4xl sm:text-6xl md:text-8xl font-sans font-black tracking-tighter text-[#0C0C0E] uppercase leading-none">
@@ -148,7 +148,13 @@ export default function App() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 {/* Credentials / Status Card */}
                 <div className="lg:col-span-5 flex flex-col gap-6">
-                  <div className="slanted-panel-white p-6 rounded-none">
+                  <div className="slanted-panel-white p-6 rounded-none relative">
+                    {/* Corner coordinates */}
+                    <div className="absolute top-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute top-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute bottom-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute bottom-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
+
                     <div className="unslanted-content">
                       <div className="flex items-center justify-between border-b border-black pb-4 text-[10px] text-black font-bold uppercase">
                         <span className="flex items-center gap-1.5 text-[#E60012] font-black">
@@ -249,7 +255,12 @@ export default function App() {
 
                 {/* Spatial telemetry widget */}
                 <div className="lg:col-span-6 flex justify-center">
-                  <div className="w-full max-w-md p-6 slanted-panel-white rounded-none">
+                  <div className="w-full max-w-md p-6 slanted-panel-white rounded-none relative">
+                    <div className="absolute top-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute top-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute bottom-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute bottom-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
+
                     <div className="unslanted-content">
                       <span className="text-[9px] text-[#E60012] uppercase tracking-wider block border-b-2 border-black pb-2 font-bold">AST PARSE FLOW TELEMETRY</span>
                       <CodeOriginWidget />
@@ -267,7 +278,12 @@ export default function App() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 {/* Visual telemetry widget */}
                 <div className="lg:col-span-6 order-2 lg:order-1 flex justify-center">
-                  <div className="w-full max-w-md p-6 slanted-panel-white rounded-none">
+                  <div className="w-full max-w-md p-6 slanted-panel-white rounded-none relative">
+                    <div className="absolute top-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute top-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute bottom-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute bottom-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
+
                     <div className="unslanted-content">
                       <span className="text-[9px] text-red-500 uppercase tracking-wider block border-b-2 border-black pb-2 font-bold">
                         SANITIZED DIAGNOSTIC TELEMETRY DEMO
@@ -353,7 +369,12 @@ export default function App() {
 
                 {/* Spatial telemetry widget */}
                 <div className="lg:col-span-6 flex justify-center">
-                  <div className="w-full max-w-md p-6 slanted-panel-white rounded-none">
+                  <div className="w-full max-w-md p-6 slanted-panel-white rounded-none relative">
+                    <div className="absolute top-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute top-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute bottom-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute bottom-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
+
                     <div className="unslanted-content">
                       <span className="text-[9px] text-[#E60012] uppercase tracking-wider block border-b-2 border-black pb-2 font-bold">COMPILATION STAGE TELEMETRY</span>
                       <CompilerWidget />
@@ -396,7 +417,12 @@ export default function App() {
 
                 {/* Neural connection map widget */}
                 <div className="lg:col-span-6 flex justify-center">
-                  <div className="w-full max-w-md p-6 slanted-panel-white rounded-none">
+                  <div className="w-full max-w-md p-6 slanted-panel-white rounded-none relative">
+                    <div className="absolute top-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute top-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute bottom-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute bottom-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
+
                     <div className="unslanted-content">
                       <span className="text-[9px] text-[#E60012] uppercase tracking-wider block border-b-2 border-black pb-2 font-bold">NEURAL ATTENTION MATRIX</span>
                       <XaiWidget />
@@ -478,19 +504,78 @@ export default function App() {
 // modular inline widgets
 // ====================================================
 
-// 1. CodeOrigin Ingestion Flow
+// 1. CodeOrigin Ingestion Flow (SVG AST Tree)
 const CodeOriginWidget = () => {
   const steps = [
-    { title: 'Repository Ingestion', desc: 'Scans files, directories, and branch structures.' },
-    { title: 'Parsing & AST traversal', desc: 'Parses modules using ast.NodeVisitor patterns.' },
-    { title: 'Structural Analysis', desc: 'Maps class inheritances and coupling metrics.' },
-    { title: 'Evidence Graph Storage', desc: 'Indexes findings into persistent relational schemas.' }
+    { title: 'Repository Ingestion', type: 'ast.Module', lineno: '0', detail: 'Ingesting directories structure.' },
+    { title: 'Parsing & AST Visitor', type: 'ast.FunctionDef', lineno: '12', detail: 'ast.parse() reads function nodes.' },
+    { title: 'Structural Analysis', type: 'ast.ClassDef', lineno: '34', detail: 'Traversing class inheritance matrices.' },
+    { title: 'Evidence Graph Storage', type: 'ast.Return', lineno: '72', detail: 'Exporting audit records to SQLite.' }
   ];
   const [activeStep, setActiveStep] = useState(0);
 
+  // SVG AST Node coordinates
+  const nodes = [
+    { id: 1, cx: 100, cy: 25, label: 'Root' },
+    { id: 2, cx: 50, cy: 75, label: 'Visitor' },
+    { id: 3, cx: 150, cy: 75, label: 'Scanner' },
+    { id: 4, cx: 25, cy: 125, label: 'Func' },
+    { id: 5, cx: 75, cy: 125, label: 'Class' },
+    { id: 6, cx: 125, cy: 125, label: 'Import' },
+    { id: 7, cx: 175, cy: 125, label: 'Deco' }
+  ];
+
   return (
-    <div className="flex flex-col gap-3 mt-3">
-      <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-4 mt-3">
+      {/* Dynamic SVG tree visualization */}
+      <div className="w-[200px] h-[150px] border-2 border-black bg-white mx-auto relative shadow-[3px_3px_0px_#000000]">
+        <svg className="w-full h-full" viewBox="0 0 200 150">
+          {/* Branch Lines */}
+          <line x1="100" y1="25" x2="50" y2="75" stroke="#000000" strokeWidth="2" />
+          <line x1="100" y1="25" x2="150" y2="75" stroke="#000000" strokeWidth="2" />
+          <line x1="50" y1="75" x2="25" y2="125" stroke="#000000" strokeWidth="2" />
+          <line x1="50" y1="75" x2="75" y2="125" stroke="#000000" strokeWidth="2" />
+          <line x1="150" y1="75" x2="125" y2="125" stroke="#000000" strokeWidth="2" />
+          <line x1="150" y1="75" x2="175" y2="125" stroke="#000000" strokeWidth="2" />
+
+          {/* Nodes */}
+          {nodes.map((n) => {
+            // Determine active highlight based on step
+            let isActive = false;
+            if (activeStep === 0 && n.id === 1) isActive = true;
+            if (activeStep === 1 && (n.id === 2 || n.id === 3)) isActive = true;
+            if (activeStep === 2 && (n.id === 4 || n.id === 5)) isActive = true;
+            if (activeStep === 3 && (n.id === 6 || n.id === 7)) isActive = true;
+
+            return (
+              <g key={n.id}>
+                <circle
+                  cx={n.cx}
+                  cy={n.cy}
+                  r="12"
+                  fill={isActive ? '#E60012' : '#FFFFFF'}
+                  stroke="#000000"
+                  strokeWidth="2"
+                  className="transition-all duration-300"
+                />
+                <text
+                  x={n.cx}
+                  y={n.cy + 3}
+                  textAnchor="middle"
+                  fontSize="7"
+                  fontWeight="bold"
+                  fill={isActive ? '#FFFFFF' : '#000000'}
+                  className="font-mono select-none"
+                >
+                  {n.id}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+
+      <div className="grid grid-cols-2 gap-2">
         {steps.map((s, idx) => (
           <button
             key={idx}
@@ -502,14 +587,15 @@ const CodeOriginWidget = () => {
             }`}
           >
             <span>{idx + 1}. {s.title}</span>
-            <span className="text-[9px] uppercase tracking-wider opacity-90">
-              {activeStep === idx ? 'ACTIVE' : 'STANDBY'}
-            </span>
           </button>
         ))}
       </div>
-      <div className="p-3 bg-white border-2 border-black rounded-none text-[11px] text-black leading-relaxed min-h-[60px] font-medium shadow-[3px_3px_0px_#000000]">
-        <strong>Telemetry:</strong> {steps[activeStep].desc}
+
+      {/* Metadata telemetry report box */}
+      <div className="p-3 bg-white border-2 border-black rounded-none text-[10px] text-black leading-relaxed flex flex-col gap-1 shadow-[3px_3px_0px_#000000]">
+        <div><strong>Active Node:</strong> <span className="text-[#E60012] font-bold">{steps[activeStep].type}</span></div>
+        <div><strong>Line Number:</strong> <span className="font-bold">{steps[activeStep].lineno}</span></div>
+        <div><strong>Telemetry:</strong> {steps[activeStep].detail}</div>
       </div>
     </div>
   );
@@ -534,13 +620,27 @@ const RotorDynWidget = () => {
     <div className="flex flex-col gap-4 mt-3">
       <div className="w-[180px] h-[180px] border-2 border-black rounded-none bg-white relative mx-auto flex items-center justify-center overflow-hidden shadow-[4px_4px_0px_#000000]">
         <svg className="w-full h-full">
+          {/* Diagnostic coordinate ticks */}
           <line x1="0" y1="90" x2="180" y2="90" stroke="rgba(0,0,0,0.15)" strokeWidth="1" />
           <line x1="90" y1="0" x2="90" y2="180" stroke="rgba(0,0,0,0.15)" strokeWidth="1" />
+          <line x1="90" y1="40" x2="95" y2="40" stroke="#000000" strokeWidth="1.5" />
+          <line x1="90" y1="140" x2="95" y2="140" stroke="#000000" strokeWidth="1.5" />
+          <line x1="40" y1="90" x2="40" y2="95" stroke="#000000" strokeWidth="1.5" />
+          <line x1="140" y1="90" x2="140" y2="95" stroke="#000000" strokeWidth="1.5" />
+          
           <circle cx="90" cy="90" r="25" stroke="rgba(0,0,0,0.1)" fill="none" strokeWidth="1" strokeDasharray="3,3" />
           <circle cx="90" cy="90" r="50" stroke="rgba(0,0,0,0.1)" fill="none" strokeWidth="1" strokeDasharray="3,3" />
           <polyline points={points.map(p => p.split(',').map(n => Number(n)*0.9).join(',')).join(' ')} fill="none" stroke="#E60012" strokeWidth="2.5" />
         </svg>
         <span className="absolute bottom-2 left-2 text-[8px] text-black font-black tracking-wider">SPECTRUM ORBIT TRACK</span>
+      </div>
+
+      {/* Real-time telemetry values */}
+      <div className="grid grid-cols-2 gap-2 text-[9px] uppercase border-y border-black py-2 my-1">
+        <div><strong>Speed:</strong> 3000 RPM</div>
+        <div><strong>Radial Amp:</strong> {amp} &mu;m</div>
+        <div><strong>Harmonic:</strong> 1x Vector</div>
+        <div><strong>Status:</strong> Nominal</div>
       </div>
 
       <div className="flex flex-col gap-2 text-xs font-bold">
@@ -573,7 +673,7 @@ const RotorDynWidget = () => {
   );
 };
 
-// 3. Compiler Execution flow
+// 3. Compiler Execution flow with IDE Code Editor
 const CompilerWidget = () => {
   const [running, setRunning] = useState(false);
   const [outputs, setOutputs] = useState<string[]>(['System standby.', 'Submit runtime request.']);
@@ -607,6 +707,25 @@ const CompilerWidget = () => {
 
   return (
     <div className="flex flex-col gap-3 mt-3">
+      {/* Mock IDE Code Editor container */}
+      <div className="border-2 border-black bg-[#0c0c0e] text-white p-3 font-mono text-[9px] leading-relaxed shadow-[3px_3px_0px_#000000]">
+        <div className="flex justify-between items-center border-b border-white/10 pb-1.5 mb-1.5 text-gray-500 uppercase text-[7px] tracking-wider">
+          <span>main.py</span>
+          <span>python 3.12</span>
+        </div>
+        <div className="flex gap-3">
+          <div className="text-gray-600 select-none text-right">
+            01<br />02<br />03<br />04
+          </div>
+          <div className="text-gray-300">
+            <span className="text-[#FF1744]">import</span> ast, os<br />
+            <span className="text-[#FF1744]">def</span> <span className="text-[#00F0FF]">audit_repo</span>(path):<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;tree = ast.parse(open(path).read())<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#FF1744]">return</span> tree
+          </div>
+        </div>
+      </div>
+
       <button
         onClick={runCodeSimulation}
         disabled={running}
@@ -627,49 +746,67 @@ const CompilerWidget = () => {
   );
 };
 
-// 4. Neural interpretation activation matrix
+// 4. Neural interpretation activation matrix (SVG layered matrix)
 const XaiWidget = () => {
-  const [activeNode, setActiveNode] = useState<number | null>(null);
+  const [hoveredNode, setHoveredNode] = useState<number | null>(null);
 
-  const nodeConnections = [
-    { label: 'Input Node [0,0]', weights: [0.88, 0.10, 0.02] },
-    { label: 'Input Node [1,0]', weights: [0.30, 0.55, 0.15] },
-    { label: 'Input Node [0,1]', weights: [0.08, 0.32, 0.60] },
-    { label: 'Input Node [1,1]', weights: [0.03, 0.12, 0.85] }
+  // Activation metrics
+  const activations = [
+    { name: 'Input Pixel [0,0]', weights: [0.85, 0.12, 0.03] },
+    { name: 'Input Pixel [1,0]', weights: [0.35, 0.50, 0.15] },
+    { name: 'Input Pixel [0,1]', weights: [0.10, 0.40, 0.50] },
+    { name: 'Input Pixel [1,1]', weights: [0.05, 0.15, 0.80] }
   ];
 
   return (
     <div className="flex flex-col gap-4 text-xs font-mono mt-3">
-      <div className="grid grid-cols-2 gap-2">
-        {nodeConnections.map((node, idx) => (
-          <button
-            key={idx}
-            onMouseEnter={() => setActiveNode(idx)}
-            onMouseLeave={() => setActiveNode(null)}
-            className={`p-2.5 rounded-none border-2 border-black text-[11px] text-left font-black transition-all shadow-[2px_2px_0px_#000000] ${
-              activeNode === idx
-                ? 'bg-[#E60012] text-white'
-                : 'bg-white text-black'
-            }`}
-          >
-            {node.label}
-          </button>
-        ))}
+      {/* SVG Neural Layer Attraction network */}
+      <div className="w-[200px] h-[140px] border-2 border-black bg-white mx-auto relative shadow-[3px_3px_0px_#000000]">
+        <svg className="w-full h-full" viewBox="0 0 200 140">
+          {/* Layer 1 Nodes (Inputs) */}
+          <circle cx="30" cy="25" r="7" fill={hoveredNode === 0 ? '#E60012' : '#FFFFFF'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(0)} onMouseLeave={() => setHoveredNode(null)} />
+          <circle cx="30" cy="55" r="7" fill={hoveredNode === 1 ? '#E60012' : '#FFFFFF'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(1)} onMouseLeave={() => setHoveredNode(null)} />
+          <circle cx="30" cy="85" r="7" fill={hoveredNode === 2 ? '#E60012' : '#FFFFFF'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(2)} onMouseLeave={() => setHoveredNode(null)} />
+          <circle cx="30" cy="115" r="7" fill={hoveredNode === 3 ? '#E60012' : '#FFFFFF'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(3)} onMouseLeave={() => setHoveredNode(null)} />
+
+          {/* Layer 2 Nodes (Hidden) */}
+          <circle cx="100" cy="40" r="7" fill="#FFFFFF" stroke="#000000" strokeWidth="2" />
+          <circle cx="100" cy="70" r="7" fill="#FFFFFF" stroke="#000000" strokeWidth="2" />
+          <circle cx="100" cy="100" r="7" fill="#FFFFFF" stroke="#000000" strokeWidth="2" />
+
+          {/* Layer 3 Nodes (Output) */}
+          <circle cx="170" cy="55" r="7" fill="#FFFFFF" stroke="#000000" strokeWidth="2" />
+          <circle cx="170" cy="85" r="7" fill="#FFFFFF" stroke="#000000" strokeWidth="2" />
+
+          {/* Pulsing connection lines on input node hover */}
+          {hoveredNode !== null && (
+            <g>
+              <line x1="30" y1={25 + hoveredNode * 30} x2="100" y2="40" stroke="#E60012" strokeWidth="1.5" strokeDasharray="3,3" />
+              <line x1="30" y1={25 + hoveredNode * 30} x2="100" y2="70" stroke="#E60012" strokeWidth="1.5" strokeDasharray="3,3" />
+              <line x1="30" y1={25 + hoveredNode * 30} x2="100" y2="100" stroke="#E60012" strokeWidth="1.5" strokeDasharray="3,3" />
+              
+              <line x1="100" y1="70" x2="170" y2="55" stroke="#E60012" strokeWidth="1" />
+              <line x1="100" y1="70" x2="170" y2="85" stroke="#E60012" strokeWidth="1" />
+            </g>
+          )}
+        </svg>
       </div>
 
-      <div className="p-3 border-2 border-black bg-white rounded-none flex flex-col gap-2 min-h-[90px] text-[11px] shadow-[3px_3px_0px_#000000]">
-        {activeNode !== null ? (
+      {/* Dynamic Telemetry report panel */}
+      <div className="p-3 border-2 border-black bg-white rounded-none flex flex-col gap-2 min-h-[90px] text-[10px] shadow-[3px_3px_0px_#000000]">
+        {hoveredNode !== null ? (
           <>
-            <span className="text-[9px] text-[#E60012] font-black uppercase tracking-wider">Estimated Attention Tensors</span>
-            <div className="flex flex-col gap-1 mt-1 text-black font-mono font-bold">
-              <div>Output Layer Channel 1: {nodeConnections[activeNode].weights[0]}</div>
-              <div>Output Layer Channel 2: {nodeConnections[activeNode].weights[1]}</div>
-              <div>Output Layer Channel 3: {nodeConnections[activeNode].weights[2]}</div>
+            <span className="text-[8px] text-[#E60012] font-black uppercase tracking-wider">Estimated Attention Tensors</span>
+            <div className="flex flex-col gap-0.5 text-black font-bold">
+              <div>Source Unit: {activations[hoveredNode].name}</div>
+              <div>Output Layer Channel 1: {activations[hoveredNode].weights[0]}</div>
+              <div>Output Layer Channel 2: {activations[hoveredNode].weights[1]}</div>
+              <div>Output Layer Channel 3: {activations[hoveredNode].weights[2]}</div>
             </div>
           </>
         ) : (
-          <div className="text-black font-semibold flex items-center justify-center h-full min-h-[60px] text-center">
-            Hover over an input node above to trace active neural decision pathways.
+          <div className="text-black font-semibold flex items-center justify-center h-full min-h-[60px] text-center uppercase tracking-wide text-[9px]">
+            Hover over an input node inside the SVG diagram to trace active neural decision pathways.
           </div>
         )}
       </div>
