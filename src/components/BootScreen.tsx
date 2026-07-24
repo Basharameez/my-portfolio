@@ -25,7 +25,8 @@ export const BootScreen = ({ onComplete }: BootScreenProps) => {
     let index = 0;
     const interval = setInterval(() => {
       if (index < logSequence.length) {
-        setLogs((prev) => [...prev, logSequence[index]]);
+        const nextLog = logSequence[index];
+        setLogs((prev) => [...prev, nextLog]);
         index++;
       } else {
         clearInterval(interval);
@@ -56,7 +57,7 @@ export const BootScreen = ({ onComplete }: BootScreenProps) => {
           {logs.map((log, i) => (
             <div key={i} className="flex gap-2 items-start">
               <span className="text-[#00F0FF]">&gt;</span>
-              <span className={log.includes('READY') ? 'text-[#00F0FF] font-bold' : ''}>
+              <span className={log && log.includes('READY') ? 'text-[#00F0FF] font-bold' : ''}>
                 {log}
               </span>
             </div>
