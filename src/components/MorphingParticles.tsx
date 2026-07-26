@@ -159,10 +159,10 @@ const ParticlesRenderer = ({ activeSection }: ParticlesRendererProps) => {
     for (let i = 0; i < count; i++) {
       const isRed = i % 2 === 0;
       if (isRed) {
-        // Red: #E60012 -> (0.90, 0.00, 0.07)
-        arr[i * 3] = 0.90;
-        arr[i * 3 + 1] = 0.00;
-        arr[i * 3 + 2] = 0.07;
+        // Cyber Orange: #FF3D00 -> (1.00, 0.24, 0.00)
+        arr[i * 3] = 1.00;
+        arr[i * 3 + 1] = 0.24;
+        arr[i * 3 + 2] = 0.00;
       } else {
         // Off-white: #F4F4F6 -> (0.95, 0.95, 0.96)
         arr[i * 3] = 0.95;
@@ -235,7 +235,7 @@ const ParticlesRenderer = ({ activeSection }: ParticlesRendererProps) => {
         size={0.065}
         sizeAttenuation={true}
         transparent={true}
-        opacity={0.6}
+        opacity={0.75}
         blending={THREE.AdditiveBlending}
       />
     </points>
@@ -273,7 +273,7 @@ const CanvasFallback = ({ activeSection }: ParticlesRendererProps) => {
     }));
 
     const animate = () => {
-      ctx.fillStyle = '#0C0C0E';
+      ctx.fillStyle = '#08080A';
       ctx.fillRect(0, 0, width, height);
 
       particles.forEach((p, idx) => {
@@ -317,7 +317,7 @@ const CanvasFallback = ({ activeSection }: ParticlesRendererProps) => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = idx % 2 === 0 ? 'rgba(230, 0, 18, 0.65)' : 'rgba(244, 244, 246, 0.7)';
+        ctx.fillStyle = idx % 2 === 0 ? 'rgba(255, 61, 0, 0.65)' : 'rgba(244, 244, 246, 0.7)';
         ctx.fill();
       });
 
@@ -343,17 +343,17 @@ export const MorphingParticles = ({ activeSection }: ParticlesRendererProps) => 
   }, []);
 
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none select-none overflow-hidden bg-[#0C0C0E]">
+    <div className="fixed inset-0 z-0 pointer-events-none select-none overflow-hidden bg-[#08080A]">
       {useWebGL ? (
-        <Canvas camera={{ position: [0, 0, 5], fov: 60 }} style={{ background: '#0C0C0E' }}>
+        <Canvas camera={{ position: [0, 0, 5], fov: 60 }} style={{ background: '#08080A' }}>
           <ambientLight intensity={0.5} />
           <ParticlesRenderer activeSection={activeSection} />
         </Canvas>
       ) : (
         <CanvasFallback activeSection={activeSection} />
       )}
-      {/* Dark Vignette Overlay */}
-      <div className="absolute inset-0 bg-radial-[circle_at_center,transparent_50%,rgba(12,12,14,0.95)_95%] pointer-events-none" />
+      {/* Light vignetting overlay */}
+      <div className="absolute inset-0 bg-radial-[circle_at_center,transparent_55%,rgba(8,8,10,0.95)_95%] pointer-events-none" />
     </div>
   );
 };

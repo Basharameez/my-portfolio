@@ -7,10 +7,16 @@
 
 body {
   margin: 0;
-  background-color: #0C0C0E;
+  background-color: #08080A;
   color: #F4F4F6;
   font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   overflow-x: hidden;
+}
+
+/* Repeating CAD dot-grid background layer */
+.technical-dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 /* Technical scrollbars */
@@ -19,49 +25,42 @@ body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0C0C0E;
+  background: #08080A;
 }
 ::-webkit-scrollbar-thumb {
   background: #1C1C22;
-  border: 1px solid #0C0C0E;
+  border: 1px solid #08080A;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #E60012;
+  background: #FF3D00;
 }
 
-/* 3D Dark Tactile Neumorphic Panels */
-.neumorphic-panel-dark {
-  transform: skewY(-1.5deg);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  background-color: #141417;
-  color: #F4F4F6;
-  box-shadow: 6px 6px 12px #060608, -6px -6px 12px #222227;
+/* Double-Line Vector outline borders (Blueprint HUD style) */
+.vector-border-white {
+  border: 4px double #FFFFFF;
+  background-color: rgba(20, 20, 24, 0.85);
+  box-shadow: 6px 6px 0px #000000;
 }
 
-.neumorphic-panel-red {
-  transform: skewY(-1.5deg);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  background-color: #E60012;
-  color: #FFFFFF;
-  box-shadow: 6px 6px 12px #060608, -6px -6px 12px #1e0002;
+.vector-border-orange {
+  border: 4px double #FF3D00;
+  background-color: rgba(20, 20, 24, 0.85);
+  box-shadow: 6px 6px 0px #000000;
 }
 
-.neumorphic-sunken-dark {
-  box-shadow: inset 4px 4px 8px #060608, inset -4px -4px 8px #222227;
-  border: 1px solid rgba(0, 0, 0, 0.4);
-  background-color: #0E0E11;
-}
-
-/* Light high-contrast pop panels */
-.neumorphic-panel-light {
-  transform: skewY(-1.5deg);
-  border: 3px solid #000000;
+.vector-border-black {
+  border: 4px double #000000;
   background-color: #FFFFFF;
   color: #000000;
-  box-shadow: 6px 6px 12px #060608, 6px 6px 0px #E60012;
+  box-shadow: 6px 6px 0px #FF3D00;
 }
 
-/* Counter-skew for text readability */
+/* Slanted panels style templates */
+.slanted-panel-vector {
+  transform: skewY(-1.5deg);
+}
+
+/* Counter-skew to keep child text perfectly straight and readable */
 .unslanted-content {
   transform: skewY(1.5deg);
 }
@@ -75,23 +74,23 @@ body {
     #000000 10px,
     #000000 20px
   );
-  height: 6px;
-  border-bottom: 2px solid #000000;
+  height: 8px;
+  border: 2px solid #000000;
 }
 
 .hazard-stripes-red {
   background: repeating-linear-gradient(
     -45deg,
-    #E60012,
-    #E60012 10px,
+    #FF3D00,
+    #FF3D00 10px,
     #000000 10px,
     #000000 20px
   );
-  height: 6px;
-  border-bottom: 2px solid #000000;
+  height: 8px;
+  border: 2px solid #000000;
 }
 
-/* Typography styles */
+/* Blueprint typography scales */
 .display-title {
   font-family: 'Outfit', sans-serif;
   font-weight: 900;
@@ -103,13 +102,13 @@ body {
   font-family: 'Space Mono', monospace;
   font-size: 10px;
   letter-spacing: 0.25em;
-  color: #E60012;
+  color: #FF3D00;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-/* Custom visual layout lines */
-.tech-divider-dark {
+/* Blueprint visual grids and coordinates */
+.blueprint-line-dark {
   height: 1px;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.01) 100%);
 }

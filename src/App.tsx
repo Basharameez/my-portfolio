@@ -96,7 +96,7 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0C0C0E] text-[#F4F4F6] selection:bg-[#E60012]/30 selection:text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#08080A] text-[#F4F4F6] selection:bg-[#FF3D00]/30 selection:text-white relative overflow-x-hidden technical-dot-grid">
       <AnimatePresence>
         {booting && (
           <BootScreen onComplete={() => setBooting(false)} />
@@ -111,37 +111,37 @@ export default function App() {
           {/* Sticky Navigation Overlay */}
           <header className="fixed top-6 left-0 right-0 z-50 px-6 pointer-events-none">
             <nav className="max-w-7xl mx-auto flex items-center justify-between pointer-events-auto select-none">
-              <span className="font-mono text-xs font-bold tracking-widest text-[#F4F4F6] hover:text-[#E60012] bg-[#141417] px-3.5 py-2 border-2 border-black shadow-[4px_4px_8px_#060608]">
-                SRB // <span className="text-[#E60012] font-black">TACTICAL</span>
+              <span className="font-mono text-xs font-bold tracking-widest text-[#F4F4F6] hover:text-[#FF3D00] bg-[#141418] px-3.5 py-2 border-2 border-black shadow-[4px_4px_8px_#000000]">
+                SRB // <span className="text-[#FF3D00] font-black">BLUEPRINT</span>
               </span>
-              <div className="flex gap-4 font-mono text-[9px] tracking-wider text-[#F4F4F6] bg-[#141417] p-2.5 border-2 border-black shadow-[4px_4px_8px_#060608] uppercase font-bold">
+              <div className="flex gap-4 font-mono text-[9px] tracking-wider text-[#F4F4F6] bg-[#141418] p-2.5 border-2 border-black shadow-[4px_4px_8px_#000000] uppercase font-bold">
                 <button
                   onClick={() => sectionRefs[0].current?.scrollIntoView({ behavior: 'smooth' })}
-                  className={`hover:text-[#E60012] transition-colors ${activeSection === 0 ? 'text-[#E60012]' : ''}`}
+                  className={`hover:text-[#FF3D00] transition-colors ${activeSection === 0 ? 'text-[#FF3D00]' : ''}`}
                 >
                   Intro
                 </button>
                 <button
                   onClick={() => sectionRefs[1].current?.scrollIntoView({ behavior: 'smooth' })}
-                  className={`hover:text-[#E60012] transition-colors ${activeSection === 1 ? 'text-[#E60012]' : ''}`}
+                  className={`hover:text-[#FF3D00] transition-colors ${activeSection === 1 ? 'text-[#FF3D00]' : ''}`}
                 >
                   Attributes
                 </button>
                 <button
                   onClick={() => sectionRefs[2].current?.scrollIntoView({ behavior: 'smooth' })}
-                  className={`hover:text-[#E60012] transition-colors ${activeSection === 2 ? 'text-[#E60012]' : ''}`}
+                  className={`hover:text-[#FF3D00] transition-colors ${activeSection === 2 ? 'text-[#FF3D00]' : ''}`}
                 >
                   Missions
                 </button>
                 <button
                   onClick={() => sectionRefs[3].current?.scrollIntoView({ behavior: 'smooth' })}
-                  className={`hover:text-[#E60012] transition-colors ${activeSection === 3 ? 'text-[#E60012]' : ''}`}
+                  className={`hover:text-[#FF3D00] transition-colors ${activeSection === 3 ? 'text-[#FF3D00]' : ''}`}
                 >
                   Architecture
                 </button>
                 <button
                   onClick={() => sectionRefs[6].current?.scrollIntoView({ behavior: 'smooth' })}
-                  className={`hover:text-[#E60012] transition-colors ${activeSection === 6 ? 'text-[#E60012]' : ''}`}
+                  className={`hover:text-[#FF3D00] transition-colors ${activeSection === 6 ? 'text-[#FF3D00]' : ''}`}
                 >
                   Contact
                 </button>
@@ -160,10 +160,10 @@ export default function App() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <div className="lg:col-span-7 flex flex-col gap-6 items-start">
                   <div className="flex gap-2">
-                    <span className="mono-tag bg-[#E60012] text-white px-2.5 py-0.5 border-2 border-black inline-block shadow-[3px_3px_6px_#060608]">
+                    <span className="mono-tag bg-[#FF3D00] text-white px-2.5 py-0.5 border-2 border-black inline-block shadow-[3px_3px_6px_#000000]">
                       ENGINE_ACTIVE // ID_0x1
                     </span>
-                    <span className="mono-tag bg-black text-[#FFD600] px-2.5 py-0.5 border-2 border-black inline-block shadow-[3px_3px_6px_#060608]">
+                    <span className="mono-tag bg-black text-[#FFD600] px-2.5 py-0.5 border-2 border-black inline-block shadow-[3px_3px_6px_#000000]">
                       SYS_SECURE // NO_MALWARE
                     </span>
                   </div>
@@ -171,12 +171,12 @@ export default function App() {
                   <h1 className="text-5xl sm:text-7xl md:text-8xl font-sans font-black tracking-tighter text-[#F4F4F6] uppercase leading-none">
                     SHAIK<br />
                     RAMEEZ<br />
-                    <span className="bg-[#E60012] text-white px-4 py-1.5 border-4 border-black inline-block shadow-[8px_8px_16px_#060608] rotate-[-1deg] translate-x-1">
+                    <span className="bg-[#FF3D00] text-white px-4 py-1.5 border-4 border-black inline-block shadow-[8px_8px_16px_#000000] rotate-[-1.5deg] translate-x-1">
                       BASHA
                     </span>
                   </h1>
 
-                  <div className="flex flex-col border-l-4 border-[#E60012] pl-4 leading-snug">
+                  <div className="flex flex-col border-l-4 border-[#FF3D00] pl-4 leading-snug">
                     <span className="text-xs text-gray-400 font-mono tracking-wider font-bold">SOFTWARE ENGINEER</span>
                     <span className="text-sm font-semibold tracking-tight text-gray-200">I BUILD SYSTEMS FOR COMPLEX PROBLEMS.</span>
                   </div>
@@ -188,7 +188,7 @@ export default function App() {
                   <div className="flex flex-wrap gap-4 font-mono text-[10px] mt-2">
                     <button
                       onClick={() => sectionRefs[1].current?.scrollIntoView({ behavior: 'smooth' })}
-                      className="px-6 py-3.5 bg-[#E60012] text-white border-3 border-black font-black uppercase tracking-wider rounded-none shadow-[5px_5px_10px_#060608] hover:translate-y-[-2px] hover:shadow-[7px_7px_12px_#060608] transition-all active:scale-[0.98]"
+                      className="px-6 py-3.5 bg-[#FF3D00] text-white border-3 border-black font-black uppercase tracking-wider rounded-none shadow-[5px_5px_10px_#000000] hover:translate-y-[-2px] hover:shadow-[7px_7px_12px_#000000] transition-all active:scale-[0.98]"
                     >
                       Enter System &darr;
                     </button>
@@ -196,27 +196,29 @@ export default function App() {
                       href="https://github.com/Basharameez"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-6 py-3.5 bg-[#141417] text-[#F4F4F6] border-3 border-black font-black uppercase tracking-wider rounded-none shadow-[5px_5px_10px_#060608] hover:bg-black hover:text-[#E60012] transition-all flex items-center gap-2"
+                      className="px-6 py-3.5 bg-[#141418] text-[#F4F4F6] border-3 border-black font-black uppercase tracking-wider rounded-none shadow-[5px_5px_10px_#000000] hover:bg-black hover:text-[#FF3D00] transition-all flex items-center gap-2"
                     >
                       View GitHub <ExternalLink size={12} />
                     </a>
                   </div>
                 </div>
 
-                {/* Styled Professional Portrait composition */}
+                {/* Styled CAD Profile image with dimensions */}
                 <div className="lg:col-span-5 flex justify-center">
-                  <div className="relative w-64 h-80 outline outline-3 outline-offset-8 outline-[#E60012] rotate-[-1deg] shadow-[12px_12px_24px_#060608]">
-                    {/* Layered sheets backdrop */}
-                    <div className="absolute inset-0 border-3 border-black bg-black translate-x-3 translate-y-3" />
+                  <div className="relative border-4 border-double border-white p-2.5 bg-[#141418]/80 shadow-[10px_10px_0px_#FF3D00] rotate-[-1.5deg]">
+                    {/* Dimension Index Label */}
+                    <div className="absolute -top-6 left-0 text-[8px] font-mono text-gray-500 font-bold uppercase tracking-wider">INDEX_X: 240MM</div>
+                    <div className="absolute -left-6 top-1/2 text-[8px] font-mono text-gray-500 font-bold uppercase tracking-wider rotate-[-90deg] origin-left -translate-y-1/2">INDEX_Y: 320MM</div>
+                    
                     <img
-                      src="/avatar.jpg"
+                      src="avatar.jpg"
                       alt="Shaik Rameez Basha"
-                      className="absolute inset-0 w-full h-full object-cover border-3 border-black bg-[#141417] z-10"
+                      className="w-60 h-80 object-cover border-2 border-black bg-[#141418]"
                     />
                     
                     {/* Character Tag Overlay */}
-                    <div className="absolute bottom-4 left-4 z-20 bg-black text-[#FFD600] border-2 border-black px-3 py-1 font-mono text-[9px] font-bold uppercase tracking-wider shadow-[3px_3px_0px_#E60012]">
-                      COHORT: 2026 // B.TECH CSE
+                    <div className="absolute bottom-4 left-4 z-20 bg-black text-[#FFD600] border-2 border-black px-3 py-1 font-mono text-[9px] font-bold uppercase tracking-wider shadow-[3px_3px_0px_#FF3D00]">
+                      COHORT: 2026 // CSE AI
                     </div>
                   </div>
                 </div>
@@ -247,8 +249,8 @@ export default function App() {
                         onClick={() => setSelectedAttribute(idx)}
                         className={`p-4 rounded-none text-left text-xs font-bold border-2 transition-all flex items-center justify-between group ${
                           isSelected
-                            ? 'bg-[#E60012] border-black text-white shadow-[4px_4px_8px_#060608] translate-x-1.5'
-                            : 'bg-[#141417] border-black/40 text-gray-400 hover:text-[#F4F4F6] hover:bg-[#1C1C22] shadow-[4px_4px_8px_#060608]'
+                            ? 'bg-[#FF3D00] border-black text-white shadow-[4px_4px_8px_#000000] translate-x-1.5'
+                            : 'bg-[#141418] border-black/40 text-gray-400 hover:text-[#F4F4F6] hover:bg-[#1C1C22] shadow-[4px_4px_8px_#000000]'
                         }`}
                       >
                         <span className="flex items-center gap-2.5">
@@ -263,9 +265,9 @@ export default function App() {
                   })}
                 </div>
 
-                {/* Right: Soft details console */}
+                {/* Right: double-line vector details panel */}
                 <div className="lg:col-span-7 flex">
-                  <div className="w-full p-6 bg-[#141417] border-3 border-black shadow-[8px_8px_16px_#060608] flex flex-col gap-6 justify-between relative overflow-hidden">
+                  <div className="w-full p-6 vector-border-white flex flex-col gap-6 justify-between relative overflow-hidden">
                     {/* Corners HUD crosshairs */}
                     <div className="absolute top-2 left-2 text-[8px] text-gray-600 font-mono">[ + ]</div>
                     <div className="absolute top-2 right-2 text-[8px] text-gray-600 font-mono">[ + ]</div>
@@ -273,7 +275,7 @@ export default function App() {
                     <div className="absolute bottom-2 right-2 text-[8px] text-gray-600 font-mono">[ + ]</div>
 
                     <div className="flex flex-col gap-4">
-                      <span className="text-[9px] text-[#E60012] font-black uppercase tracking-wider block font-mono">
+                      <span className="text-[9px] text-[#FF3D00] font-black uppercase tracking-wider block font-mono">
                         TACTICAL PARAMETER DETAILS // ATTRIBUTE_{selectedAttribute}
                       </span>
                       
@@ -281,12 +283,12 @@ export default function App() {
                         {attributes[selectedAttribute].name}
                       </h3>
                       
-                      <div className="neumorphic-sunken-dark p-4 rounded-none text-xs leading-relaxed text-gray-400 font-medium border-l-4 border-[#FFD600]">
+                      <div className="bg-[#0E0E12] p-4 border-l-4 border-[#FFD600] text-xs leading-relaxed text-gray-400 font-medium">
                         {attributes[selectedAttribute].short}
                       </div>
                     </div>
 
-                    <div className="flex flex-col gap-4 border-t border-black pt-4">
+                    <div className="flex flex-col gap-4 border-t border-white/5 pt-4">
                       <div>
                         <span className="text-[9px] text-gray-500 block uppercase font-mono mb-2">Connected systems:</span>
                         <div className="flex flex-wrap gap-2">
@@ -328,15 +330,15 @@ export default function App() {
               </div>
 
               {/* Selector Tabs */}
-              <div className="flex flex-wrap gap-2 border-b border-black pb-4 mb-8">
+              <div className="flex flex-wrap gap-2 border-b border-white/10 pb-4 mb-8">
                 {['CodeOrigin', 'RotorDyn', 'Web Compiler', 'Info Portal', 'INTEL_3'].map((n, i) => (
                   <button
                     key={i}
                     onClick={() => setActiveMission(i)}
                     className={`px-4 py-2 border-2 border-black text-[10px] font-mono font-bold tracking-wider uppercase transition-all ${
                       activeMission === i
-                        ? 'bg-[#E60012] text-white shadow-[3px_3px_6px_#060608]'
-                        : 'bg-[#141417] text-gray-400 hover:text-[#F4F4F6] shadow-[3px_3px_6px_#060608]'
+                        ? 'bg-[#FF3D00] text-white shadow-[3px_3px_6px_#000000]'
+                        : 'bg-[#141418] text-gray-400 hover:text-[#F4F4F6] shadow-[3px_3px_6px_#000000]'
                     }`}
                   >
                     M-0{i+1} // {n}
@@ -349,14 +351,14 @@ export default function App() {
                 
                 {/* Visual Widgets Console */}
                 <div className="lg:col-span-6 flex justify-center">
-                  <div className="w-full max-w-md p-6 bg-[#141417] border-3 border-black shadow-[8px_8px_16px_#060608] relative">
+                  <div className="w-full max-w-md p-6 vector-border-orange relative">
                     <div className="absolute top-2 left-2 text-[8px] text-gray-600 font-mono">[ + ]</div>
                     <div className="absolute top-2 right-2 text-[8px] text-gray-600 font-mono">[ + ]</div>
                     <div className="absolute bottom-2 left-2 text-[8px] text-gray-600 font-mono">[ + ]</div>
                     <div className="absolute bottom-2 right-2 text-[8px] text-gray-600 font-mono">[ + ]</div>
 
                     <div className="unslanted-content">
-                      <span className="text-[9px] text-[#E60012] font-black uppercase tracking-wider block border-b-2 border-black pb-2 font-mono">
+                      <span className="text-[9px] text-[#FF3D00] font-black uppercase tracking-wider block border-b-2 border-black pb-2 font-mono">
                         MISSION TELEMETRY SIMULATOR
                       </span>
                       {activeMission === 0 && <CodeOriginWidget />}
@@ -373,8 +375,8 @@ export default function App() {
                   {activeMission === 0 && (
                     <>
                       <div className="flex gap-2">
-                        <span className="mono-tag bg-[#E60012] text-white px-2 py-0.5 border border-black">DEVTOOLS</span>
-                        <a href="https://github.com/Basharameez/codeorigin" target="_blank" rel="noopener noreferrer" className="p-1 text-gray-400 hover:text-[#E60012]">
+                        <span className="mono-tag bg-[#FF3D00] text-white px-2 py-0.5 border border-black">DEVTOOLS</span>
+                        <a href="https://github.com/Basharameez/codeorigin" target="_blank" rel="noopener noreferrer" className="p-1 text-gray-400 hover:text-[#FF3D00]">
                           <ExternalLink size={14} />
                         </a>
                       </div>
@@ -385,7 +387,7 @@ export default function App() {
                         A backend static analyzer designed to evaluate repositories across architecture, license compliance, code coupling, and security sectors without execution dependencies.
                       </p>
                       
-                      <div className="neumorphic-sunken-dark p-4 rounded-none text-xs leading-relaxed text-gray-400">
+                      <div className="bg-[#0E0E12] p-4 text-xs leading-relaxed text-gray-400 border-l-2 border-[#FF3D00]">
                         <strong>Engineering decision:</strong> Traversed code files using standard Python abstract syntax trees (`ast.NodeVisitor`) to inspect structural blocks directly. This guarantees preventing comment-nesting escape vectors and false regex matches.
                       </div>
 
@@ -400,7 +402,7 @@ export default function App() {
                   {activeMission === 1 && (
                     <>
                       <div className="flex gap-2">
-                        <span className="mono-tag bg-[#E60012] text-white px-2 py-0.5 border border-black">TELEMETRY</span>
+                        <span className="mono-tag bg-[#FF3D00] text-white px-2 py-0.5 border border-black">TELEMETRY</span>
                       </div>
                       <h3 className="text-3xl font-black text-[#F4F4F6] uppercase tracking-tight">
                         ROTORDYN // SIGNAL DIAGNOSTICS
@@ -409,7 +411,7 @@ export default function App() {
                         Sanitized conceptual telemetry dashboard designed to plot bearing diagnostics telemetry and high-frequency orbit waveforms.
                       </p>
 
-                      <div className="neumorphic-sunken-dark p-4 rounded-none text-xs leading-relaxed text-red-400 font-bold border-l-4 border-[#E60012]">
+                      <div className="bg-[#0E0E12] p-4 text-xs leading-relaxed text-red-400 font-bold border-l-4 border-[#FF3D00]">
                         CONFIDENTIALITY DISCLAIMER: This is a conceptual telemetry display simulation demonstrating waveform loading capabilities, built using safe and sanitized signals. No proprietary modules or customer assets are exposed.
                       </div>
 
@@ -424,8 +426,8 @@ export default function App() {
                   {activeMission === 2 && (
                     <>
                       <div className="flex gap-2">
-                        <span className="mono-tag bg-[#E60012] text-white px-2 py-0.5 border border-black">RUNTIMES</span>
-                        <a href="https://github.com/Basharameez/python_web_compiler" target="_blank" rel="noopener noreferrer" className="p-1 text-gray-400 hover:text-[#E60012]">
+                        <span className="mono-tag bg-[#FF3D00] text-white px-2 py-0.5 border border-black">RUNTIMES</span>
+                        <a href="https://github.com/Basharameez/python_web_compiler" target="_blank" rel="noopener noreferrer" className="p-1 text-gray-400 hover:text-[#FF3D00]">
                           <ExternalLink size={14} />
                         </a>
                       </div>
@@ -436,7 +438,7 @@ export default function App() {
                         A web runtime console that executes Python payloads and captures standard stdout/stderr streams to render matplotlib visuals in the browser.
                       </p>
 
-                      <div className="neumorphic-sunken-dark p-4 rounded-none text-xs leading-relaxed text-red-500 font-bold border-l-4 border-[#E60012]">
+                      <div className="bg-[#0E0E12] p-4 text-xs leading-relaxed text-red-500 font-bold border-l-4 border-[#FF3D00]">
                         SECURITY WARNING: This platform operates using local `exec()` evaluations in a thread context. It is designed only for local sandbox testing and contains no kernel-level virtualization blocks.
                       </div>
 
@@ -451,7 +453,7 @@ export default function App() {
                   {activeMission === 3 && (
                     <>
                       <div className="flex gap-2">
-                        <span className="mono-tag bg-[#E60012] text-white px-2 py-0.5 border border-black">DATA SYSTEMS</span>
+                        <span className="mono-tag bg-[#FF3D00] text-white px-2 py-0.5 border border-black">DATA SYSTEMS</span>
                       </div>
                       <h3 className="text-3xl font-black text-[#F4F4F6] uppercase tracking-tight">
                         STUDENT INFO PORTAL
@@ -460,7 +462,7 @@ export default function App() {
                         A student database processing system containing data ingestion tools to parse spreadsheets, index records, and run custom queries.
                       </p>
 
-                      <div className="neumorphic-sunken-dark p-4 rounded-none text-xs leading-relaxed text-gray-400">
+                      <div className="bg-[#0E0E12] p-4 text-xs leading-relaxed text-gray-400 border-l-2 border-[#FF3D00]">
                         <strong>Implemented logic:</strong> Loaded records inside structured relational SQL schemas, implementing multi-column sorting to optimize lookup speeds.
                       </div>
 
@@ -475,7 +477,7 @@ export default function App() {
                   {activeMission === 4 && (
                     <>
                       <div className="flex gap-2">
-                        <span className="mono-tag bg-[#E60012] text-white px-2 py-0.5 border border-black">PROTOTYPES</span>
+                        <span className="mono-tag bg-[#FF3D00] text-white px-2 py-0.5 border border-black">PROTOTYPES</span>
                       </div>
                       <h3 className="text-3xl font-black text-[#F4F4F6] uppercase tracking-tight">
                         INTEL_3 DATA LAB
@@ -518,7 +520,7 @@ export default function App() {
                   
                   <div className="flex flex-col gap-3 font-mono text-xs font-bold text-gray-400">
                     <div className="flex gap-2.5 items-center">
-                      <span className="w-2.5 h-2.5 bg-[#E60012] border border-black" />
+                      <span className="w-2.5 h-2.5 bg-[#FF3D00] border border-black" />
                       <span>CodeOrigin Auditor AST</span>
                     </div>
                     <div className="flex gap-2.5 items-center">
@@ -532,10 +534,10 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Right Column: Interactive SVG Map inside neumorphic raised container */}
+                {/* Right Column: Interactive SVG Map inside vector-border panel */}
                 <div className="lg:col-span-7 flex justify-center">
-                  <div className="w-full max-w-lg p-6 bg-[#141417] border-3 border-black shadow-[8px_8px_16px_#060608]">
-                    <span className="text-[9px] text-[#E60012] font-black uppercase tracking-wider block border-b-2 border-black pb-2 font-mono mb-4">
+                  <div className="w-full max-w-lg p-6 vector-border-white">
+                    <span className="text-[9px] text-[#FF3D00] font-black uppercase tracking-wider block border-b-2 border-black pb-2 font-mono mb-4">
                       CONCEPTUAL INTERFLOW PIPELINE
                     </span>
                     <ArchitectureWidget />
@@ -555,7 +557,7 @@ export default function App() {
                   
                   <h2 className="text-3xl sm:text-5xl font-sans font-black tracking-tight text-[#F4F4F6] uppercase leading-none">
                     EXPLAINABLE AI<br />
-                    <span className="text-[#E60012]">RESEARCH</span>
+                    <span className="text-[#FF3D00]">RESEARCH</span>
                   </h2>
 
                   <div className="flex gap-2 items-center bg-black border border-black text-[#FFD600] px-3 py-1 font-mono text-[9px] font-bold tracking-wider uppercase">
@@ -566,21 +568,21 @@ export default function App() {
                     Demystifying neural activations by mapping convolutional features weights pathways to explain outputs dynamically.
                   </p>
 
-                  <div className="neumorphic-sunken-dark p-4 rounded-none text-xs leading-relaxed text-gray-400">
+                  <div className="bg-[#0E0E12] p-4 text-xs leading-relaxed text-gray-400 border-l-2 border-[#FF3D00]">
                     <strong>Technical Contribution:</strong> Built hooks that capture gradient activation parameters inside active network nodes, exporting attraction tensors that show exactly why a model made specific prediction decisions.
                   </div>
                 </div>
 
                 {/* Interactive XAI neural trace widget */}
                 <div className="lg:col-span-5 flex justify-center">
-                  <div className="w-full max-w-md p-6 bg-[#141417] border-3 border-black shadow-[8px_8px_16px_#060608] relative">
+                  <div className="w-full max-w-md p-6 vector-border-orange relative">
                     <div className="absolute top-2 left-2 text-[8px] text-gray-600 font-mono">[ + ]</div>
                     <div className="absolute top-2 right-2 text-[8px] text-gray-600 font-mono">[ + ]</div>
                     <div className="absolute bottom-2 left-2 text-[8px] text-gray-600 font-mono">[ + ]</div>
                     <div className="absolute bottom-2 right-2 text-[8px] text-gray-600 font-mono">[ + ]</div>
 
                     <div className="unslanted-content">
-                      <span className="text-[9px] text-[#E60012] uppercase tracking-wider block border-b-2 border-black pb-2 font-mono">
+                      <span className="text-[9px] text-[#FF3D00] uppercase tracking-wider block border-b-2 border-black pb-2 font-mono">
                         NEURAL TRACE VISUALIZER
                       </span>
                       <XaiWidget />
@@ -606,14 +608,14 @@ export default function App() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
                 {/* 1. AfterQuery */}
                 <div className="lg:col-span-6 flex">
-                  <div className="w-full p-6 bg-[#141417] border-3 border-black shadow-[8px_8px_16px_#060608] flex flex-col justify-between rounded-none relative">
+                  <div className="w-full p-6 vector-border-white flex flex-col justify-between relative">
                     {/* Corner decorators */}
                     <div className="absolute top-2 left-2 text-[8px] text-gray-600 font-mono">[ + ]</div>
                     <div className="absolute top-2 right-2 text-[8px] text-gray-600 font-mono">[ + ]</div>
 
                     <div className="flex flex-col gap-3">
-                      <div className="flex items-center justify-between border-b border-black pb-3">
-                        <span className="text-xs font-mono font-bold text-[#E60012]">ROLE_01 // SOFTWARE ENGINEER</span>
+                      <div className="flex items-center justify-between border-b border-white/5 pb-3">
+                        <span className="text-xs font-mono font-bold text-[#FF3D00]">ROLE_01 // SOFTWARE ENGINEER</span>
                         <span className="text-[9px] bg-black text-[#FFD600] px-2 py-0.5 font-mono font-bold">2024 - PRESENT</span>
                       </div>
                       
@@ -623,7 +625,7 @@ export default function App() {
                       </p>
                     </div>
 
-                    <div className="border-t border-black pt-4 mt-6 text-[9px] text-gray-500 font-mono uppercase font-bold">
+                    <div className="border-t border-white/5 pt-4 mt-6 text-[9px] text-gray-500 font-mono uppercase font-bold">
                       SYSTEMS: FastAPI &bull; React &bull; AST Audits &bull; SQL DBs
                     </div>
                   </div>
@@ -631,13 +633,13 @@ export default function App() {
 
                 {/* 2. B.Tech Credentials */}
                 <div className="lg:col-span-6 flex">
-                  <div className="w-full p-6 bg-[#141417] border-3 border-black shadow-[8px_8px_16px_#060608] flex flex-col justify-between rounded-none relative">
+                  <div className="w-full p-6 vector-border-white flex flex-col justify-between relative">
                     <div className="absolute top-2 left-2 text-[8px] text-gray-600 font-mono">[ + ]</div>
                     <div className="absolute top-2 right-2 text-[8px] text-gray-600 font-mono">[ + ]</div>
 
                     <div className="flex flex-col gap-3">
-                      <div className="flex items-center justify-between border-b border-black pb-3">
-                        <span className="text-xs font-mono font-bold text-[#E60012]">ROLE_02 // B.TECH COHORT</span>
+                      <div className="flex items-center justify-between border-b border-white/5 pb-3">
+                        <span className="text-xs font-mono font-bold text-[#FF3D00]">ROLE_02 // B.TECH COHORT</span>
                         <span className="text-[9px] bg-black text-[#FFD600] px-2 py-0.5 font-mono font-bold">2022 - 2026</span>
                       </div>
                       
@@ -650,7 +652,7 @@ export default function App() {
                       </p>
                     </div>
 
-                    <div className="border-t border-black pt-4 mt-6 text-[9px] text-[#FFD600] font-mono uppercase font-bold">
+                    <div className="border-t border-white/5 pt-4 mt-6 text-[9px] text-[#FFD600] font-mono uppercase font-bold">
                       ACADEMIC PERFORMANCE SCORE: CGPA 7.79 / 10
                     </div>
                   </div>
@@ -674,13 +676,13 @@ export default function App() {
               </div>
 
               {/* Minimalist contact links bar */}
-              <div className="border-t border-black pt-12 flex flex-col sm:flex-row justify-between items-center gap-6 font-mono text-xs select-none">
+              <div className="border-t border-white/10 pt-12 flex flex-col sm:flex-row justify-between items-center gap-6 font-mono text-xs select-none">
                 <div className="flex gap-6 items-center font-bold">
                   <a
                     href="https://github.com/Basharameez"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#F4F4F6] hover:text-[#E60012] transition-colors"
+                    className="text-[#F4F4F6] hover:text-[#FF3D00] transition-colors"
                   >
                     GitHub Registry
                   </a>
@@ -688,7 +690,7 @@ export default function App() {
                     href="https://linkedin.com/in/shaik-rameez-basha"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#F4F4F6] hover:text-[#E60012] transition-colors"
+                    className="text-[#F4F4F6] hover:text-[#FF3D00] transition-colors"
                   >
                     LinkedIn Node
                   </a>
@@ -699,13 +701,13 @@ export default function App() {
                   <div className="flex gap-2">
                     <a
                       href="mailto:shaikbashah20@gmail.com"
-                      className="px-4 py-2 border-2 border-black hover:bg-[#E60012] hover:text-white font-black bg-[#FFD600] text-black rounded-none shadow-[4px_4px_8px_#060608] transition-all"
+                      className="px-4 py-2 border-2 border-black hover:bg-[#FF3D00] hover:text-white font-black bg-[#FFD600] text-black rounded-none shadow-[4px_4px_8px_#000000] transition-all"
                     >
                       Signal &rarr;
                     </a>
                     <button
                       onClick={copyEmail}
-                      className="p-2.5 border-2 border-black hover:bg-black hover:text-[#E60012] bg-[#141417] text-white rounded-none shadow-[4px_4px_8px_#060608] transition-all active:scale-[0.96]"
+                      className="p-2.5 border-2 border-black hover:bg-black hover:text-[#FF3D00] bg-[#141418] text-white rounded-none shadow-[4px_4px_8px_#000000] transition-all active:scale-[0.96]"
                     >
                       {copied ? <Check size={14} className="text-green-500 font-bold" /> : <Copy size={14} />}
                     </button>
@@ -717,7 +719,7 @@ export default function App() {
           </main>
 
           {/* Cinematic subtle footer bar */}
-          <footer className="w-full border-t border-black py-8 text-center text-[10px] font-mono text-gray-500 uppercase tracking-widest bg-[#0C0C0E] relative z-10 select-none font-bold">
+          <footer className="w-full border-t border-white/5 py-8 text-center text-[10px] font-mono text-gray-500 uppercase tracking-widest bg-[#08080A] relative z-10 select-none font-bold">
             <span>&copy; {new Date().getFullYear()} Shaik Rameez Basha &bull; Systems Active</span>
           </footer>
         </div>
@@ -753,7 +755,7 @@ const CodeOriginWidget = () => {
 
   return (
     <div className="flex flex-col gap-4 mt-3">
-      {/* Dynamic SVG tree visualization inside a neumorphic inset frame */}
+      {/* Dynamic SVG tree visualization inside a blueprint inset frame */}
       <div className="w-[200px] h-[150px] bg-black mx-auto relative border border-black neumorphic-sunken-dark">
         <svg className="w-full h-full" viewBox="0 0 200 150">
           {/* Branch Lines */}
@@ -778,7 +780,7 @@ const CodeOriginWidget = () => {
                   cx={n.cx}
                   cy={n.cy}
                   r="12"
-                  fill={isActive ? '#E60012' : '#141417'}
+                  fill={isActive ? '#FF3D00' : '#141418'}
                   stroke={isActive ? '#FFD600' : '#000000'}
                   strokeWidth="2"
                   className="transition-all duration-300"
@@ -811,7 +813,7 @@ const CodeOriginWidget = () => {
               className={`p-3 rounded-none text-left text-xs font-bold border-2 transition-all ${
                 isActive
                   ? 'neumorphic-sunken-dark text-[#FFD600] border-black font-black'
-                  : 'bg-[#141417] border-black text-gray-400 hover:text-white shadow-[3px_3px_6px_#060608]'
+                  : 'bg-[#141418] border-black text-gray-400 hover:text-white shadow-[3px_3px_6px_#000000]'
               }`}
             >
               <span>{idx + 1}. {s.title}</span>
@@ -822,7 +824,7 @@ const CodeOriginWidget = () => {
 
       {/* Metadata telemetry report box inside deep sunken overlay */}
       <div className="p-3 rounded-none text-[10px] text-gray-400 leading-relaxed flex flex-col gap-1 neumorphic-sunken-dark font-bold">
-        <div><strong>Active Node:</strong> <span className="text-[#E60012] font-black font-mono">{steps[activeStep].type}</span></div>
+        <div><strong>Active Node:</strong> <span className="text-[#FF3D00] font-black font-mono">{steps[activeStep].type}</span></div>
         <div><strong>Line Number:</strong> <span className="font-mono">{steps[activeStep].lineno}</span></div>
         <div><strong>Telemetry:</strong> {steps[activeStep].detail}</div>
       </div>
@@ -855,14 +857,14 @@ const RotorDynWidget = () => {
           {/* Diagnostic coordinate ticks */}
           <line x1="0" y1="90" x2="180" y2="90" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
           <line x1="90" y1="0" x2="90" y2="180" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-          <line x1="90" y1="40" x2="95" y2="40" stroke="#E60012" strokeWidth="1.5" />
-          <line x1="90" y1="140" x2="95" y2="140" stroke="#E60012" strokeWidth="1.5" />
-          <line x1="40" y1="90" x2="40" y2="95" stroke="#E60012" strokeWidth="1.5" />
-          <line x1="140" y1="90" x2="140" y2="95" stroke="#E60012" strokeWidth="1.5" />
+          <line x1="90" y1="40" x2="95" y2="40" stroke="#FF3D00" strokeWidth="1.5" />
+          <line x1="90" y1="140" x2="95" y2="140" stroke="#FF3D00" strokeWidth="1.5" />
+          <line x1="40" y1="90" x2="40" y2="95" stroke="#FF3D00" strokeWidth="1.5" />
+          <line x1="140" y1="90" x2="140" y2="95" stroke="#FF3D00" strokeWidth="1.5" />
           
           <circle cx="90" cy="90" r="25" stroke="rgba(255,255,255,0.04)" fill="none" strokeWidth="1" strokeDasharray="3,3" />
           <circle cx="90" cy="90" r="50" stroke="rgba(255,255,255,0.04)" fill="none" strokeWidth="1" strokeDasharray="3,3" />
-          <polyline points={points.map(p => p.split(',').map(n => Number(n)*0.9).join(',')).join(' ')} fill="none" stroke="#E60012" strokeWidth="2.5" />
+          <polyline points={points.map(p => p.split(',').map(n => Number(n)*0.9).join(',')).join(' ')} fill="none" stroke="#FF3D00" strokeWidth="2.5" />
         </svg>
         <span className="absolute bottom-2 left-2 text-[8px] text-gray-500 font-black tracking-wider font-mono">SPECTRUM ORBIT TRACK</span>
       </div>
@@ -872,7 +874,7 @@ const RotorDynWidget = () => {
         <div><strong>Speed:</strong> 3000 RPM</div>
         <div><strong>Radial Amp:</strong> <span className="bg-[#FFD600] text-black px-1 border border-black">{amp} &mu;m</span></div>
         <div><strong>Harmonic:</strong> 1x Vector</div>
-        <div><strong>Status:</strong> <span className="text-[#E60012]">Nominal</span></div>
+        <div><strong>Status:</strong> <span className="text-[#FF3D00]">Nominal</span></div>
       </div>
 
       <div className="flex flex-col gap-2 text-xs font-bold text-gray-400">
@@ -961,7 +963,7 @@ const CompilerWidget = () => {
       <button
         onClick={runCodeSimulation}
         disabled={running}
-        className="w-full py-2.5 bg-[#E60012] text-white border-2 border-black text-xs font-black uppercase rounded-none shadow-[4px_4px_8px_#060608] hover:bg-red-700 transition-all active:scale-[0.98]"
+        className="w-full py-2.5 bg-[#FF3D00] text-white border-2 border-black text-xs font-black uppercase rounded-none shadow-[4px_4px_8px_#000000] hover:bg-red-700 transition-all active:scale-[0.98]"
       >
         {running ? 'Executing Code...' : 'Simulate Web Compiler'}
       </button>
@@ -969,7 +971,7 @@ const CompilerWidget = () => {
       <div className="h-40 p-3 font-mono text-[10px] text-gray-300 overflow-y-auto flex flex-col gap-1.5 leading-relaxed neumorphic-sunken-dark font-semibold">
         {outputs.map((line, idx) => (
           <div key={idx} className="flex gap-1.5 items-start">
-            <span className="text-[#E60012] font-black">&gt;</span>
+            <span className="text-[#FF3D00] font-black">&gt;</span>
             <span>{line}</span>
           </div>
         ))}
@@ -996,7 +998,7 @@ const StudentPortalWidget = () => {
         </div>
         {records.map((r, i) => (
           <div key={i} className="flex justify-between items-center text-[10px]">
-            <span className="text-[#E60012]">{r.id}</span>
+            <span className="text-[#FF3D00]">{r.id}</span>
             <span className="text-[#F4F4F6]">{r.name}</span>
             <span className="bg-black text-[#FFD600] px-1 border border-black">{r.cgp}</span>
           </div>
@@ -1018,7 +1020,7 @@ const Intel3Widget = () => {
     <div className="flex flex-col gap-4 mt-3 font-mono text-xs">
       <button
         onClick={randomizePoints}
-        className="py-2 px-4 bg-[#141417] hover:bg-black text-[#FFD600] border-2 border-black font-bold uppercase shadow-[3px_3px_6px_#060608]"
+        className="py-2 px-4 bg-[#141418] hover:bg-black text-[#FFD600] border-2 border-black font-bold uppercase shadow-[3px_3px_6px_#000000]"
       >
         Update Simulation Data
       </button>
@@ -1026,7 +1028,7 @@ const Intel3Widget = () => {
         {dataPoints.map((val, idx) => (
           <div key={idx} className="flex flex-col items-center gap-1.5 w-8">
             <div
-              className="w-full bg-[#E60012] border border-black transition-all duration-300"
+              className="w-full bg-[#FF3D00] border border-black transition-all duration-300"
               style={{ height: `${val}px` }}
             />
             <span className="text-[8px] text-gray-500">{val}</span>
@@ -1054,19 +1056,19 @@ const XaiWidget = () => {
       <div className="w-[200px] h-[140px] relative neumorphic-sunken-dark border border-black">
         <svg className="w-full h-full" viewBox="0 0 200 140">
           {/* Layer 1 Nodes */}
-          <circle cx="30" cy="25" r="7" fill={hoveredNode === 0 ? '#E60012' : '#141417'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(0)} onMouseLeave={() => setHoveredNode(null)} />
-          <circle cx="30" cy="55" r="7" fill={hoveredNode === 1 ? '#E60012' : '#141417'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(1)} onMouseLeave={() => setHoveredNode(null)} />
-          <circle cx="30" cy="85" r="7" fill={hoveredNode === 2 ? '#E60012' : '#141417'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(2)} onMouseLeave={() => setHoveredNode(null)} />
-          <circle cx="30" cy="115" r="7" fill={hoveredNode === 3 ? '#E60012' : '#141417'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(3)} onMouseLeave={() => setHoveredNode(null)} />
+          <circle cx="30" cy="25" r="7" fill={hoveredNode === 0 ? '#FF3D00' : '#141418'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(0)} onMouseLeave={() => setHoveredNode(null)} />
+          <circle cx="30" cy="55" r="7" fill={hoveredNode === 1 ? '#FF3D00' : '#141418'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(1)} onMouseLeave={() => setHoveredNode(null)} />
+          <circle cx="30" cy="85" r="7" fill={hoveredNode === 2 ? '#FF3D00' : '#141418'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(2)} onMouseLeave={() => setHoveredNode(null)} />
+          <circle cx="30" cy="115" r="7" fill={hoveredNode === 3 ? '#FF3D00' : '#141418'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(3)} onMouseLeave={() => setHoveredNode(null)} />
 
           {/* Layer 2 Nodes (Hidden) */}
-          <circle cx="100" cy="40" r="7" fill="#141417" stroke="#000000" strokeWidth="2" />
-          <circle cx="100" cy="70" r="7" fill="#141417" stroke="#000000" strokeWidth="2" />
-          <circle cx="100" cy="100" r="7" fill="#141417" stroke="#000000" strokeWidth="2" />
+          <circle cx="100" cy="40" r="7" fill="#141418" stroke="#000000" strokeWidth="2" />
+          <circle cx="100" cy="70" r="7" fill="#141418" stroke="#000000" strokeWidth="2" />
+          <circle cx="100" cy="100" r="7" fill="#141418" stroke="#000000" strokeWidth="2" />
 
           {/* Layer 3 Nodes (Output) */}
-          <circle cx="170" cy="55" r="7" fill="#141417" stroke="#000000" strokeWidth="2" />
-          <circle cx="170" cy="85" r="7" fill="#141417" stroke="#000000" strokeWidth="2" />
+          <circle cx="170" cy="55" r="7" fill="#141418" stroke="#000000" strokeWidth="2" />
+          <circle cx="170" cy="85" r="7" fill="#141418" stroke="#000000" strokeWidth="2" />
 
           {hoveredNode !== null && (
             <g>
@@ -1074,8 +1076,8 @@ const XaiWidget = () => {
               <line x1="30" y1={25 + hoveredNode * 30} x2="100" y2="70" stroke="#FFD600" strokeWidth="1.5" strokeDasharray="3,3" />
               <line x1="30" y1={25 + hoveredNode * 30} x2="100" y2="100" stroke="#FFD600" strokeWidth="1.5" strokeDasharray="3,3" />
               
-              <line x1="100" y1="70" x2="170" y2="55" stroke="#E60012" strokeWidth="1" />
-              <line x1="100" y1="70" x2="170" y2="85" stroke="#E60012" strokeWidth="1" />
+              <line x1="100" y1="70" x2="170" y2="55" stroke="#FF3D00" strokeWidth="1" />
+              <line x1="100" y1="70" x2="170" y2="85" stroke="#FF3D00" strokeWidth="1" />
             </g>
           )}
         </svg>
@@ -1084,7 +1086,7 @@ const XaiWidget = () => {
       <div className="p-3 flex flex-col gap-2 min-h-[90px] text-[10px] neumorphic-sunken-dark font-bold text-gray-400">
         {hoveredNode !== null ? (
           <>
-            <span className="text-[8px] text-[#E60012] font-black uppercase tracking-wider">Estimated Attention Tensors</span>
+            <span className="text-[8px] text-[#FF3D00] font-black uppercase tracking-wider">Estimated Attention Tensors</span>
             <div className="flex flex-col gap-0.5 text-[#F4F4F6] font-bold">
               <div>Source Unit: {activations[hoveredNode].name}</div>
               <div>Output Channel 1: {activations[hoveredNode].weights[0]}</div>
@@ -1119,10 +1121,10 @@ const ArchitectureWidget = () => {
       <div className="w-full h-44 bg-black relative neumorphic-sunken-dark border border-black">
         <svg className="w-full h-full" viewBox="0 0 250 180">
           {/* Connector Paths */}
-          <path d="M 70 30 L 70 80" stroke="#E60012" strokeWidth="2" strokeDasharray="3,3" />
+          <path d="M 70 30 L 70 80" stroke="#FF3D00" strokeWidth="2" strokeDasharray="3,3" />
           <path d="M 70 80 L 180 80" stroke="#FFD600" strokeWidth="2" />
           <path d="M 180 80 L 180 140" stroke="#FFFFFF" strokeWidth="1.5" />
-          <path d="M 180 140 L 70 140" stroke="#E60012" strokeWidth="2" strokeDasharray="3,3" />
+          <path d="M 180 140 L 70 140" stroke="#FF3D00" strokeWidth="2" strokeDasharray="3,3" />
 
           {/* Interactive Node Boxes */}
           {nodes.map((node) => {
@@ -1139,7 +1141,7 @@ const ArchitectureWidget = () => {
                   y={node.cy - 12}
                   width="90"
                   height="24"
-                  fill={isHovered ? '#E60012' : '#141417'}
+                  fill={isHovered ? '#FF3D00' : '#141418'}
                   stroke={isHovered ? '#FFD600' : '#000000'}
                   strokeWidth="2"
                   className="transition-colors duration-200"
@@ -1160,7 +1162,7 @@ const ArchitectureWidget = () => {
         </svg>
       </div>
 
-      <div className="p-3 bg-[#141417] border border-black rounded-none min-h-[60px] text-[10px] leading-relaxed shadow-[3px_3px_6px_#060608] text-gray-400 font-bold border-l-4 border-[#FFD600]">
+      <div className="p-3 bg-[#141418] border border-black rounded-none min-h-[60px] text-[10px] leading-relaxed shadow-[3px_3px_6px_#000000] text-gray-400 font-bold border-l-4 border-[#FFD600]">
         {activeNode ? (
           <div>
             <strong className="text-[#F4F4F6] block mb-1 uppercase text-[9px]">{activeNode} telemetry:</strong>
