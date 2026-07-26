@@ -74,7 +74,10 @@ export default function App() {
       <header className="w-full border-b-3 border-black bg-white py-6 px-6 relative z-20">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div className="flex flex-col">
-            <span className="text-[10px] font-mono tracking-widest text-[#D31212] font-bold">RELEASE_NODE // SRB-v2026</span>
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#D31212] animate-pulse" />
+              <span className="text-[10px] font-mono tracking-widest text-[#D31212] font-bold">RELEASE_NODE // SRB-v2026</span>
+            </div>
             <h1 className="text-3xl font-black tracking-tighter uppercase leading-none mt-1">
               SHAIK RAMEEZ BASHA
             </h1>
@@ -142,17 +145,19 @@ export default function App() {
           </div>
 
           {/* Styled portrait frame at bottom of navbar */}
-          <div className="hidden lg:block mt-8 relative">
-            <div className="absolute inset-0 bg-[#D31212] border-2.5 border-black translate-x-3 translate-y-3 slanted-tab" />
-            <div className="relative border-2.5 border-black p-2 bg-white slanted-tab">
-              <img
-                src="avatar.jpg"
-                alt="Shaik Rameez Basha"
-                className="w-full h-44 object-cover border border-black unslanted-text"
-              />
-              <div className="mt-2.5 px-1 font-mono text-[9px] text-gray-500 font-bold uppercase tracking-wider unslanted-text flex justify-between items-center">
+          <div className="hidden lg:block mt-8 relative pr-2 pb-2">
+            <div className="absolute inset-0 bg-[#D31212] border-2.5 border-black translate-x-2 translate-y-2 slanted-tab" />
+            <div className="relative border-2.5 border-black bg-white slanted-tab overflow-hidden shadow-[2px_2px_0px_#000000]">
+              <div className="w-full h-44 overflow-hidden relative">
+                <img
+                  src="avatar.jpg"
+                  alt="Shaik Rameez Basha"
+                  className="w-full h-full object-cover scale-110 -translate-x-1"
+                />
+              </div>
+              <div className="border-t-2 border-black bg-[#F4F4F6] p-2 flex justify-between items-center font-mono text-[9px] text-gray-600 font-bold uppercase tracking-wider unslanted-text">
                 <span>COHORT: 2026</span>
-                <span className="bg-black text-[#FFD600] px-1 border border-black">CGPA: 7.79</span>
+                <span className="bg-black text-[#FFD600] px-1.5 py-0.5 border border-black">CGPA: 7.79</span>
               </div>
             </div>
           </div>
@@ -245,7 +250,7 @@ export default function App() {
                     <p className="text-xs text-gray-500 font-bold uppercase">Operational Systems Databases:</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {projects.map((proj, idx) => (
-                        <div key={idx} className="p-4 border-2 border-black bg-white hover:border-[#D31212] transition-colors relative flex flex-col justify-between gap-4">
+                        <div key={idx} className="p-4 border-2.5 border-black bg-white shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#D31212] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all relative flex flex-col justify-between gap-4">
                           <div className="flex flex-col gap-1">
                             <div className="flex justify-between items-start text-[10px] font-mono font-bold">
                               <span className="text-[#D31212]">{proj.id}</span>
@@ -311,21 +316,21 @@ export default function App() {
                       Model-SRB is open for permanent full-time engineering deployments, collaborative projects contracts, or onsite relocation positions. Establish contact below:
                     </p>
                     
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center border-t border-black/10 pt-4">
-                      <div className="flex flex-col gap-1.5 font-mono text-xs font-bold">
-                        <span className="text-gray-400 uppercase text-[9px]">DEFAULT SIGNAL</span>
-                        <span className="text-[#101014]">shaikbashah20@gmail.com</span>
+                    <div className="p-5 border-2.5 border-black bg-[#F4F4F6] flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4 shadow-[4px_4px_0px_#000000] mt-4">
+                      <div className="flex flex-col gap-1 font-mono text-xs font-bold">
+                        <span className="text-gray-400 uppercase text-[9px]">DIRECT COGNITIVE CORRESPONDENCE</span>
+                        <span className="text-[#101014] text-sm tracking-tight select-all">shaikbashah20@gmail.com</span>
                       </div>
-                      <div className="flex gap-2 justify-end">
+                      <div className="flex gap-2.5">
                         <a
                           href="mailto:shaikbashah20@gmail.com"
-                          className="px-4 py-2.5 border-2 border-black bg-[#D31212] text-white hover:bg-black font-black uppercase text-xs tracking-wider transition-all shadow-[3px_3px_0px_#000000] active:translate-y-0.5 active:shadow-[1px_1px_0px_#000000] flex items-center gap-2"
+                          className="px-5 py-3 border-2.5 border-black bg-[#D31212] text-white hover:bg-black font-black uppercase text-xs tracking-wider transition-all shadow-[3px_3px_0px_#000000] active:translate-y-0.5 active:shadow-[1px_1px_0px_#000000] flex items-center gap-2 justify-center"
                         >
                           Email Signal <Mail size={12} />
                         </a>
                         <button
                           onClick={copyEmail}
-                          className="p-2.5 border-2 border-black hover:bg-[#F4F4F6] transition-all bg-white shadow-[3px_3px_0px_#000000] active:translate-y-0.5 active:shadow-[1px_1px_0px_#000000]"
+                          className="p-3 border-2.5 border-black bg-white text-[#101014] hover:bg-[#F4F4F6] transition-all shadow-[3px_3px_0px_#000000] active:translate-y-0.5 active:shadow-[1px_1px_0px_#000000] flex items-center justify-center"
                         >
                           {copied ? <Check size={14} className="text-green-600 font-bold" /> : <Copy size={14} />}
                         </button>
