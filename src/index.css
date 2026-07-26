@@ -59,6 +59,31 @@ body {
   transform: skewY(1.5deg);
 }
 
+/* Slanted Hazard Stripes (Persona 5 x Free Fire Blend) */
+.hazard-stripes-yellow {
+  background: repeating-linear-gradient(
+    -45deg,
+    #FFD600,
+    #FFD600 10px,
+    #000000 10px,
+    #000000 20px
+  );
+  height: 8px;
+  border: 2px solid #000000;
+}
+
+.hazard-stripes-red {
+  background: repeating-linear-gradient(
+    -45deg,
+    #E60012,
+    #E60012 10px,
+    #000000 10px,
+    #000000 20px
+  );
+  height: 8px;
+  border: 2px solid #000000;
+}
+
 /* Persona 5 typography scales */
 .display-title {
   font-family: 'Outfit', sans-serif;

@@ -153,6 +153,26 @@ const ParticlesRenderer = ({ activeSection }: ParticlesRendererProps) => {
 
   const [initialPositions] = useState(() => new Float32Array(targets[0]));
 
+  // Generate dual vertex colors: alternating red and yellow
+  const [colors] = useState(() => {
+    const arr = new Float32Array(count * 3);
+    for (let i = 0; i < count; i++) {
+      const isRed = i % 2 === 0;
+      if (isRed) {
+        // Red: #E60012 -> (0.90, 0.00, 0.07)
+        arr[i * 3] = 0.90;
+        arr[i * 3 + 1] = 0.00;
+        arr[i * 3 + 2] = 0.07;
+      } else {
+        // Yellow: #FFD600 -> (1.00, 0.84, 0.00)
+        arr[i * 3] = 1.00;
+        arr[i * 3 + 1] = 0.84;
+        arr[i * 3 + 2] = 0.00;
+      }
+    }
+    return arr;
+  });
+
   useFrame((state, delta) => {
     if (!pointsRef.current) return;
     const array = pointsRef.current.geometry.attributes.position.array as Float32Array;
@@ -205,13 +225,17 @@ const ParticlesRenderer = ({ activeSection }: ParticlesRendererProps) => {
           attach="attributes-position"
           args={[initialPositions, 3]}
         />
+        <bufferAttribute
+          attach="attributes-color"
+          args={[colors, 3]}
+        />
       </bufferGeometry>
       <pointsMaterial
-        color="#E60012"
+        vertexColors={true}
         size={0.065}
         sizeAttenuation={true}
         transparent={true}
-        opacity={0.65}
+        opacity={0.7}
         blending={THREE.NormalBlending}
       />
     </points>
@@ -293,7 +317,8 @@ const CanvasFallback = ({ activeSection }: ParticlesRendererProps) => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(230, 0, 18, 0.45)';
+        // Alternate red and yellow in 2D fallback
+        ctx.fillStyle = idx % 2 === 0 ? 'rgba(230, 0, 18, 0.55)' : 'rgba(255, 214, 0, 0.7)';
         ctx.fill();
       });
 

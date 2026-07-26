@@ -50,7 +50,7 @@ export default function App() {
   }, [booting]);
 
   return (
-    <div className="min-h-screen bg-[#F4F4F6] text-[#0C0C0E] selection:bg-[#E60012]/30 selection:text-black relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#F4F4F6] text-[#0C0C0E] selection:bg-[#FFD600]/30 selection:text-black relative overflow-x-hidden">
       <AnimatePresence>
         {booting && (
           <BootScreen onComplete={() => setBooting(false)} />
@@ -66,9 +66,9 @@ export default function App() {
           <header className="fixed top-6 left-0 right-0 z-50 px-6 pointer-events-none">
             <nav className="max-w-7xl mx-auto flex items-center justify-between pointer-events-auto select-none">
               <span className="font-mono text-xs font-bold tracking-widest text-[#0C0C0E] hover:text-[#E60012] transition-colors bg-white px-3 py-1.5 border-3 border-black shadow-[3px_3px_0px_#000000]">
-                SRB // <span className="text-[#E60012]">SYSTEMS</span>
+                SRB // <span className="text-[#E60012]">TACTICAL</span>
               </span>
-              <div className="flex gap-4 font-mono text-[9px] tracking-wider text-black bg-white p-2 border-3 border-black shadow-[3px_3px_0px_#E60012] uppercase font-bold">
+              <div className="flex gap-4 font-mono text-[9px] tracking-wider text-black bg-white p-2 border-3 border-black shadow-[3px_3px_0px_#FFD600] uppercase font-bold">
                 <button
                   onClick={() => sectionRefs[0].current?.scrollIntoView({ behavior: 'smooth' })}
                   className={`hover:text-[#E60012] transition-colors ${activeSection === 0 ? 'text-[#E60012]' : ''}`}
@@ -106,33 +106,40 @@ export default function App() {
               className="min-h-screen flex flex-col justify-center max-w-7xl mx-auto px-6 py-24 select-none relative z-10 w-full"
             >
               <div className="max-w-4xl flex flex-col gap-6 items-start">
-                <span className="mono-tag bg-[#E60012] text-white px-2.5 py-0.5 border-2 border-black inline-block shadow-[2px_2px_0px_#000000]">
-                  SYSTEM ENGINE ACTIVE // NODE-0x0
-                </span>
+                <div className="flex gap-2">
+                  <span className="mono-tag bg-[#E60012] text-white px-2.5 py-0.5 border-2 border-black inline-block shadow-[2px_2px_0px_#000000]">
+                    SYSTEM ENGINE ACTIVE
+                  </span>
+                  <span className="mono-tag bg-[#FFD600] text-black px-2.5 py-0.5 border-2 border-black inline-block shadow-[2px_2px_0px_#000000]">
+                    SYS_OK // NODE-0x0
+                  </span>
+                </div>
                 
                 <h1 className="text-4xl sm:text-6xl md:text-8xl font-sans font-black tracking-tighter text-[#0C0C0E] uppercase leading-none">
                   I BUILD SYSTEMS<br />
                   <span className="bg-[#E60012] text-white px-4 py-1.5 border-4 border-black inline-block shadow-[8px_8px_0px_#000000] rotate-[-1deg]">
                     FOR COMPLEX
                   </span><br />
-                  PROBLEMS.
+                  <span className="text-[#FFD600] bg-black px-4 py-1 border-3 border-black inline-block shadow-[5px_5px_0px_#E60012] rotate-[1.5deg] text-3xl sm:text-5xl mt-2 font-mono tracking-widest font-black">
+                    PROBLEMS_
+                  </span>
                 </h1>
                 
                 <div className="flex flex-col sm:flex-row gap-4 sm:items-center mt-4">
-                  <div className="flex flex-col leading-snug border-l-4 border-[#E60012] pl-4">
+                  <div className="flex flex-col leading-snug border-l-4 border-[#FFD600] pl-4">
                     <span className="text-sm font-black text-[#0C0C0E] tracking-tight uppercase">SHAIK RAMEEZ BASHA</span>
                     <span className="text-[11px] text-gray-500 font-mono tracking-wide uppercase font-bold">Software Engineer &bull; Full-Stack &bull; AI/ML &bull; DevTools</span>
                   </div>
                 </div>
 
-                <p className="text-sm sm:text-base text-gray-700 font-sans leading-relaxed max-w-xl mt-2 font-medium">
+                <p className="text-sm sm:text-base text-gray-700 font-sans leading-relaxed max-w-xl mt-2 font-semibold">
                   Focused on core systems development, compiler runtimes, AST compliance auditors, industrial diagnostic telemetry, and explainable neural model pipelines.
                 </p>
                 
                 <div className="flex gap-4 font-mono text-[10px] mt-6">
                   <button
                     onClick={() => sectionRefs[1].current?.scrollIntoView({ behavior: 'smooth' })}
-                    className="px-6 py-3 bg-[#E60012] text-white border-3 border-black font-black uppercase tracking-wider rounded-none shadow-[4px_4px_0px_#000000] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#000000] transition-all active:scale-[0.98]"
+                    className="px-6 py-3 bg-[#E60012] text-white border-3 border-black font-black uppercase tracking-wider rounded-none shadow-[4px_4px_0px_#FFD600] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#000000] transition-all active:scale-[0.98]"
                   >
                     Enter Narrative &darr;
                   </button>
@@ -149,21 +156,24 @@ export default function App() {
                 {/* Credentials / Status Card */}
                 <div className="lg:col-span-5 flex flex-col gap-6">
                   <div className="slanted-panel-white p-6 rounded-none relative">
-                    {/* Corner coordinates */}
-                    <div className="absolute top-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
-                    <div className="absolute top-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
-                    <div className="absolute bottom-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
-                    <div className="absolute bottom-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    {/* Tactical corner reticles */}
+                    <div className="absolute top-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
+                    <div className="absolute top-2 right-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
+                    <div className="absolute bottom-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
+                    <div className="absolute bottom-2 right-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
 
                     <div className="unslanted-content">
-                      <div className="flex items-center justify-between border-b border-black pb-4 text-[10px] text-black font-bold uppercase">
+                      <div className="flex items-center justify-between border-b border-black pb-3 text-[10px] text-black font-bold uppercase">
                         <span className="flex items-center gap-1.5 text-[#E60012] font-black">
                           <ShieldCheck size={14} /> ACTIVE NODE
                         </span>
                         <span>SRB-0x2026</span>
                       </div>
 
-                      <div className="flex gap-4 items-center mt-5">
+                      {/* Hazard stripe banner inside card */}
+                      <div className="hazard-stripes-yellow my-3 rotate-[0.5deg]" />
+
+                      <div className="flex gap-4 items-center mt-3">
                         <img
                           src="/avatar.jpg"
                           alt="Shaik Rameez Basha"
@@ -172,7 +182,7 @@ export default function App() {
                         <div className="flex flex-col gap-1 text-[11px] text-black leading-snug font-bold">
                           <div><strong>IDENTITY:</strong> Shaik Rameez Basha</div>
                           <div><strong>COHORT:</strong> B.Tech CSE (AI) &bull; 2026</div>
-                          <div><strong>CGPA:</strong> 7.79 / 10.00</div>
+                          <div><strong>CGPA:</strong> <span className="bg-[#FFD600] px-1 border border-black">7.79 / 10.00</span></div>
                           <div><strong>LOCATION:</strong> India (Open Reloc)</div>
                         </div>
                       </div>
@@ -256,10 +266,10 @@ export default function App() {
                 {/* Spatial telemetry widget */}
                 <div className="lg:col-span-6 flex justify-center">
                   <div className="w-full max-w-md p-6 slanted-panel-white rounded-none relative">
-                    <div className="absolute top-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
-                    <div className="absolute top-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
-                    <div className="absolute bottom-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
-                    <div className="absolute bottom-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute top-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
+                    <div className="absolute top-2 right-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
+                    <div className="absolute bottom-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
+                    <div className="absolute bottom-2 right-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
 
                     <div className="unslanted-content">
                       <span className="text-[9px] text-[#E60012] uppercase tracking-wider block border-b-2 border-black pb-2 font-bold">AST PARSE FLOW TELEMETRY</span>
@@ -279,10 +289,10 @@ export default function App() {
                 {/* Visual telemetry widget */}
                 <div className="lg:col-span-6 order-2 lg:order-1 flex justify-center">
                   <div className="w-full max-w-md p-6 slanted-panel-white rounded-none relative">
-                    <div className="absolute top-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
-                    <div className="absolute top-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
-                    <div className="absolute bottom-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
-                    <div className="absolute bottom-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute top-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
+                    <div className="absolute top-2 right-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
+                    <div className="absolute bottom-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
+                    <div className="absolute bottom-2 right-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
 
                     <div className="unslanted-content">
                       <span className="text-[9px] text-red-500 uppercase tracking-wider block border-b-2 border-black pb-2 font-bold">
@@ -370,10 +380,10 @@ export default function App() {
                 {/* Spatial telemetry widget */}
                 <div className="lg:col-span-6 flex justify-center">
                   <div className="w-full max-w-md p-6 slanted-panel-white rounded-none relative">
-                    <div className="absolute top-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
-                    <div className="absolute top-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
-                    <div className="absolute bottom-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
-                    <div className="absolute bottom-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute top-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
+                    <div className="absolute top-2 right-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
+                    <div className="absolute bottom-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
+                    <div className="absolute bottom-2 right-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
 
                     <div className="unslanted-content">
                       <span className="text-[9px] text-[#E60012] uppercase tracking-wider block border-b-2 border-black pb-2 font-bold">COMPILATION STAGE TELEMETRY</span>
@@ -418,10 +428,10 @@ export default function App() {
                 {/* Neural connection map widget */}
                 <div className="lg:col-span-6 flex justify-center">
                   <div className="w-full max-w-md p-6 slanted-panel-white rounded-none relative">
-                    <div className="absolute top-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
-                    <div className="absolute top-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
-                    <div className="absolute bottom-2 left-2 text-[8px] text-black/30 font-mono select-none">+</div>
-                    <div className="absolute bottom-2 right-2 text-[8px] text-black/30 font-mono select-none">+</div>
+                    <div className="absolute top-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
+                    <div className="absolute top-2 right-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
+                    <div className="absolute bottom-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
+                    <div className="absolute bottom-2 right-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
 
                     <div className="unslanted-content">
                       <span className="text-[9px] text-[#E60012] uppercase tracking-wider block border-b-2 border-black pb-2 font-bold">NEURAL ATTENTION MATRIX</span>
@@ -473,7 +483,7 @@ export default function App() {
                   <div className="flex gap-2">
                     <a
                       href="mailto:shaikbashah20@gmail.com"
-                      className="px-4 py-2 border-2 border-black hover:bg-[#E60012] hover:text-white font-black bg-white rounded-none shadow-[3px_3px_0px_#000000] transition-all"
+                      className="px-4 py-2 border-2 border-black hover:bg-[#E60012] hover:text-white font-black bg-[#FFD600] text-black rounded-none shadow-[3px_3px_0px_#000000] transition-all"
                     >
                       Signal &rarr;
                     </a>
@@ -540,7 +550,6 @@ const CodeOriginWidget = () => {
 
           {/* Nodes */}
           {nodes.map((n) => {
-            // Determine active highlight based on step
             let isActive = false;
             if (activeStep === 0 && n.id === 1) isActive = true;
             if (activeStep === 1 && (n.id === 2 || n.id === 3)) isActive = true;
@@ -592,7 +601,7 @@ const CodeOriginWidget = () => {
       </div>
 
       {/* Metadata telemetry report box */}
-      <div className="p-3 bg-white border-2 border-black rounded-none text-[10px] text-black leading-relaxed flex flex-col gap-1 shadow-[3px_3px_0px_#000000]">
+      <div className="p-3 bg-white border-2 border-black rounded-none text-[10px] text-black leading-relaxed flex flex-col gap-1 shadow-[3px_3px_0px_#FFD600]">
         <div><strong>Active Node:</strong> <span className="text-[#E60012] font-bold">{steps[activeStep].type}</span></div>
         <div><strong>Line Number:</strong> <span className="font-bold">{steps[activeStep].lineno}</span></div>
         <div><strong>Telemetry:</strong> {steps[activeStep].detail}</div>
@@ -618,6 +627,9 @@ const RotorDynWidget = () => {
 
   return (
     <div className="flex flex-col gap-4 mt-3">
+      {/* Tactical diagonal hazard header on simulator */}
+      <div className="hazard-stripes-yellow h-4 rotate-[-1deg]" />
+
       <div className="w-[180px] h-[180px] border-2 border-black rounded-none bg-white relative mx-auto flex items-center justify-center overflow-hidden shadow-[4px_4px_0px_#000000]">
         <svg className="w-full h-full">
           {/* Diagnostic coordinate ticks */}
@@ -635,12 +647,12 @@ const RotorDynWidget = () => {
         <span className="absolute bottom-2 left-2 text-[8px] text-black font-black tracking-wider">SPECTRUM ORBIT TRACK</span>
       </div>
 
-      {/* Real-time telemetry values */}
-      <div className="grid grid-cols-2 gap-2 text-[9px] uppercase border-y border-black py-2 my-1">
+      {/* Real-time telemetry values with Free Fire accent colors */}
+      <div className="grid grid-cols-2 gap-2 text-[9px] uppercase border-y-2 border-black py-2 my-1 font-bold">
         <div><strong>Speed:</strong> 3000 RPM</div>
-        <div><strong>Radial Amp:</strong> {amp} &mu;m</div>
+        <div><strong>Radial Amp:</strong> <span className="bg-[#FFD600] px-1">{amp} &mu;m</span></div>
         <div><strong>Harmonic:</strong> 1x Vector</div>
-        <div><strong>Status:</strong> Nominal</div>
+        <div><strong>Status:</strong> <span className="text-[#E60012]">Nominal</span></div>
       </div>
 
       <div className="flex flex-col gap-2 text-xs font-bold">
@@ -649,7 +661,7 @@ const RotorDynWidget = () => {
           <input
             type="range" min="1" max="4" step="1"
             value={freq} onChange={(e) => setFreq(Number(e.target.value))}
-            className="w-24 accent-[#E60012]"
+            className="w-24 accent-[#FFD600]"
           />
         </div>
         <div className="flex justify-between items-center text-black">
@@ -657,7 +669,7 @@ const RotorDynWidget = () => {
           <input
             type="range" min="20" max="75"
             value={amp} onChange={(e) => setAmp(Number(e.target.value))}
-            className="w-24 accent-[#E60012]"
+            className="w-24 accent-[#FFD600]"
           />
         </div>
         <div className="flex justify-between items-center text-black">
@@ -665,7 +677,7 @@ const RotorDynWidget = () => {
           <input
             type="range" min="0" max="3" step="0.1"
             value={phase} onChange={(e) => setPhase(Number(e.target.value))}
-            className="w-24 accent-[#E60012]"
+            className="w-24 accent-[#FFD600]"
           />
         </div>
       </div>
@@ -709,7 +721,7 @@ const CompilerWidget = () => {
     <div className="flex flex-col gap-3 mt-3">
       {/* Mock IDE Code Editor container */}
       <div className="border-2 border-black bg-[#0c0c0e] text-white p-3 font-mono text-[9px] leading-relaxed shadow-[3px_3px_0px_#000000]">
-        <div className="flex justify-between items-center border-b border-white/10 pb-1.5 mb-1.5 text-gray-500 uppercase text-[7px] tracking-wider">
+        <div className="flex justify-between items-center border-b border-white/10 pb-1.5 mb-1.5 text-[#FFD600] uppercase text-[7px] tracking-wider font-bold">
           <span>main.py</span>
           <span>python 3.12</span>
         </div>
@@ -719,7 +731,7 @@ const CompilerWidget = () => {
           </div>
           <div className="text-gray-300">
             <span className="text-[#FF1744]">import</span> ast, os<br />
-            <span className="text-[#FF1744]">def</span> <span className="text-[#00F0FF]">audit_repo</span>(path):<br />
+            <span className="text-[#FF1744]">def</span> <span className="text-[#FFD600]">audit_repo</span>(path):<br />
             &nbsp;&nbsp;&nbsp;&nbsp;tree = ast.parse(open(path).read())<br />
             &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#FF1744]">return</span> tree
           </div>
@@ -729,7 +741,7 @@ const CompilerWidget = () => {
       <button
         onClick={runCodeSimulation}
         disabled={running}
-        className="w-full py-2.5 bg-[#E60012] text-white border-2 border-black text-xs font-black uppercase rounded-none shadow-[3px_3px_0px_#000000] hover:bg-red-700 transition-all active:scale-[0.98]"
+        className="w-full py-2.5 bg-[#E60012] text-white border-2 border-black text-xs font-black uppercase rounded-none shadow-[3px_3px_0px_#FFD600] hover:bg-red-700 transition-all active:scale-[0.98]"
       >
         {running ? 'Executing Code...' : 'Simulate Web Compiler'}
       </button>
@@ -781,9 +793,9 @@ const XaiWidget = () => {
           {/* Pulsing connection lines on input node hover */}
           {hoveredNode !== null && (
             <g>
-              <line x1="30" y1={25 + hoveredNode * 30} x2="100" y2="40" stroke="#E60012" strokeWidth="1.5" strokeDasharray="3,3" />
-              <line x1="30" y1={25 + hoveredNode * 30} x2="100" y2="70" stroke="#E60012" strokeWidth="1.5" strokeDasharray="3,3" />
-              <line x1="30" y1={25 + hoveredNode * 30} x2="100" y2="100" stroke="#E60012" strokeWidth="1.5" strokeDasharray="3,3" />
+              <line x1="30" y1={25 + hoveredNode * 30} x2="100" y2="40" stroke="#FFD600" strokeWidth="1.5" strokeDasharray="3,3" />
+              <line x1="30" y1={25 + hoveredNode * 30} x2="100" y2="70" stroke="#FFD600" strokeWidth="1.5" strokeDasharray="3,3" />
+              <line x1="30" y1={25 + hoveredNode * 30} x2="100" y2="100" stroke="#FFD600" strokeWidth="1.5" strokeDasharray="3,3" />
               
               <line x1="100" y1="70" x2="170" y2="55" stroke="#E60012" strokeWidth="1" />
               <line x1="100" y1="70" x2="170" y2="85" stroke="#E60012" strokeWidth="1" />
@@ -793,7 +805,7 @@ const XaiWidget = () => {
       </div>
 
       {/* Dynamic Telemetry report panel */}
-      <div className="p-3 border-2 border-black bg-white rounded-none flex flex-col gap-2 min-h-[90px] text-[10px] shadow-[3px_3px_0px_#000000]">
+      <div className="p-3 border-2 border-black bg-white rounded-none flex flex-col gap-2 min-h-[90px] text-[10px] shadow-[3px_3px_0px_#E60012]">
         {hoveredNode !== null ? (
           <>
             <span className="text-[8px] text-[#E60012] font-black uppercase tracking-wider">Estimated Attention Tensors</span>
