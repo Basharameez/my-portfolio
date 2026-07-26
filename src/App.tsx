@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { BootScreen } from './components/BootScreen';
-import { MorphingParticles } from './components/MorphingParticles';
+import { CursorHUD } from './components/CursorHUD';
 import { Copy, Check, ExternalLink, Cpu, BookOpen } from 'lucide-react';
 
 export default function App() {
@@ -105,8 +105,8 @@ export default function App() {
 
       {!booting && (
         <div className="relative w-full">
-          {/* Morphing Particles Background */}
-          <MorphingParticles activeSection={activeSection} />
+          {/* Static Blueprint Cursor HUD Background */}
+          <CursorHUD />
 
           {/* Sticky Navigation Overlay */}
           <header className="fixed top-6 left-0 right-0 z-50 px-6 pointer-events-none">
