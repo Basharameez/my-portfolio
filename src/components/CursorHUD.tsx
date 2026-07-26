@@ -29,18 +29,18 @@ export const CursorHUD = () => {
     <div className="fixed inset-0 z-0 pointer-events-none select-none overflow-hidden">
       {/* Vertical coordinate line */}
       <div
-        className="absolute top-0 bottom-0 border-l border-dashed border-[#FF3D00]/20 transition-all duration-75"
+        className="absolute top-0 bottom-0 border-l border-dashed border-[#FF3D00]/25 transition-all duration-75"
         style={{ left: `${mousePos.x}px` }}
       />
       {/* Horizontal coordinate line */}
       <div
-        className="absolute left-0 right-0 border-t border-dashed border-[#FF3D00]/20 transition-all duration-75"
+        className="absolute left-0 right-0 border-t border-dashed border-[#FF3D00]/25 transition-all duration-75"
         style={{ top: `${mousePos.y}px` }}
       />
 
-      {/* Floating coordinates tag */}
+      {/* Floating coordinates tag (Light panel) */}
       <div
-        className="absolute bg-[#141418] text-[8px] font-mono text-gray-400 border border-white/10 px-2 py-1.5 font-bold shadow-[3px_3px_0px_#000000] flex flex-col gap-0.5"
+        className="absolute bg-[#FFFFFF] text-[8px] font-mono text-[#1A1A24] border border-[#1A1A24] px-2 py-1.5 font-bold shadow-[3px_3px_0px_#EAEDF0] flex flex-col gap-0.5"
         style={{
           left: `${mousePos.x + 14}px`,
           top: `${mousePos.y + 14}px`,
