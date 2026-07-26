@@ -14,6 +14,9 @@ export default function App() {
   // Selected mission expansion
   const [activeMission, setActiveMission] = useState(0);
 
+  // Licensing Selector Console
+  const [selectedLicense, setSelectedLicense] = useState(0);
+
   // Email copy utility
   const [copied, setCopied] = useState(false);
   const copyEmail = () => {
@@ -58,40 +61,59 @@ export default function App() {
   // Skill domains metadata
   const attributes = [
     {
-      name: 'SOFTWARE ENGINEERING',
-      short: 'Core code quality, clean design patterns, and stable pipeline integrations.',
+      name: 'COGNITIVE PROCESSING CORE',
+      short: 'Model weights computation, mathematical activation loops, and low-level code compilation efficiency.',
       projects: ['RotorDyn', 'CodeOrigin'],
       techs: ['Python', 'FastAPI', 'PostgreSQL', 'Design Patterns']
     },
     {
-      name: 'AI / MACHINE LEARNING',
-      short: 'Deep model interpretation, explainable activation mapping, and parameter tuning.',
+      name: 'AI INFERENCE MODULE',
+      short: 'Gradient activation parameter hooks, explainable weight mapping, and tensor calculations.',
       projects: ['Explainable AI Research'],
       techs: ['PyTorch', 'NumPy', 'Tensor Analysis', 'Attention Layers']
     },
     {
-      name: 'FULL-STACK SYSTEMS',
-      short: 'Dynamic UI components, low-latency REST backends, and modular database structures.',
+      name: 'FULL-STACK CONNECTOR',
+      short: 'Low-latency REST interfaces, dynamic HTML5 visual layouts, and relational database migrations.',
       projects: ['CodeOrigin', 'Student Info Portal'],
       techs: ['React', 'TypeScript', 'FastAPI', 'TailwindCSS', 'SQLite']
     },
     {
-      name: 'DEVELOPER TOOLS',
-      short: 'Static AST tree audits, runtime redirection hooks, and custom compile terminals.',
+      name: 'DEVELOPER COMPILER KIT',
+      short: 'Static syntax tree (AST) traversal scanners, license compliance checks, and capture terminals.',
       projects: ['CodeOrigin', 'Python Web Compiler'],
       techs: ['Python AST', 'Compiler Runtimes', 'Token Parsers', 'Flask']
     },
     {
-      name: 'DATA PROCESSING',
-      short: 'Large spreadsheet parsing, relational DB schemas, and interactive prototyping notebooks.',
+      name: 'DATA INGEST PIPELINE',
+      short: 'Ingests large-scale spreadsheet records, indexes schemas, and executes optimized SQL queries.',
       projects: ['Student Info Portal', 'INTEL_3'],
       techs: ['Pandas', 'Matplotlib', 'Jupyter', 'ipywidgets', 'SQLite']
     },
     {
-      name: 'ENGINEERING SOFTWARE',
-      short: 'Sanitized mechanical rotation analysis, spectral orbit wave charts, and asynchronous UI workers.',
+      name: 'TELEMETRY DIAGNOSTICS UNIT',
+      short: 'Processing high-frequency bearing waveforms and plotting real-time diagnostic orbit tracks.',
       projects: ['RotorDyn'],
       techs: ['PySide6', 'Qt WebEngine', 'Plotly.js', 'WebSocket Telemetry']
+    }
+  ];
+
+  // Licensing Tiers
+  const licensingTiers = [
+    {
+      name: 'FULL-TIME DEPLOYMENT LICENSE',
+      desc: 'Integrates Model-SRB as a permanent core engineering unit inside your software organization. Pre-configured for full-stack system development and Relocation-Compatible.',
+      support: 'Standard SLA // 24/7 Production Node Support // Relocation Ready'
+    },
+    {
+      name: 'COLLABORATIVE CONTRACT NODE',
+      desc: 'Dispatches Model-SRB for temporary development cycles, targeting custom static AST analysis tools, industrial telemetry diagnostic widgets, or data compiler runtimes.',
+      support: 'Milestone SLA // High-intensity custom modules delivery'
+    },
+    {
+      name: 'ACADEMIC RESEARCH ALLIANCE',
+      desc: 'Hooks Model-SRB into Explainable AI (XAI) neural mapping projects, activations interpretability, and statistics modeling paper compliance.',
+      support: 'Research SLA // published IEEE models verification'
     }
   ];
 
@@ -112,26 +134,26 @@ export default function App() {
           <header className="fixed top-6 left-0 right-0 z-50 px-6 pointer-events-none">
             <nav className="max-w-7xl mx-auto flex items-center justify-between pointer-events-auto select-none">
               <span className="font-mono text-xs font-bold tracking-widest text-[#1A1A24] hover:text-[#FF3D00] bg-[#EAEDF0] px-3.5 py-2 border-2 border-[#1A1A24] shadow-[4px_4px_8px_rgba(0,0,0,0.06)]">
-                SRB // <span className="text-[#FF3D00] font-black">BLUEPRINT</span>
+                MODEL-SRB // <span className="text-[#FF3D00] font-black">LAUNCH</span>
               </span>
               <div className="flex gap-4 font-mono text-[9px] tracking-wider text-[#1A1A24] bg-[#EAEDF0] p-2.5 border-2 border-[#1A1A24] shadow-[4px_4px_8px_rgba(0,0,0,0.06)] uppercase font-bold">
                 <button
                   onClick={() => sectionRefs[0].current?.scrollIntoView({ behavior: 'smooth' })}
                   className={`hover:text-[#FF3D00] transition-colors ${activeSection === 0 ? 'text-[#FF3D00]' : ''}`}
                 >
-                  Intro
+                  Features
                 </button>
                 <button
                   onClick={() => sectionRefs[1].current?.scrollIntoView({ behavior: 'smooth' })}
                   className={`hover:text-[#FF3D00] transition-colors ${activeSection === 1 ? 'text-[#FF3D00]' : ''}`}
                 >
-                  Attributes
+                  Datasheet
                 </button>
                 <button
                   onClick={() => sectionRefs[2].current?.scrollIntoView({ behavior: 'smooth' })}
                   className={`hover:text-[#FF3D00] transition-colors ${activeSection === 2 ? 'text-[#FF3D00]' : ''}`}
                 >
-                  Missions
+                  Modules
                 </button>
                 <button
                   onClick={() => sectionRefs[3].current?.scrollIntoView({ behavior: 'smooth' })}
@@ -143,7 +165,7 @@ export default function App() {
                   onClick={() => sectionRefs[6].current?.scrollIntoView({ behavior: 'smooth' })}
                   className={`hover:text-[#FF3D00] transition-colors ${activeSection === 6 ? 'text-[#FF3D00]' : ''}`}
                 >
-                  Contact
+                  Licensing
                 </button>
               </div>
             </nav>
@@ -152,7 +174,7 @@ export default function App() {
           {/* Main Visual container */}
           <main className="relative z-10 w-full flex flex-col">
             
-            {/* SCENE 01 — CHARACTER INTRODUCTION */}
+            {/* PRODUCT LAUNCH INTRO SCREEN */}
             <div
               ref={sectionRefs[0]}
               className="min-h-screen flex flex-col justify-center max-w-7xl mx-auto px-6 py-24 select-none relative z-10 w-full"
@@ -161,28 +183,28 @@ export default function App() {
                 <div className="lg:col-span-7 flex flex-col gap-6 items-start">
                   <div className="flex gap-2">
                     <span className="mono-tag bg-[#FF3D00] text-white px-2.5 py-0.5 border-2 border-[#1A1A24] inline-block shadow-[3px_3px_6px_rgba(0,0,0,0.1)]">
-                      ENGINE_ACTIVE // ID_0x1
+                      PRODUCT_DEPLOY // SRB-v2.026
                     </span>
                     <span className="mono-tag bg-[#EAEDF0] text-black px-2.5 py-0.5 border-2 border-[#1A1A24] inline-block shadow-[3px_3px_6px_rgba(0,0,0,0.1)]">
-                      SYS_SECURE // NO_MALWARE
+                      QA_COMPLIANT // SYS_OK
                     </span>
                   </div>
 
                   <h1 className="text-5xl sm:text-7xl md:text-8xl font-sans font-black tracking-tighter text-[#1A1A24] uppercase leading-none">
-                    SHAIK<br />
-                    RAMEEZ<br />
+                    MODEL-SRB<br />
+                    COGNITIVE<br />
                     <span className="bg-[#FF3D00] text-white px-4 py-1.5 border-4 border-[#1A1A24] inline-block shadow-[8px_8px_16px_rgba(0,0,0,0.15)] rotate-[-1.5deg] translate-x-1">
-                      BASHA
+                      DEV ENGINE
                     </span>
                   </h1>
 
                   <div className="flex flex-col border-l-4 border-[#FF3D00] pl-4 leading-snug">
-                    <span className="text-xs text-gray-500 font-mono tracking-wider font-bold">SOFTWARE ENGINEER</span>
-                    <span className="text-sm font-semibold tracking-tight text-[#1A1A24]">I BUILD SYSTEMS FOR COMPLEX PROBLEMS.</span>
+                    <span className="text-xs text-gray-500 font-mono tracking-wider font-bold">SPECIFICATION OVERVIEW</span>
+                    <span className="text-sm font-semibold tracking-tight text-[#1A1A24]">HIGH-PERFORMANCE FULL-STACK & AI DEVELOPER ENGINE. NOW SHIPPING.</span>
                   </div>
 
                   <p className="text-sm sm:text-base text-gray-600 max-w-xl font-medium leading-relaxed">
-                    Specialized in structural codebase AST analytics, high-frequency industrial telemetry visuals, code execution sandboxing tools, and explainable neural activations research.
+                    Designed to resolve complex codebase audits, analyze static syntax structures, ingest telemetry waves, and output certified explainable model activations.
                   </p>
 
                   <div className="flex flex-wrap gap-4 font-mono text-[10px] mt-2">
@@ -190,7 +212,7 @@ export default function App() {
                       onClick={() => sectionRefs[1].current?.scrollIntoView({ behavior: 'smooth' })}
                       className="px-6 py-3.5 bg-[#FF3D00] text-white border-3 border-[#1A1A24] font-black uppercase tracking-wider rounded-none shadow-[5px_5px_10px_rgba(0,0,0,0.15)] hover:translate-y-[-2px] hover:shadow-[7px_7px_12px_rgba(0,0,0,0.2)] transition-all active:scale-[0.98]"
                     >
-                      Enter System &darr;
+                      Inspect Datasheet &darr;
                     </button>
                     <a
                       href="https://github.com/Basharameez"
@@ -198,48 +220,48 @@ export default function App() {
                       rel="noopener noreferrer"
                       className="px-6 py-3.5 bg-[#EAEDF0] text-[#1A1A24] border-3 border-[#1A1A24] font-black uppercase tracking-wider rounded-none shadow-[5px_5px_10px_rgba(0,0,0,0.1)] hover:bg-[#1A1A24] hover:text-[#FFFFFF] transition-all flex items-center gap-2"
                     >
-                      View GitHub <ExternalLink size={12} />
+                      Inspect Source (GitHub) <ExternalLink size={12} />
                     </a>
                   </div>
                 </div>
 
-                {/* Styled CAD Profile image with dimensions */}
+                {/* Styled CAD Portrait rendering */}
                 <div className="lg:col-span-5 flex justify-center">
                   <div className="relative border-4 border-double border-[#1A1A24] p-2.5 bg-[#EAEDF0] shadow-[10px_10px_0px_#FF3D00] rotate-[-1.5deg]">
                     {/* Dimension Index Label */}
-                    <div className="absolute -top-6 left-0 text-[8px] font-mono text-gray-500 font-bold uppercase tracking-wider">INDEX_X: 240MM</div>
-                    <div className="absolute -left-6 top-1/2 text-[8px] font-mono text-gray-500 font-bold uppercase tracking-wider rotate-[-90deg] origin-left -translate-y-1/2">INDEX_Y: 320MM</div>
+                    <div className="absolute -top-6 left-0 text-[8px] font-mono text-gray-500 font-bold uppercase tracking-wider">SPECS_X: 240MM</div>
+                    <div className="absolute -left-6 top-1/2 text-[8px] font-mono text-gray-500 font-bold uppercase tracking-wider rotate-[-90deg] origin-left -translate-y-1/2">SPECS_Y: 320MM</div>
                     
                     <img
                       src="avatar.jpg"
-                      alt="Shaik Rameez Basha"
+                      alt="Model-SRB rendering"
                       className="w-60 h-80 object-cover border-2 border-[#1A1A24] bg-[#F4F4F4]"
                     />
                     
                     {/* Character Tag Overlay */}
                     <div className="absolute bottom-4 left-4 z-20 bg-[#1A1A24] text-[#FFD600] border-2 border-[#1A1A24] px-3 py-1 font-mono text-[9px] font-bold uppercase tracking-wider shadow-[3px_3px_0px_#FF3D00]">
-                      COHORT: 2026 // CSE AI
+                      MODEL-SRB // PREVIEW_01
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* SCENE 02 — ENGINEERING ATTRIBUTES */}
+            {/* PRODUCT DATASHEET SECTION */}
             <div
               ref={sectionRefs[1]}
               className="min-h-screen flex flex-col justify-center max-w-7xl mx-auto px-6 py-24 z-10 w-full"
             >
               <div className="flex flex-col gap-3 mb-10 items-start">
-                <span className="mono-tag">SCENE 02 // CHARACTER ATTRIBUTES</span>
+                <span className="mono-tag">SCENE 02 // TECHNICAL DATASHEET</span>
                 <h2 className="text-3xl sm:text-5xl font-sans font-black tracking-tight text-[#1A1A24] uppercase leading-none">
-                  SYSTEM CORE ATTRIBUTES
+                  PRODUCT SPECIFICATIONS
                 </h2>
                 <div className="hazard-stripes-yellow w-40" />
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                {/* Left: Attribute Select list */}
+                {/* Left: Spec selectors list */}
                 <div className="lg:col-span-5 flex flex-col gap-3">
                   {attributes.map((attr, idx) => {
                     const isSelected = selectedAttribute === idx;
@@ -265,7 +287,7 @@ export default function App() {
                   })}
                 </div>
 
-                {/* Right: double-line vector details panel */}
+                {/* Right: Spec details console */}
                 <div className="lg:col-span-7 flex">
                   <div className="w-full p-6 vector-border-white flex flex-col gap-6 justify-between relative overflow-hidden">
                     {/* Corners HUD crosshairs */}
@@ -276,7 +298,7 @@ export default function App() {
 
                     <div className="flex flex-col gap-4">
                       <span className="text-[9px] text-[#FF3D00] font-black uppercase tracking-wider block font-mono">
-                        TACTICAL PARAMETER DETAILS // ATTRIBUTE_{selectedAttribute}
+                        COMPONENT SCHEMATICS // SPEC_{selectedAttribute}
                       </span>
                       
                       <h3 className="text-2xl font-black text-[#1A1A24] uppercase tracking-tight">
@@ -290,7 +312,7 @@ export default function App() {
 
                     <div className="flex flex-col gap-4 border-t border-[#1A1A24]/10 pt-4">
                       <div>
-                        <span className="text-[9px] text-gray-500 block uppercase font-mono mb-2">Connected systems:</span>
+                        <span className="text-[9px] text-gray-500 block uppercase font-mono mb-2">Integrated modules:</span>
                         <div className="flex flex-wrap gap-2">
                           {attributes[selectedAttribute].projects.map((p, i) => (
                             <span key={i} className="text-[10px] px-2 py-0.5 border border-[#1A1A24] bg-[#1A1A24] text-[#FFD600] font-mono font-bold">
@@ -301,7 +323,7 @@ export default function App() {
                       </div>
 
                       <div>
-                        <span className="text-[9px] text-gray-500 block uppercase font-mono mb-2">Primary tech stack:</span>
+                        <span className="text-[9px] text-gray-500 block uppercase font-mono mb-2">Internal compilers & frameworks:</span>
                         <div className="flex flex-wrap gap-1.5">
                           {attributes[selectedAttribute].techs.map((t, i) => (
                             <span key={i} className="text-[9px] px-2.5 py-0.5 bg-black/5 border border-black/10 text-gray-600 font-mono font-bold">
@@ -316,22 +338,22 @@ export default function App() {
               </div>
             </div>
 
-            {/* SCENE 03 — PROJECT MISSIONS */}
+            {/* INTEGRATED FUNCTIONAL MODULES (MISSIONS) */}
             <div
               ref={sectionRefs[2]}
               className="min-h-screen flex flex-col justify-center max-w-7xl mx-auto px-6 py-24 z-10 w-full"
             >
               <div className="flex flex-col gap-3 mb-10 items-start">
-                <span className="mono-tag">SCENE 03 // SYSTEMS MISSIONS</span>
+                <span className="mono-tag">SCENE 03 // INTEGRATED MODULES</span>
                 <h2 className="text-3xl sm:text-5xl font-sans font-black tracking-tight text-[#1A1A24] uppercase leading-none">
-                  OPERATIONAL MISSIONS
+                  FUNCTIONAL MODULES
                 </h2>
                 <div className="hazard-stripes-yellow w-40" />
               </div>
 
               {/* Selector Tabs */}
               <div className="flex flex-wrap gap-2 border-b border-[#1A1A24]/10 pb-4 mb-8">
-                {['CodeOrigin', 'RotorDyn', 'Web Compiler', 'Info Portal', 'INTEL_3'].map((n, i) => (
+                {['CodeOrigin Auditor', 'RotorDyn Telemetry', 'Web Compiler SDK', 'Student Info Ingest', 'Intel_3 Data Lab'].map((n, i) => (
                   <button
                     key={i}
                     onClick={() => setActiveMission(i)}
@@ -341,7 +363,7 @@ export default function App() {
                         : 'bg-[#EAEDF0] text-gray-700 hover:text-black hover:bg-[#F4F4F4] shadow-[3px_3px_6px_rgba(0,0,0,0.06)]'
                     }`}
                   >
-                    M-0{i+1} // {n}
+                    MODULE-0{i+1} // {n.split(' ')[0]}
                   </button>
                 ))}
               </div>
@@ -359,7 +381,7 @@ export default function App() {
 
                     <div className="unslanted-content">
                       <span className="text-[9px] text-[#FF3D00] font-black uppercase tracking-wider block border-b-2 border-[#1A1A24] pb-2 font-mono">
-                        MISSION TELEMETRY SIMULATOR
+                        MODULE HARDWARE SIMULATION
                       </span>
                       {activeMission === 0 && <CodeOriginWidget />}
                       {activeMission === 1 && <RotorDynWidget />}
@@ -375,20 +397,20 @@ export default function App() {
                   {activeMission === 0 && (
                     <>
                       <div className="flex gap-2">
-                        <span className="mono-tag bg-[#FF3D00] text-white px-2 py-0.5 border border-[#1A1A24]">DEVTOOLS</span>
+                        <span className="mono-tag bg-[#FF3D00] text-white px-2 py-0.5 border border-[#1A1A24]">STATIC ANALYSIS</span>
                         <a href="https://github.com/Basharameez/codeorigin" target="_blank" rel="noopener noreferrer" className="p-1 text-gray-600 hover:text-[#FF3D00]">
                           <ExternalLink size={14} />
                         </a>
                       </div>
                       <h3 className="text-3xl font-black text-[#1A1A24] uppercase tracking-tight">
-                        CODEORIGIN // REPOSITORY INTELLIGENCE
+                        CODEORIGIN // REPOSITORY SECURITY UNIT
                       </h3>
                       <p className="text-sm text-gray-600 font-sans leading-relaxed font-medium">
-                        A backend static analyzer designed to evaluate repositories across architecture, license compliance, code coupling, and security sectors without execution dependencies.
+                        Runs non-execution static analyses on target repositories to map syntax trees, trace class inheritances, check license compliance, and audit security vectors.
                       </p>
                       
                       <div className="bg-[#EAEDF0] p-4 text-xs leading-relaxed text-gray-700 border-l-2 border-[#FF3D00] border border-[#1A1A24]/10">
-                        <strong>Engineering decision:</strong> Traversed code files using standard Python abstract syntax trees (`ast.NodeVisitor`) to inspect structural blocks directly. This guarantees preventing comment-nesting escape vectors and false regex matches.
+                        <strong>Operation Matrix:</strong> Isolates analysis using Python standard AST (`ast.NodeVisitor`) parsing routines. This prevents regular-expression escape vectors and skips comment lines.
                       </div>
 
                       <div className="flex flex-wrap gap-1.5 font-mono text-[9px]">
@@ -405,14 +427,14 @@ export default function App() {
                         <span className="mono-tag bg-[#FF3D00] text-white px-2 py-0.5 border border-[#1A1A24]">TELEMETRY</span>
                       </div>
                       <h3 className="text-3xl font-black text-[#1A1A24] uppercase tracking-tight">
-                        ROTORDYN // SIGNAL DIAGNOSTICS
+                        ROTORDYN // ROTATION SPECTRAL MODULE
                       </h3>
                       <p className="text-sm text-gray-600 font-sans leading-relaxed font-medium">
-                        Sanitized conceptual telemetry dashboard designed to plot bearing diagnostics telemetry and high-frequency orbit waveforms.
+                        Sanitized diagnostic chart panel tracing radial bearings shaft rotation amplitudes, phase displacements, and waveforms speeds.
                       </p>
 
                       <div className="bg-[#EAEDF0] p-4 text-xs leading-relaxed text-red-600 font-bold border-l-4 border-[#FF3D00] border border-[#1A1A24]/10">
-                        CONFIDENTIALITY DISCLAIMER: This is a conceptual telemetry display simulation demonstrating waveform loading capabilities, built using safe and sanitized signals. No proprietary modules or customer assets are exposed.
+                        QA NOTIFICATION: This component renders conceptual waveforms built using standard math coordinates. No proprietary telemetry data or customer database resources are loaded.
                       </div>
 
                       <div className="flex flex-wrap gap-1.5 font-mono text-[9px]">
@@ -432,14 +454,14 @@ export default function App() {
                         </a>
                       </div>
                       <h3 className="text-3xl font-black text-[#1A1A24] uppercase tracking-tight">
-                        PYTHON WEB COMPILER
+                        COMPILER // WEB PLAYGROUND CONTAINER
                       </h3>
                       <p className="text-sm text-gray-600 font-sans leading-relaxed font-medium">
-                        A web runtime console that executes Python payloads and captures standard stdout/stderr streams to render matplotlib visuals in the browser.
+                        Compiles user-submitted Python payloads inside Flask threads, capturing stdout channels to export active matplotlib coordinate logs as HTML image objects.
                       </p>
 
-                      <div className="bg-[#EAEDF0] p-4 text-xs leading-relaxed text-red-600 font-bold border-l-4 border-[#FF3D00] border border-[#1A1A24]/10">
-                        SECURITY WARNING: This platform operates using local `exec()` evaluations in a thread context. It is designed only for local sandbox testing and contains no kernel-level virtualization blocks.
+                      <div className="bg-[#EAEDF0] p-4 text-xs leading-relaxed text-red-500 font-bold border-l-4 border-[#FF3D00] border border-[#1A1A24]/10">
+                        SECURITY ADVISORY: Operates using native thread compilation. Designed for local sandbox configurations; contains no virtual hypervisor blocks.
                       </div>
 
                       <div className="flex flex-wrap gap-1.5 font-mono text-[9px]">
@@ -456,18 +478,18 @@ export default function App() {
                         <span className="mono-tag bg-[#FF3D00] text-white px-2 py-0.5 border border-[#1A1A24]">DATA SYSTEMS</span>
                       </div>
                       <h3 className="text-3xl font-black text-[#1A1A24] uppercase tracking-tight">
-                        STUDENT INFO PORTAL
+                        STUDENT DATA INGESTION MATRIX
                       </h3>
                       <p className="text-sm text-gray-600 font-sans leading-relaxed font-medium">
-                        A student database processing system containing data ingestion tools to parse spreadsheets, index records, and run custom queries.
+                        Student information processing system containing tools to parse spreadsheets, index active records, and execute sorted SQL database lookups.
                       </p>
 
                       <div className="bg-[#EAEDF0] p-4 text-xs leading-relaxed text-gray-700 border-l-2 border-[#FF3D00] border border-[#1A1A24]/10">
-                        <strong>Implemented logic:</strong> Loaded records inside structured relational SQL schemas, implementing multi-column sorting to optimize lookup speeds.
+                        <strong>Integrated Logic:</strong> Organizes student columns inside relational SQL arrays, optimizing lookup speeds.
                       </div>
 
                       <div className="flex flex-wrap gap-1.5 font-mono text-[9px]">
-                        {['Python', 'SQLite', 'Pandas Parsing', 'Excel Readers'].map((t) => (
+                        {['Python', 'SQLite', 'Pandas Ingestion', 'Excel Readers'].map((t) => (
                           <span key={t} className="px-2 py-0.5 border border-[#1A1A24] bg-[#1A1A24] text-[#FFD600] font-bold">{t}</span>
                         ))}
                       </div>
@@ -480,10 +502,10 @@ export default function App() {
                         <span className="mono-tag bg-[#FF3D00] text-white px-2 py-0.5 border border-[#1A1A24]">PROTOTYPES</span>
                       </div>
                       <h3 className="text-3xl font-black text-[#1A1A24] uppercase tracking-tight">
-                        INTEL_3 DATA LAB
+                        INTEL_3 // INTEGRATION NODE
                       </h3>
                       <p className="text-sm text-gray-600 font-sans leading-relaxed font-medium">
-                        Interactive academic dataset explorer and notebook modeling prototype showcasing core query pipelines and analysis modules.
+                        Exploratory database modeling prototype and Jupyter notebook workspace verifying statistical pipeline configurations.
                       </p>
 
                       <div className="flex flex-wrap gap-1.5 font-mono text-[9px]">
@@ -498,7 +520,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* SCENE 04 — SYSTEM ARCHITECTURE */}
+            {/* SYSTEM ARCHITECTURE SCHEMATIC */}
             <div
               ref={sectionRefs[3]}
               className="min-h-screen flex flex-col justify-center max-w-7xl mx-auto px-6 py-24 z-10 w-full"
@@ -506,7 +528,7 @@ export default function App() {
               <div className="flex flex-col gap-3 mb-10 items-start">
                 <span className="mono-tag">SCENE 04 // SYSTEM INTEGRATIONS</span>
                 <h2 className="text-3xl sm:text-5xl font-sans font-black tracking-tight text-[#1A1A24] uppercase leading-none">
-                  SYSTEM ARCHITECTURE
+                  SYSTEM INTERFLOW PIPELINE
                 </h2>
                 <div className="hazard-stripes-yellow w-40" />
               </div>
@@ -515,17 +537,17 @@ export default function App() {
                 {/* Left Column: Description */}
                 <div className="lg:col-span-5 flex flex-col gap-6">
                   <p className="text-sm text-gray-600 leading-relaxed font-semibold">
-                    This schematic maps out how my software systems relate conceptually, showcasing a continuous pipeline from codebase ingestion to diagnostic output.
+                    This schematic maps out how the integrated functional modules connect conceptually, showcasing a continuous software pipeline from repository ingestion down to rotation waveform diagnostic outputs.
                   </p>
                   
                   <div className="flex flex-col gap-3 font-mono text-xs font-bold text-gray-600">
                     <div className="flex gap-2.5 items-center">
                       <span className="w-2.5 h-2.5 bg-[#FF3D00] border border-[#1A1A24]" />
-                      <span>CodeOrigin Auditor AST</span>
+                      <span>CodeOrigin Ingest Node</span>
                     </div>
                     <div className="flex gap-2.5 items-center">
                       <span className="w-2.5 h-2.5 bg-[#FFD600] border border-[#1A1A24]" />
-                      <span>Compiler Runtime Stream</span>
+                      <span>Compiler Sandbox Runtime</span>
                     </div>
                     <div className="flex gap-2.5 items-center">
                       <span className="w-2.5 h-2.5 bg-[#1A1A24] border border-[#1A1A24]" />
@@ -538,7 +560,7 @@ export default function App() {
                 <div className="lg:col-span-7 flex justify-center">
                   <div className="w-full max-w-lg p-6 vector-border-white">
                     <span className="text-[9px] text-[#FF3D00] font-black uppercase tracking-wider block border-b-2 border-[#1A1A24]/10 pb-2 font-mono mb-4">
-                      CONCEPTUAL INTERFLOW PIPELINE
+                      MODULE INTERFLOW PIPELINE
                     </span>
                     <ArchitectureWidget />
                   </div>
@@ -546,30 +568,30 @@ export default function App() {
               </div>
             </div>
 
-            {/* SCENE 05 — RESEARCH */}
+            {/* PRODUCT QUALITY CERTIFICATION (RESEARCH) */}
             <div
               ref={sectionRefs[4]}
               className="min-h-screen flex flex-col justify-center max-w-7xl mx-auto px-6 py-24 z-10 w-full"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <div className="lg:col-span-7 flex flex-col gap-6 items-start">
-                  <span className="mono-tag">SCENE 05 // RESEARCH LAB</span>
+                  <span className="mono-tag">SCENE 05 // COMPLIANCE CERTIFICATION</span>
                   
                   <h2 className="text-3xl sm:text-5xl font-sans font-black tracking-tight text-[#1A1A24] uppercase leading-none">
                     EXPLAINABLE AI<br />
-                    <span className="text-[#FF3D00]">RESEARCH</span>
+                    <span className="text-[#FF3D00]">CERTIFICATION</span>
                   </h2>
 
                   <div className="flex gap-2 items-center bg-[#1A1A24] border border-[#1A1A24] text-[#FFD600] px-3 py-1 font-mono text-[9px] font-bold tracking-wider uppercase">
-                    <BookOpen size={12} /> IEEE XPLORE // PUBLISHED 2026
+                    <BookOpen size={12} /> IEEE XPLORE COMPLIANT // PUBLISHED 2026
                   </div>
 
                   <p className="text-sm sm:text-base text-gray-600 font-sans leading-relaxed font-semibold">
-                    Demystifying neural activations by mapping convolutional features weights pathways to explain outputs dynamically.
+                    Third-party quality assurance audits verifying activations weights paths mapping loops to trace deep learning decisions.
                   </p>
 
                   <div className="bg-[#EAEDF0] p-4 text-xs leading-relaxed text-gray-700 border-l-2 border-[#FF3D00] border border-[#1A1A24]/10">
-                    <strong>Technical Contribution:</strong> Built hooks that capture gradient activation parameters inside active network nodes, exporting attraction tensors that show exactly why a model made specific prediction decisions.
+                    <strong>Quality Standard:</strong> Employs activation layers mapping scripts that capture gradient parameter configurations directly inside active neural matrices, tracing features influence statistics.
                   </div>
                 </div>
 
@@ -583,7 +605,7 @@ export default function App() {
 
                     <div className="unslanted-content">
                       <span className="text-[9px] text-[#FF3D00] uppercase tracking-wider block border-b-2 border-[#1A1A24] pb-2 font-mono">
-                        NEURAL TRACE VISUALIZER
+                        NEURAL INTERACTION AUDITOR
                       </span>
                       <XaiWidget />
                     </div>
@@ -592,15 +614,15 @@ export default function App() {
               </div>
             </div>
 
-            {/* SCENE 06 — EXPERIENCE LOGS */}
+            {/* PRODUCTION CHRONOLOGY (EXPERIENCE) */}
             <div
               ref={sectionRefs[5]}
               className="min-h-screen flex flex-col justify-center max-w-7xl mx-auto px-6 py-24 z-10 w-full"
             >
               <div className="flex flex-col gap-3 mb-10 items-start">
-                <span className="mono-tag">SCENE 06 // MISSION HISTORY</span>
+                <span className="mono-tag">SCENE 06 // PRODUCTION CHRONOLOGY</span>
                 <h2 className="text-3xl sm:text-5xl font-sans font-black tracking-tight text-[#1A1A24] uppercase leading-none">
-                  EXPERIENCE CHRONOLOGY
+                  RELEASE CHRONOLOGY
                 </h2>
                 <div className="hazard-stripes-yellow w-40" />
               </div>
@@ -615,18 +637,18 @@ export default function App() {
 
                     <div className="flex flex-col gap-3">
                       <div className="flex items-center justify-between border-b border-[#1A1A24]/10 pb-3">
-                        <span className="text-xs font-mono font-bold text-[#FF3D00]">ROLE_01 // SOFTWARE ENGINEER</span>
+                        <span className="text-xs font-mono font-bold text-[#FF3D00]">NODE_01 // SOFTWARE DEV ENGINE</span>
                         <span className="text-[9px] bg-[#1A1A24] text-[#FFD600] px-2 py-0.5 font-mono font-bold">2024 - PRESENT</span>
                       </div>
                       
-                      <h3 className="text-2xl font-black text-[#1A1A24] uppercase">AFTERQUERY</h3>
+                      <h3 className="text-2xl font-black text-[#1A1A24] uppercase">AFTERQUERY NODE</h3>
                       <p className="text-xs text-gray-600 font-sans leading-relaxed font-semibold">
-                        Engineering full-stack codebase audit systems, static AST analyzers, and reactive datagrid utilities. Evolving ingest pipelines to handle structural license checks asynchronously.
+                        Permanent system deployment. Configures repository static analysis hooks, AST traversals, FastAPI endpoints, and modular datagrids. Employs async workers to audit source code components structures.
                       </p>
                     </div>
 
                     <div className="border-t border-[#1A1A24]/10 pt-4 mt-6 text-[9px] text-gray-500 font-mono uppercase font-bold">
-                      SYSTEMS: FastAPI &bull; React &bull; AST Audits &bull; SQL DBs
+                      SYSTEM COMPLIANCE: Python &bull; FastAPI &bull; AST Parsers &bull; SQL DBs
                     </div>
                   </div>
                 </div>
@@ -639,80 +661,104 @@ export default function App() {
 
                     <div className="flex flex-col gap-3">
                       <div className="flex items-center justify-between border-b border-[#1A1A24]/10 pb-3">
-                        <span className="text-xs font-mono font-bold text-[#FF3D00]">ROLE_02 // B.TECH COHORT</span>
+                        <span className="text-xs font-mono font-bold text-[#FF3D00]">NODE_02 // B.TECH COHORT</span>
                         <span className="text-[9px] bg-[#1A1A24] text-[#FFD600] px-2 py-0.5 font-mono font-bold">2022 - 2026</span>
                       </div>
                       
                       <h3 className="text-2xl font-black text-[#1A1A24] uppercase leading-tight">
-                        NARASARAOPETA ENG COLLEGE
+                        JNTUK PRODUCTION CYCLE
                       </h3>
                       <p className="text-xs text-gray-600 font-sans leading-relaxed font-semibold">
-                        B.Tech Computer Science and Engineering (Artificial Intelligence) under JNTUK.
-                        Academic core focused on statistical analysis, model activations, neural weights, and structural compilation.
+                        B.Tech Computer Science and Engineering (Artificial Intelligence) at Narasaraopeta Engineering College.
+                        Core processor calibration verified across neural networks, compiler stages, and statistical models.
                       </p>
                     </div>
 
-                    <div className="border-t border-[#1A1A24]/10 pt-4 mt-6 text-[9px] text-[#FF3D00] font-mono uppercase font-bold">
-                      ACADEMIC PERFORMANCE SCORE: CGPA 7.79 / 10
+                    <div className="border-t border-[#1A1A24]/10 pt-4 mt-6 text-[9px] text-[#FFD600] font-mono uppercase font-bold">
+                      PERFORMANCE METRICS SCORE: CGPA 7.79 / 10.00
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* SCENE 07 — CONTACT / NEXT MISSION */}
+            {/* PRODUCT LICENSE DISPATCH CONSOLE */}
             <div
               ref={sectionRefs[6]}
-              className="min-h-[80vh] flex flex-col justify-between max-w-7xl mx-auto px-6 py-24 pb-12 z-10 w-full"
+              className="min-h-[80vh] flex flex-col justify-between max-w-7xl mx-auto px-6 pt-24 pb-12 z-10 w-full"
             >
-              <div className="max-w-2xl my-auto flex flex-col gap-6 items-start">
-                <span className="mono-tag">SECTION 07 // TRANSMISSION SIGNAL</span>
-                <h2 className="text-3xl sm:text-5xl font-sans font-black tracking-tight text-[#1A1A24] uppercase leading-none">
-                  ESTABLISH DATA SIGNAL
-                </h2>
-                <p className="text-sm text-gray-600 leading-relaxed font-sans font-semibold max-w-lg">
-                  Initiate full-time software engineering communications or review telemetry schemas. Currently open to relocation and onsite roles.
-                </p>
-              </div>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start my-auto w-full">
+                
+                {/* Left: Licensing Dispatch Copy */}
+                <div className="lg:col-span-6 flex flex-col gap-6 items-start">
+                  <span className="mono-tag">SECTION 07 // PRODUCT ACQUISITION</span>
+                  <h2 className="text-3xl sm:text-5xl font-sans font-black tracking-tight text-[#1A1A24] uppercase leading-none">
+                    ACQUIRE DEPLOYMENT LICENSE
+                  </h2>
+                  <p className="text-sm text-gray-600 leading-relaxed font-sans font-semibold max-w-lg">
+                    Select a license contract configuration to dispatch Model-SRB to your core engineering teams. Open for remote, onsite, and relocation roles.
+                  </p>
 
-              {/* Minimalist contact links bar */}
-              <div className="border-t border-[#1A1A24]/10 pt-12 flex flex-col sm:flex-row justify-between items-center gap-6 font-mono text-xs select-none">
-                <div className="flex gap-6 items-center font-bold">
-                  <a
-                    href="https://github.com/Basharameez"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#1A1A24] hover:text-[#FF3D00] transition-colors"
-                  >
-                    GitHub Registry
-                  </a>
-                  <a
-                    href="https://linkedin.com/in/shaik-rameez-basha"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#1A1A24] hover:text-[#FF3D00] transition-colors"
-                  >
-                    LinkedIn Node
-                  </a>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <span className="text-[#1A1A24] font-bold">shaikbashah20@gmail.com</span>
-                  <div className="flex gap-2">
-                    <a
-                      href="mailto:shaikbashah20@gmail.com"
-                      className="px-4 py-2 border-2 border-black hover:bg-[#FF3D00] hover:text-white font-black bg-[#FFD600] text-black rounded-none shadow-[4px_4px_8px_rgba(0,0,0,0.1)] transition-all"
-                    >
-                      Signal &rarr;
-                    </a>
-                    <button
-                      onClick={copyEmail}
-                      className="p-2.5 border-2 border-[#1A1A24] hover:bg-[#1A1A24] hover:text-[#FF3D00] bg-[#EAEDF0] text-[#1A1A24] rounded-none shadow-[4px_4px_8px_rgba(0,0,0,0.06)] transition-all active:scale-[0.96]"
-                    >
-                      {copied ? <Check size={14} className="text-green-600 font-bold" /> : <Copy size={14} />}
-                    </button>
+                  <div className="flex flex-col gap-2 w-full max-w-md">
+                    {licensingTiers.map((tier, idx) => {
+                      const isSelected = selectedLicense === idx;
+                      return (
+                        <button
+                          key={idx}
+                          onClick={() => setSelectedLicense(idx)}
+                          className={`p-3 rounded-none text-left text-xs font-bold border-2 transition-all flex justify-between items-center ${
+                            isSelected
+                              ? 'bg-[#FF3D00] border-[#1A1A24] text-white shadow-[3px_3px_0px_#1A1A24]'
+                              : 'bg-[#EAEDF0] border-[#1A1A24]/20 text-gray-700 hover:text-black shadow-[3px_3px_0px_rgba(0,0,0,0.05)]'
+                          }`}
+                        >
+                          <span>{tier.name}</span>
+                          <span className="text-[7px] font-mono opacity-80">{isSelected ? 'ACTIVE' : 'SELECT'}</span>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
+
+                {/* Right: Active License configuration card */}
+                <div className="lg:col-span-6 flex justify-center w-full">
+                  <div className="w-full max-w-md p-6 vector-border-orange relative">
+                    <span className="text-[9px] text-[#FF3D00] font-black uppercase tracking-wider block border-b-2 border-[#1A1A24]/10 pb-2 font-mono mb-4">
+                      LICENSE SPECIFICATION SHEET
+                    </span>
+                    
+                    <h3 className="text-lg font-black text-[#1A1A24] uppercase mb-2">
+                      {licensingTiers[selectedLicense].name}
+                    </h3>
+                    
+                    <p className="text-xs text-gray-600 font-sans leading-relaxed font-medium mb-4">
+                      {licensingTiers[selectedLicense].desc}
+                    </p>
+
+                    <div className="bg-[#EAEDF0] p-3 text-[9px] font-mono font-bold text-gray-700 border border-[#1A1A24]/10 rounded-none mb-6">
+                      <strong>SUPPORT CONFIG:</strong> {licensingTiers[selectedLicense].support}
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row justify-between items-center gap-4 font-mono text-xs border-t border-[#1A1A24]/10 pt-4">
+                      <span className="text-[#1A1A24] font-bold">shaikbashah20@gmail.com</span>
+                      <div className="flex gap-2">
+                        <a
+                          href="mailto:shaikbashah20@gmail.com"
+                          className="px-4 py-2 border-2 border-[#1A1A24] hover:bg-[#FF3D00] hover:text-white font-black bg-[#FFD600] text-black rounded-none shadow-[4px_4px_8px_rgba(0,0,0,0.1)] transition-all"
+                        >
+                          DISPATCH NODE &rarr;
+                        </a>
+                        <button
+                          onClick={copyEmail}
+                          className="p-2.5 border-2 border-[#1A1A24] hover:bg-[#1A1A24] hover:text-[#FF3D00] bg-[#EAEDF0] text-[#1A1A24] rounded-none shadow-[4px_4px_8px_rgba(0,0,0,0.06)] transition-all active:scale-[0.96]"
+                        >
+                          {copied ? <Check size={14} className="text-green-600 font-bold" /> : <Copy size={14} />}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
 
@@ -720,7 +766,7 @@ export default function App() {
 
           {/* Cinematic subtle footer bar */}
           <footer className="w-full border-t border-[#1A1A24]/10 py-8 text-center text-[10px] font-mono text-gray-500 uppercase tracking-widest bg-[#FDFCFA] relative z-10 select-none font-bold">
-            <span>&copy; {new Date().getFullYear()} Shaik Rameez Basha &bull; Systems Active</span>
+            <span>&copy; {new Date().getFullYear()} Model-SRB &bull; Release Node Active</span>
           </footer>
         </div>
       )}
@@ -942,12 +988,12 @@ const CompilerWidget = () => {
   return (
     <div className="flex flex-col gap-3 mt-3">
       {/* Mock IDE Code Editor container */}
-      <div className="border-2 border-[#1A1A24]/20 bg-[#FFFFFF] text-[#1A1A24] p-3 font-mono text-[9px] leading-relaxed shadow-[3px_3px_0px_rgba(0,0,0,0.15)]">
-        <div className="flex justify-between items-center border-b border-[#1A1A24]/10 pb-1.5 mb-1.5 text-[#FF3D00] uppercase text-[7px] tracking-wider font-bold">
+      <div className="border-2 border-[#1A1A24]/20 bg-[#FFFFFF] text-[#1A1A24] p-3 font-mono text-[9px] leading-relaxed shadow-[3px_3px_0px_rgba(0,0,0,0.15)] font-bold">
+        <div className="flex justify-between items-center border-b border-[#1A1A24]/10 pb-1.5 mb-1.5 text-[#FF3D00] uppercase text-[7px] tracking-wider font-bold font-mono">
           <span>main.py</span>
           <span>python 3.12</span>
         </div>
-        <div className="flex gap-3 font-bold">
+        <div className="flex gap-3">
           <div className="text-gray-400 select-none text-right">
             01<br />02<br />03<br />04
           </div>
@@ -1162,7 +1208,7 @@ const ArchitectureWidget = () => {
         </svg>
       </div>
 
-      <div className="p-3 bg-[#FFFFFF] border border-[#1A1A24]/10 rounded-none min-h-[60px] text-[10px] leading-relaxed shadow-[3px_3px_6px_rgba(0,0,0,0.06)] text-gray-600 font-bold border-l-4 border-[#FFD600]">
+      <div className="p-3 bg-[#FFFFFF] border border-[#1A1A24]/10 rounded-none min-h-[60px] text-[10px] leading-relaxed shadow-[3px_3px_6px_rgba(0,0,0,0.06)] text-gray-400 font-bold border-l-4 border-[#FFD600]">
         {activeNode ? (
           <div>
             <strong className="text-[#1A1A24] block mb-1 uppercase text-[9px]">{activeNode} telemetry:</strong>

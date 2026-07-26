@@ -8,16 +8,16 @@ export const BootScreen = ({ onComplete }: BootScreenProps) => {
   const [logs, setLogs] = useState<string[]>([]);
   const logSequence = [
     'SYSTEM INITIALIZATION STARTED...',
-    'INGESTING PROFILE: SHAIK RAMEEZ BASHA // SOFTWARE ENGINEER',
-    'PARSING DATA DICTIONARY & DESIGN TOKENS......... OK',
-    'MAPPING ROTORDYN SIGNAL TELEMETRY VISUALS....... OK',
-    'DECRYPTING CODEORIGIN AST METRICS LAYERS......... OK',
-    'COMPILING PYTHON_WEB_COMPILER EXECUTION CONTEXT.. OK',
-    'READING STUDENT-INFO-PORTAL SPREADSHEETS........ OK',
-    'CONNECTING TO INTEL_3 SQLITE INTERACTIVE MODEL... OK',
-    'INTEGRATING IEEE RESEARCH ATTENTION METRIC...... OK',
-    'TACTICAL ENGINE STATUS: READY',
-    'LAUNCHING EXPERIENCE DECK...'
+    'INGESTING CODE OBJECT: MODEL-SRB // COGNITIVE DEV ENGINE',
+    'VERIFYING HARDWARE INTERACTIVE SCHEMAS......... OK',
+    'LOADING CODEORIGIN AST COMPLIANCE MODULE....... OK',
+    'LOADING ROTORDYN ROTATION TELEMETRY PIPES...... OK',
+    'CALIBRATING COMPILER SANDBOX RUNTIMES........... OK',
+    'INDEXING STUDENT-INFO-PORTAL DATA ARRAYS........ OK',
+    'CHECKING INTEGRATED ACADEMIC RETRACT CREDENTIALS.. OK',
+    'VERIFYING QUALITY ASSURANCE: EXPLAINABLE AI..... OK',
+    'PRODUCT STATUS: NOMINAL // READY FOR DEPLOYMENT',
+    'LAUNCHING PRODUCT DISPATCH DECK...'
   ];
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export const BootScreen = ({ onComplete }: BootScreenProps) => {
             <span className="w-3 h-3 rounded-full bg-[#FFD600]"></span>
             <span className="w-3 h-3 rounded-full bg-[#1A1A24]"></span>
           </div>
-          <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Tactical Blueprint Boot Console v5.0</span>
+          <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold font-mono">Product Launch Console v6.0</span>
         </div>
 
         {/* Console Log Stream */}
@@ -56,7 +56,7 @@ export const BootScreen = ({ onComplete }: BootScreenProps) => {
           {logs.map((log, i) => (
             <div key={i} className="flex gap-2 items-start">
               <span className="text-[#FF3D00]">&gt;</span>
-              <span className={log && log.includes('READY') ? 'text-[#FF3D00] font-black' : ''}>
+              <span className={log && log.includes('NOMINAL') ? 'text-[#FF3D00] font-black' : ''}>
                 {log}
               </span>
             </div>
