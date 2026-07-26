@@ -50,7 +50,7 @@ export default function App() {
   }, [booting]);
 
   return (
-    <div className="min-h-screen bg-[#F4F4F6] text-[#0C0C0E] selection:bg-[#FFD600]/30 selection:text-black relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#F0F0F2] text-[#0C0C0E] selection:bg-[#FFD600]/30 selection:text-black relative overflow-x-hidden">
       <AnimatePresence>
         {booting && (
           <BootScreen onComplete={() => setBooting(false)} />
@@ -65,10 +65,10 @@ export default function App() {
           {/* Sticky Navigation Overlay */}
           <header className="fixed top-6 left-0 right-0 z-50 px-6 pointer-events-none">
             <nav className="max-w-7xl mx-auto flex items-center justify-between pointer-events-auto select-none">
-              <span className="font-mono text-xs font-bold tracking-widest text-[#0C0C0E] hover:text-[#E60012] transition-colors bg-white px-3 py-1.5 border-3 border-black shadow-[3px_3px_0px_#000000]">
+              <span className="font-mono text-xs font-bold tracking-widest text-[#0C0C0E] hover:text-[#E60012] transition-colors bg-[#F0F0F2] px-3 py-1.5 border-3 border-black shadow-[4px_4px_8px_#d2d2d4,_-4px_-4px_8px_#ffffff]">
                 SRB // <span className="text-[#E60012]">TACTICAL</span>
               </span>
-              <div className="flex gap-4 font-mono text-[9px] tracking-wider text-black bg-white p-2 border-3 border-black shadow-[3px_3px_0px_#FFD600] uppercase font-bold">
+              <div className="flex gap-4 font-mono text-[9px] tracking-wider text-black bg-[#F0F0F2] p-2 border-3 border-black shadow-[4px_4px_8px_#d2d2d4,_-4px_-4px_8px_#ffffff] uppercase font-bold">
                 <button
                   onClick={() => sectionRefs[0].current?.scrollIntoView({ behavior: 'smooth' })}
                   className={`hover:text-[#E60012] transition-colors ${activeSection === 0 ? 'text-[#E60012]' : ''}`}
@@ -107,20 +107,20 @@ export default function App() {
             >
               <div className="max-w-4xl flex flex-col gap-6 items-start">
                 <div className="flex gap-2">
-                  <span className="mono-tag bg-[#E60012] text-white px-2.5 py-0.5 border-2 border-black inline-block shadow-[2px_2px_0px_#000000]">
+                  <span className="mono-tag bg-[#E60012] text-white px-2.5 py-0.5 border-2 border-black inline-block shadow-[3px_3px_6px_#d2d2d4]">
                     SYSTEM ENGINE ACTIVE
                   </span>
-                  <span className="mono-tag bg-[#FFD600] text-black px-2.5 py-0.5 border-2 border-black inline-block shadow-[2px_2px_0px_#000000]">
+                  <span className="mono-tag bg-[#FFD600] text-black px-2.5 py-0.5 border-2 border-black inline-block shadow-[3px_3px_6px_#d2d2d4]">
                     SYS_OK // NODE-0x0
                   </span>
                 </div>
                 
                 <h1 className="text-4xl sm:text-6xl md:text-8xl font-sans font-black tracking-tighter text-[#0C0C0E] uppercase leading-none">
                   I BUILD SYSTEMS<br />
-                  <span className="bg-[#E60012] text-white px-4 py-1.5 border-4 border-black inline-block shadow-[8px_8px_0px_#000000] rotate-[-1deg]">
+                  <span className="bg-[#E60012] text-white px-4 py-1.5 border-4 border-black inline-block shadow-[6px_6px_12px_#d2d2d4,_-6px_-6px_12px_#ffffff] rotate-[-1deg]">
                     FOR COMPLEX
                   </span><br />
-                  <span className="text-[#FFD600] bg-black px-4 py-1 border-3 border-black inline-block shadow-[5px_5px_0px_#E60012] rotate-[1.5deg] text-3xl sm:text-5xl mt-2 font-mono tracking-widest font-black">
+                  <span className="text-[#FFD600] bg-black px-4 py-1 border-3 border-black inline-block shadow-[6px_6px_12px_#d2d2d4] rotate-[1.5deg] text-3xl sm:text-5xl mt-2 font-mono tracking-widest font-black">
                     PROBLEMS_
                   </span>
                 </h1>
@@ -139,7 +139,7 @@ export default function App() {
                 <div className="flex gap-4 font-mono text-[10px] mt-6">
                   <button
                     onClick={() => sectionRefs[1].current?.scrollIntoView({ behavior: 'smooth' })}
-                    className="px-6 py-3 bg-[#E60012] text-white border-3 border-black font-black uppercase tracking-wider rounded-none shadow-[4px_4px_0px_#FFD600] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#000000] transition-all active:scale-[0.98]"
+                    className="px-6 py-3 bg-[#E60012] text-white border-3 border-black font-black uppercase tracking-wider rounded-none shadow-[4px_4px_8px_#d2d2d4,_-4px_-4px_8px_#ffffff] hover:translate-y-[-2px] transition-all active:scale-[0.98]"
                   >
                     Enter Narrative &darr;
                   </button>
@@ -155,7 +155,7 @@ export default function App() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 {/* Credentials / Status Card */}
                 <div className="lg:col-span-5 flex flex-col gap-6">
-                  <div className="slanted-panel-white p-6 rounded-none relative">
+                  <div className="neumorphic-panel-white p-6 rounded-none relative">
                     {/* Tactical corner reticles */}
                     <div className="absolute top-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
                     <div className="absolute top-2 right-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
@@ -182,8 +182,9 @@ export default function App() {
                         <div className="flex flex-col gap-1 text-[11px] text-black leading-snug font-bold">
                           <div><strong>IDENTITY:</strong> Shaik Rameez Basha</div>
                           <div><strong>COHORT:</strong> B.Tech CSE (AI) &bull; 2026</div>
-                          <div><strong>CGPA:</strong> <span className="bg-[#FFD600] px-1 border border-black">7.79 / 10.00</span></div>
-                          <div><strong>LOCATION:</strong> India (Open Reloc)</div>
+                          <div className="mt-1">
+                            <strong>CGPA:</strong> <span className="bg-[#FFD600] px-1 border border-black font-bold font-mono">7.79 / 10.00</span>
+                          </div>
                         </div>
                       </div>
 
@@ -206,11 +207,11 @@ export default function App() {
                   </p>
                   <div className="tech-divider my-2 border-b-2 border-black" />
                   <div className="grid grid-cols-2 gap-4 text-xs font-mono text-black uppercase font-bold">
-                    <div>
+                    <div className="neumorphic-sunken p-3">
                       <span className="text-[#E60012] block mb-1">01 / Full-Stack</span>
                       React, TS, FastAPI, Postgres
                     </div>
-                    <div>
+                    <div className="neumorphic-sunken p-3">
                       <span className="text-[#E60012] block mb-1">02 / AI & ML</span>
                       PyTorch, NumPy, Explainable AI
                     </div>
@@ -265,7 +266,7 @@ export default function App() {
 
                 {/* Spatial telemetry widget */}
                 <div className="lg:col-span-6 flex justify-center">
-                  <div className="w-full max-w-md p-6 slanted-panel-white rounded-none relative">
+                  <div className="w-full max-w-md p-6 neumorphic-panel-white rounded-none relative">
                     <div className="absolute top-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
                     <div className="absolute top-2 right-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
                     <div className="absolute bottom-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
@@ -288,7 +289,7 @@ export default function App() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 {/* Visual telemetry widget */}
                 <div className="lg:col-span-6 order-2 lg:order-1 flex justify-center">
-                  <div className="w-full max-w-md p-6 slanted-panel-white rounded-none relative">
+                  <div className="w-full max-w-md p-6 neumorphic-panel-white rounded-none relative">
                     <div className="absolute top-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
                     <div className="absolute top-2 right-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
                     <div className="absolute bottom-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
@@ -379,7 +380,7 @@ export default function App() {
 
                 {/* Spatial telemetry widget */}
                 <div className="lg:col-span-6 flex justify-center">
-                  <div className="w-full max-w-md p-6 slanted-panel-white rounded-none relative">
+                  <div className="w-full max-w-md p-6 neumorphic-panel-white rounded-none relative">
                     <div className="absolute top-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
                     <div className="absolute top-2 right-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
                     <div className="absolute bottom-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
@@ -427,7 +428,7 @@ export default function App() {
 
                 {/* Neural connection map widget */}
                 <div className="lg:col-span-6 flex justify-center">
-                  <div className="w-full max-w-md p-6 slanted-panel-white rounded-none relative">
+                  <div className="w-full max-w-md p-6 neumorphic-panel-white rounded-none relative">
                     <div className="absolute top-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
                     <div className="absolute top-2 right-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
                     <div className="absolute bottom-2 left-2 text-[8px] text-black/50 font-mono select-none font-bold">[ + ]</div>
@@ -483,13 +484,13 @@ export default function App() {
                   <div className="flex gap-2">
                     <a
                       href="mailto:shaikbashah20@gmail.com"
-                      className="px-4 py-2 border-2 border-black hover:bg-[#E60012] hover:text-white font-black bg-[#FFD600] text-black rounded-none shadow-[3px_3px_0px_#000000] transition-all"
+                      className="px-4 py-2 border-2 border-black hover:bg-[#E60012] hover:text-white font-black bg-[#FFD600] text-black rounded-none shadow-[4px_4px_8px_#d2d2d4] transition-all"
                     >
                       Signal &rarr;
                     </a>
                     <button
                       onClick={copyEmail}
-                      className="p-2 border-2 border-black hover:bg-black hover:text-white bg-white rounded-none shadow-[3px_3px_0px_#000000] transition-all"
+                      className="p-2 border-2 border-black hover:bg-black hover:text-white bg-[#F0F0F2] rounded-none shadow-[4px_4px_8px_#d2d2d4] transition-all"
                     >
                       {copied ? <Check size={14} className="text-green-500 font-bold" /> : <Copy size={14} className="text-black" />}
                     </button>
@@ -501,7 +502,7 @@ export default function App() {
           </main>
 
           {/* Cinematic subtle footer bar */}
-          <footer className="w-full border-t border-black py-8 text-center text-[10px] font-mono text-black uppercase tracking-widest bg-white relative z-10 select-none font-bold">
+          <footer className="w-full border-t border-black py-8 text-center text-[10px] font-mono text-black uppercase tracking-widest bg-[#F0F0F2] relative z-10 select-none font-bold">
             <span>&copy; {new Date().getFullYear()} Shaik Rameez Basha &bull; Systems Active</span>
           </footer>
         </div>
@@ -537,8 +538,8 @@ const CodeOriginWidget = () => {
 
   return (
     <div className="flex flex-col gap-4 mt-3">
-      {/* Dynamic SVG tree visualization */}
-      <div className="w-[200px] h-[150px] border-2 border-black bg-white mx-auto relative shadow-[3px_3px_0px_#000000]">
+      {/* Dynamic SVG tree visualization inside a neumorphic inset frame */}
+      <div className="w-[200px] h-[150px] bg-[#F0F0F2] mx-auto relative neumorphic-sunken">
         <svg className="w-full h-full" viewBox="0 0 200 150">
           {/* Branch Lines */}
           <line x1="100" y1="25" x2="50" y2="75" stroke="#000000" strokeWidth="2" />
@@ -562,7 +563,7 @@ const CodeOriginWidget = () => {
                   cx={n.cx}
                   cy={n.cy}
                   r="12"
-                  fill={isActive ? '#E60012' : '#FFFFFF'}
+                  fill={isActive ? '#E60012' : '#F0F0F2'}
                   stroke="#000000"
                   strokeWidth="2"
                   className="transition-all duration-300"
@@ -584,26 +585,30 @@ const CodeOriginWidget = () => {
         </svg>
       </div>
 
+      {/* Raised and pressed mechanical steps buttons */}
       <div className="grid grid-cols-2 gap-2">
-        {steps.map((s, idx) => (
-          <button
-            key={idx}
-            onClick={() => setActiveStep(idx)}
-            className={`p-3 rounded-none text-left border-2 border-black text-xs font-bold transition-all flex justify-between items-center ${
-              activeStep === idx
-                ? 'bg-[#E60012] text-white shadow-[3px_3px_0px_#000000]'
-                : 'bg-white text-black hover:bg-gray-100 shadow-[3px_3px_0px_#000000]'
-            }`}
-          >
-            <span>{idx + 1}. {s.title}</span>
-          </button>
-        ))}
+        {steps.map((s, idx) => {
+          const isActive = activeStep === idx;
+          return (
+            <button
+              key={idx}
+              onClick={() => setActiveStep(idx)}
+              className={`p-3 rounded-none text-left text-xs font-bold transition-all ${
+                isActive
+                  ? 'neumorphic-sunken text-[#E60012] font-black'
+                  : 'bg-[#F0F0F2] border-2 border-black text-black shadow-[3px_3px_6px_#d2d2d4]'
+              }`}
+            >
+              <span>{idx + 1}. {s.title}</span>
+            </button>
+          );
+        })}
       </div>
 
-      {/* Metadata telemetry report box */}
-      <div className="p-3 bg-white border-2 border-black rounded-none text-[10px] text-black leading-relaxed flex flex-col gap-1 shadow-[3px_3px_0px_#FFD600]">
-        <div><strong>Active Node:</strong> <span className="text-[#E60012] font-bold">{steps[activeStep].type}</span></div>
-        <div><strong>Line Number:</strong> <span className="font-bold">{steps[activeStep].lineno}</span></div>
+      {/* Metadata telemetry report box inside deep sunken overlay */}
+      <div className="p-3 rounded-none text-[10px] text-black leading-relaxed flex flex-col gap-1 neumorphic-sunken font-bold">
+        <div><strong>Active Node:</strong> <span className="text-[#E60012] font-black font-mono">{steps[activeStep].type}</span></div>
+        <div><strong>Line Number:</strong> <span className="font-mono">{steps[activeStep].lineno}</span></div>
         <div><strong>Telemetry:</strong> {steps[activeStep].detail}</div>
       </div>
     </div>
@@ -627,10 +632,10 @@ const RotorDynWidget = () => {
 
   return (
     <div className="flex flex-col gap-4 mt-3">
-      {/* Tactical diagonal hazard header on simulator */}
+      {/* Tactical warning bar on widget */}
       <div className="hazard-stripes-yellow h-4 rotate-[-1deg]" />
 
-      <div className="w-[180px] h-[180px] border-2 border-black rounded-none bg-white relative mx-auto flex items-center justify-center overflow-hidden shadow-[4px_4px_0px_#000000]">
+      <div className="w-[180px] h-[180px] rounded-none relative mx-auto flex items-center justify-center overflow-hidden neumorphic-sunken">
         <svg className="w-full h-full">
           {/* Diagnostic coordinate ticks */}
           <line x1="0" y1="90" x2="180" y2="90" stroke="rgba(0,0,0,0.15)" strokeWidth="1" />
@@ -644,13 +649,13 @@ const RotorDynWidget = () => {
           <circle cx="90" cy="90" r="50" stroke="rgba(0,0,0,0.1)" fill="none" strokeWidth="1" strokeDasharray="3,3" />
           <polyline points={points.map(p => p.split(',').map(n => Number(n)*0.9).join(',')).join(' ')} fill="none" stroke="#E60012" strokeWidth="2.5" />
         </svg>
-        <span className="absolute bottom-2 left-2 text-[8px] text-black font-black tracking-wider">SPECTRUM ORBIT TRACK</span>
+        <span className="absolute bottom-2 left-2 text-[8px] text-black font-black tracking-wider font-mono">SPECTRUM ORBIT TRACK</span>
       </div>
 
-      {/* Real-time telemetry values with Free Fire accent colors */}
+      {/* Real-time telemetry values with Free Fire accent colors inside inset slots */}
       <div className="grid grid-cols-2 gap-2 text-[9px] uppercase border-y-2 border-black py-2 my-1 font-bold">
         <div><strong>Speed:</strong> 3000 RPM</div>
-        <div><strong>Radial Amp:</strong> <span className="bg-[#FFD600] px-1">{amp} &mu;m</span></div>
+        <div><strong>Radial Amp:</strong> <span className="bg-[#FFD600] px-1 border border-black">{amp} &mu;m</span></div>
         <div><strong>Harmonic:</strong> 1x Vector</div>
         <div><strong>Status:</strong> <span className="text-[#E60012]">Nominal</span></div>
       </div>
@@ -741,12 +746,12 @@ const CompilerWidget = () => {
       <button
         onClick={runCodeSimulation}
         disabled={running}
-        className="w-full py-2.5 bg-[#E60012] text-white border-2 border-black text-xs font-black uppercase rounded-none shadow-[3px_3px_0px_#FFD600] hover:bg-red-700 transition-all active:scale-[0.98]"
+        className="w-full py-2.5 bg-[#E60012] text-white border-2 border-black text-xs font-black uppercase rounded-none shadow-[4px_4px_8px_#d2d2d4] hover:bg-red-700 transition-all active:scale-[0.98]"
       >
         {running ? 'Executing Code...' : 'Simulate Web Compiler'}
       </button>
 
-      <div className="h-40 border-2 border-black bg-white rounded-none p-3 font-mono text-[10px] text-black overflow-y-auto flex flex-col gap-1.5 leading-relaxed shadow-[3px_3px_0px_#000000] font-semibold">
+      <div className="h-40 p-3 font-mono text-[10px] text-black overflow-y-auto flex flex-col gap-1.5 leading-relaxed neumorphic-sunken font-semibold">
         {outputs.map((line, idx) => (
           <div key={idx} className="flex gap-1.5 items-start">
             <span className="text-[#E60012] font-black">&gt;</span>
@@ -772,23 +777,23 @@ const XaiWidget = () => {
 
   return (
     <div className="flex flex-col gap-4 text-xs font-mono mt-3">
-      {/* SVG Neural Layer Attraction network */}
-      <div className="w-[200px] h-[140px] border-2 border-black bg-white mx-auto relative shadow-[3px_3px_0px_#000000]">
+      {/* SVG Neural Layer Attraction network inside neumorphic sunken frame */}
+      <div className="w-[200px] h-[140px] relative neumorphic-sunken">
         <svg className="w-full h-full" viewBox="0 0 200 140">
           {/* Layer 1 Nodes (Inputs) */}
-          <circle cx="30" cy="25" r="7" fill={hoveredNode === 0 ? '#E60012' : '#FFFFFF'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(0)} onMouseLeave={() => setHoveredNode(null)} />
-          <circle cx="30" cy="55" r="7" fill={hoveredNode === 1 ? '#E60012' : '#FFFFFF'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(1)} onMouseLeave={() => setHoveredNode(null)} />
-          <circle cx="30" cy="85" r="7" fill={hoveredNode === 2 ? '#E60012' : '#FFFFFF'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(2)} onMouseLeave={() => setHoveredNode(null)} />
-          <circle cx="30" cy="115" r="7" fill={hoveredNode === 3 ? '#E60012' : '#FFFFFF'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(3)} onMouseLeave={() => setHoveredNode(null)} />
+          <circle cx="30" cy="25" r="7" fill={hoveredNode === 0 ? '#E60012' : '#F0F0F2'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(0)} onMouseLeave={() => setHoveredNode(null)} />
+          <circle cx="30" cy="55" r="7" fill={hoveredNode === 1 ? '#E60012' : '#F0F0F2'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(1)} onMouseLeave={() => setHoveredNode(null)} />
+          <circle cx="30" cy="85" r="7" fill={hoveredNode === 2 ? '#E60012' : '#F0F0F2'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(2)} onMouseLeave={() => setHoveredNode(null)} />
+          <circle cx="30" cy="115" r="7" fill={hoveredNode === 3 ? '#E60012' : '#F0F0F2'} stroke="#000000" strokeWidth="2" onMouseEnter={() => setHoveredNode(3)} onMouseLeave={() => setHoveredNode(null)} />
 
           {/* Layer 2 Nodes (Hidden) */}
-          <circle cx="100" cy="40" r="7" fill="#FFFFFF" stroke="#000000" strokeWidth="2" />
-          <circle cx="100" cy="70" r="7" fill="#FFFFFF" stroke="#000000" strokeWidth="2" />
-          <circle cx="100" cy="100" r="7" fill="#FFFFFF" stroke="#000000" strokeWidth="2" />
+          <circle cx="100" cy="40" r="7" fill="#F0F0F2" stroke="#000000" strokeWidth="2" />
+          <circle cx="100" cy="70" r="7" fill="#F0F0F2" stroke="#000000" strokeWidth="2" />
+          <circle cx="100" cy="100" r="7" fill="#F0F0F2" stroke="#000000" strokeWidth="2" />
 
           {/* Layer 3 Nodes (Output) */}
-          <circle cx="170" cy="55" r="7" fill="#FFFFFF" stroke="#000000" strokeWidth="2" />
-          <circle cx="170" cy="85" r="7" fill="#FFFFFF" stroke="#000000" strokeWidth="2" />
+          <circle cx="170" cy="55" r="7" fill="#F0F0F2" stroke="#000000" strokeWidth="2" />
+          <circle cx="170" cy="85" r="7" fill="#F0F0F2" stroke="#000000" strokeWidth="2" />
 
           {/* Pulsing connection lines on input node hover */}
           {hoveredNode !== null && (
@@ -804,8 +809,8 @@ const XaiWidget = () => {
         </svg>
       </div>
 
-      {/* Dynamic Telemetry report panel */}
-      <div className="p-3 border-2 border-black bg-white rounded-none flex flex-col gap-2 min-h-[90px] text-[10px] shadow-[3px_3px_0px_#E60012]">
+      {/* Dynamic Telemetry report panel inside deep inset box */}
+      <div className="p-3 flex flex-col gap-2 min-h-[90px] text-[10px] neumorphic-sunken">
         {hoveredNode !== null ? (
           <>
             <span className="text-[8px] text-[#E60012] font-black uppercase tracking-wider">Estimated Attention Tensors</span>
@@ -817,7 +822,7 @@ const XaiWidget = () => {
             </div>
           </>
         ) : (
-          <div className="text-black font-semibold flex items-center justify-center h-full min-h-[60px] text-center uppercase tracking-wide text-[9px]">
+          <div className="text-black font-semibold flex items-center justify-center h-full min-h-[60px] text-center uppercase tracking-wide text-[9px] leading-relaxed">
             Hover over an input node inside the SVG diagram to trace active neural decision pathways.
           </div>
         )}

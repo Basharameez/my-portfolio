@@ -7,7 +7,7 @@
 
 body {
   margin: 0;
-  background-color: #F4F4F6;
+  background-color: #F0F0F2;
   color: #0c0c0e;
   font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   overflow-x: hidden;
@@ -19,39 +19,46 @@ body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F4F4F6;
+  background: #F0F0F2;
 }
 ::-webkit-scrollbar-thumb {
   background: #000000;
-  border: 1px solid #F4F4F6;
+  border: 1px solid #F0F0F2;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #E60012;
 }
 
-/* Slanted panels style templates */
-.slanted-panel-white {
+/* Slanted Neumorphic panels (Persona 5 x Free Fire x Neumorphism Blend) */
+.neumorphic-panel-white {
   transform: skewY(-1.5deg);
   border: 3px solid #000000;
-  background-color: #FFFFFF;
+  background-color: #F0F0F2;
   color: #000000;
-  box-shadow: 6px 6px 0px #000000;
+  box-shadow: 6px 6px 12px #d2d2d4, -6px -6px 12px #ffffff;
 }
 
-.slanted-panel-black {
+.neumorphic-panel-black {
   transform: skewY(-1.5deg);
   border: 3px solid #000000;
   background-color: #000000;
   color: #FFFFFF;
-  box-shadow: 6px 6px 0px #E60012;
+  box-shadow: 6px 6px 12px #c2c2c4, -6px -6px 12px #ffffff;
 }
 
-.slanted-panel-red {
+.neumorphic-panel-red {
   transform: skewY(-1.5deg);
   border: 3px solid #000000;
   background-color: #E60012;
   color: #FFFFFF;
-  box-shadow: 6px 6px 0px #000000;
+  box-shadow: 6px 6px 12px #d2d2d4, -6px -6px 12px #ffffff;
+}
+
+/* Sunken panels / Inset fields */
+.neumorphic-sunken {
+  box-shadow: inset 4px 4px 8px #d2d2d4, inset -4px -4px 8px #ffffff;
+  border: 2px solid #000000;
+  background-color: #F0F0F2;
 }
 
 /* Counter-skew to keep child text perfectly straight and readable */

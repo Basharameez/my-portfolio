@@ -273,7 +273,7 @@ const CanvasFallback = ({ activeSection }: ParticlesRendererProps) => {
     }));
 
     const animate = () => {
-      ctx.fillStyle = '#F4F4F6';
+      ctx.fillStyle = '#F0F0F2';
       ctx.fillRect(0, 0, width, height);
 
       particles.forEach((p, idx) => {
@@ -317,7 +317,6 @@ const CanvasFallback = ({ activeSection }: ParticlesRendererProps) => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-        // Alternate red and yellow in 2D fallback
         ctx.fillStyle = idx % 2 === 0 ? 'rgba(230, 0, 18, 0.55)' : 'rgba(255, 214, 0, 0.7)';
         ctx.fill();
       });
@@ -344,9 +343,9 @@ export const MorphingParticles = ({ activeSection }: ParticlesRendererProps) => 
   }, []);
 
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none select-none overflow-hidden bg-[#F4F4F6]">
+    <div className="fixed inset-0 z-0 pointer-events-none select-none overflow-hidden bg-[#F0F0F2]">
       {useWebGL ? (
-        <Canvas camera={{ position: [0, 0, 5], fov: 60 }} style={{ background: '#F4F4F6' }}>
+        <Canvas camera={{ position: [0, 0, 5], fov: 60 }} style={{ background: '#F0F0F2' }}>
           <ambientLight intensity={0.8} />
           <ParticlesRenderer activeSection={activeSection} />
         </Canvas>
@@ -354,7 +353,7 @@ export const MorphingParticles = ({ activeSection }: ParticlesRendererProps) => 
         <CanvasFallback activeSection={activeSection} />
       )}
       {/* Light vignetting overlay */}
-      <div className="absolute inset-0 bg-radial-[circle_at_center,transparent_55%,rgba(244,244,246,0.75)_95%] pointer-events-none" />
+      <div className="absolute inset-0 bg-radial-[circle_at_center,transparent_55%,rgba(240,240,242,0.75)_95%] pointer-events-none" />
     </div>
   );
 };
