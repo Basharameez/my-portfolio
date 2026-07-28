@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
 
 :root {
   color-scheme: light;
@@ -7,103 +7,119 @@
 
 body {
   margin: 0;
-  background-color: #F9F9FB;
-  color: #101014;
+  background-color: #F4F4F2;
+  color: #111111;
   font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   overflow-x: hidden;
 }
 
-/* Technical scrollbars */
+/* Custom scrollbars */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #F9F9FB;
+  background: #F4F4F2;
 }
 ::-webkit-scrollbar-thumb {
-  background: #E5E5E8;
-  border: 1px solid #F9F9FB;
+  background: #dcdcdc;
+  border-radius: 4px;
+  border: 2px solid #F4F4F2;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #D31212;
 }
 
-/* Persona 5 slanted block tags */
-.slanted-tab {
-  transform: skewX(-12deg);
+/* Soft Neumorphism Utilities */
+.neumorphic-outset {
+  background: #FFFFFF;
+  box-shadow: 6px 6px 12px #e0e0de, -6px -6px 12px #ffffff;
 }
 
-.unslanted-text {
-  transform: skewX(12deg);
+.neumorphic-inset {
+  background: #F4F4F2;
+  box-shadow: inset 4px 4px 8px #e0e0de, inset -4px -4px 8px #ffffff;
 }
 
-/* Flat manga card panels */
-.manga-card {
-  border: 2.5px solid #000000;
-  background-color: #FFFFFF;
-  color: #101014;
-  box-shadow: 4px 4px 0px #000000;
-  transition: all 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.neumorphic-inset-white {
+  background: #FFFFFF;
+  box-shadow: inset 4px 4px 8px #f0f0ee, inset -4px -4px 8px #ffffff;
 }
 
-.manga-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #D31212;
+/* Tactile Soft Buttons */
+.neumorphic-btn {
+  background: #FFFFFF;
+  box-shadow: 4px 4px 8px #e0e0de, -4px -4px 8px #ffffff;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.neumorphic-btn:hover {
+  box-shadow: 2px 2px 4px #e0e0de, -2px -2px 4px #ffffff;
+  transform: translateY(1px);
+}
+.neumorphic-btn:active {
+  box-shadow: inset 3px 3px 6px #e0e0de, inset -3px -3px 6px #ffffff;
+  transform: translateY(2px);
 }
 
-/* Red highlighted banner card */
-.manga-card-red {
-  border: 2.5px solid #000000;
-  background-color: #D31212;
+.neumorphic-btn-active {
+  background: #F4F4F2;
+  box-shadow: inset 3px 3px 6px #e0e0de, inset -3px -3px 6px #ffffff;
+}
+
+/* Red Neumorphic Glow button */
+.neumorphic-btn-red {
+  background: #D31212;
   color: #FFFFFF;
-  box-shadow: 4px 4px 0px #000000;
-  transition: all 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 4px 4px 8px #e0e0de, -4px -4px 8px #ffffff;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.neumorphic-btn-red:hover {
+  box-shadow: 2px 2px 4px #e0e0de, -2px -2px 4px #ffffff;
+  background: #b50e0e;
+  transform: translateY(1px);
+}
+.neumorphic-btn-red:active {
+  box-shadow: inset 2px 2px 4px #7a0707, inset -2px -2px 4px #b50e0e;
+  transform: translateY(2px);
 }
 
-.manga-card-red:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #000000;
+/* Dot grid editorial patterns */
+.editorial-dot-pattern {
+  background-image: radial-gradient(rgba(17, 17, 17, 0.035) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
 }
 
-/* Dotted comic half-tone background grid */
-.manga-dot-pattern {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.035) 1.5px, transparent 1.5px);
-  background-size: 16px 16px;
+/* Layout structural details */
+.diagonal-stripe {
+  clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
+}
+
+.asymmetric-clip {
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
 }
 
 /* Typography styles */
 .display-title {
   font-family: 'Outfit', sans-serif;
   font-weight: 900;
-  line-height: 0.9;
+  line-height: 0.95;
   letter-spacing: -0.04em;
 }
 
 .mono-tag {
   font-family: 'Space Mono', monospace;
   font-size: 10px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   color: #D31212;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-/* Comic diagonal slash borders */
-.manga-divider {
-  height: 3px;
-  background-color: #000000;
-  position: relative;
+.text-charcoal {
+  color: #686868;
 }
 
-.manga-divider::after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  right: 10%;
-  width: 12px;
-  height: 12px;
-  background-color: #D31212;
-  border: 2.5px solid #000000;
-  transform: rotate(45deg);
+/* Smooth Scrolling setup */
+html {
+  scroll-behavior: smooth;
 }
