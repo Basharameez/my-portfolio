@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
             </svg>
           </a>
           <a
-            href="https://linkedin.com/in/shaik-rameez-basha"
+            href="https://www.linkedin.com/in/shaik-rameez-basha-151740286/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2.5 rounded-full bg-neutral-50 text-neutral-600 hover:text-red-600 hover:bg-neutral-100 transition-colors shadow-sm flex items-center justify-center"

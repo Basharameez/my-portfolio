@@ -54,7 +54,7 @@ export const Contact: React.FC = () => {
             </a>
 
             <a 
-              href="https://linkedin.com/in/shaik-rameez-basha" 
+              href="https://www.linkedin.com/in/shaik-rameez-basha-151740286/" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="flex items-center gap-4 p-4 rounded-xl border border-neutral-200 bg-white hover:bg-neutral-50/50 transition-all shadow-sm"
@@ -66,7 +66,7 @@ export const Contact: React.FC = () => {
               </div>
               <div>
                 <span className="block text-[10px] font-mono text-neutral-400 font-bold uppercase">LINKEDIN CONNECTION</span>
-                <span className="text-xs font-bold text-neutral-800">linkedin.com/in/shaik-rameez-basha</span>
+                <span className="text-xs font-bold text-neutral-800">linkedin.com/in/shaik-rameez-basha-151740286/</span>
               </div>
             </a>
 
