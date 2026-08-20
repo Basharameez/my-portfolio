@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 
 const containerVariants: Variants = {
@@ -27,6 +27,44 @@ const fadeUpVariants: Variants = {
 };
 
 export const About: React.FC = () => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isCardHovered, setIsCardHovered] = useState(false);
+
+  // 1. Motion Values for 3D Tilt
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const spotlightX = useMotionValue(200);
+  const spotlightY = useMotionValue(200);
+
+  // 2. Springs for Tilting Physics
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [16, -16]), { damping: 18, stiffness: 220 });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-16, 16]), { damping: 18, stiffness: 220 });
+
+  // 3. Spotlight Background gradient
+  const spotlightBg = useTransform(
+    [spotlightX, spotlightY],
+    ([x, y]) => `radial-gradient(circle 240px at ${x}px ${y}px, rgba(255,255,255,0.35), rgba(212,175,55,0.18), transparent 80%)`
+  );
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    mouseX.set(x);
+    mouseY.set(y);
+    spotlightX.set(e.clientX - rect.left);
+    spotlightY.set(e.clientY - rect.top);
+  };
+
+  const handleMouseEnter = () => setIsCardHovered(true);
+
+  const handleMouseLeave = () => {
+    setIsCardHovered(false);
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
   const stackLayers = [
     { name: 'USER', role: 'Human interaction & decision loop', step: '05' },
     { name: 'UI', role: 'React & Vite presentation layer', step: '04' },
@@ -43,7 +81,7 @@ export const About: React.FC = () => {
       {/* Background decoration */}
       <div className="absolute top-1/4 left-10 w-[32rem] h-[32rem] bg-[#D4AF37]/[0.03] rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-[28rem] h-[28rem] bg-[#8C6D4F]/[0.03] rounded-full blur-[170px] pointer-events-none" />
-      <div className="absolute inset-0 tech-grid-pattern opacity-[0.1] pointer-events-none" />
+      <div className="absolute inset-0 tech-grid-pattern opacity-[0.08] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
         
@@ -67,7 +105,7 @@ export const About: React.FC = () => {
         {/* Main Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: Content */}
+          {/* Left Column: Content (7 Cols) */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -93,105 +131,125 @@ export const About: React.FC = () => {
             {/* Paragraph Bio */}
             <motion.p
               variants={fadeUpVariants}
-              className="text-xs sm:text-sm md:text-[14.5px] font-light text-[#B3A497] leading-[1.85] tracking-wide mb-10 max-w-xl"
+              className="text-xs sm:text-sm md:text-[14px] font-light text-[#B3A497] leading-[1.85] tracking-wide mb-8 max-w-xl font-sans"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
-              I'm <span className="text-[#F3DBB3] font-medium">Shaik Rameez Basha</span>, an AI/ML &amp; GenAI Engineer | Full-Stack Engineer. My work sits at the intersection of AI models and robust software engineering. I build end-to-end intelligent systems, focusing on explainable predictions, structured API services, and clean presentation layers.
+              I'm <span className="text-[#F3DBB3] font-medium font-mono">Shaik Rameez Basha</span>, an AI/ML &amp; GenAI Engineer | Full-Stack Engineer. My work sits at the intersection of AI models and robust software engineering. I build end-to-end intelligent systems, focusing on explainable predictions, structured API services, and clean presentation layers.
             </motion.p>
 
-            {/* Achievement Stats Grid */}
+            {/* Stats Matrix */}
             <motion.div 
               variants={fadeUpVariants}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 pb-2 border-t border-[#8C6D4F]/25"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 pb-6 border-t border-[#8C6D4F]/25"
             >
               <div className="flex flex-col">
                 <span 
-                  className="text-3xl sm:text-4xl font-light text-[#F4EBE2] tracking-tight font-bold"
+                  className="text-2xl sm:text-3xl font-light text-[#F4EBE2] tracking-tight font-bold"
                   style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
                   7.79
                 </span>
-                <span className="text-[9px] font-medium tracking-[0.22em] uppercase text-[#A8988B] mt-0.5 font-mono">
+                <span className="text-[8.5px] font-medium tracking-[0.2em] uppercase text-[#A8988B] mt-0.5 font-mono">
                   B.Tech CGPA
                 </span>
               </div>
 
               <div className="flex flex-col">
                 <span 
-                  className="text-3xl sm:text-4xl font-light text-[#D4AF37] tracking-tight font-bold"
+                  className="text-2xl sm:text-3xl font-light text-[#D4AF37] tracking-tight font-bold"
                   style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
                   CS-AI
                 </span>
-                <span className="text-[9px] font-medium tracking-[0.22em] uppercase text-[#A8988B] mt-0.5 font-mono">
+                <span className="text-[8.5px] font-medium tracking-[0.2em] uppercase text-[#A8988B] mt-0.5 font-mono">
                   Specialization
                 </span>
               </div>
 
               <div className="flex flex-col">
                 <span 
-                  className="text-3xl sm:text-4xl font-light text-[#F4EBE2] tracking-tight font-bold"
+                  className="text-2xl sm:text-3xl font-light text-[#F4EBE2] tracking-tight font-bold"
                   style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
                   IEEE
                 </span>
-                <span className="text-[9px] font-medium tracking-[0.22em] uppercase text-[#A8988B] mt-0.5 font-mono">
+                <span className="text-[8.5px] font-medium tracking-[0.2em] uppercase text-[#A8988B] mt-0.5 font-mono">
                   Research Author
                 </span>
               </div>
 
               <div className="flex flex-col">
                 <span 
-                  className="text-3xl sm:text-4xl font-light text-[#D4AF37] tracking-tight font-bold"
+                  className="text-2xl sm:text-3xl font-light text-[#D4AF37] tracking-tight font-bold"
                   style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
                   LEETCODE
                 </span>
-                <span className="text-[9px] font-medium tracking-[0.22em] uppercase text-[#A8988B] mt-0.5 font-mono">
-                  Algorithm Solver
+                <span className="text-[8.5px] font-medium tracking-[0.2em] uppercase text-[#A8988B] mt-0.5 font-mono">
+                  Algo Solver
                 </span>
               </div>
             </motion.div>
+
+            {/* Inline horizontal/compact flow for stack infographic */}
+            <motion.div 
+              variants={fadeUpVariants}
+              className="flex flex-col gap-2 pt-6 border-t border-[#8C6D4F]/25 w-full"
+            >
+              <span className="text-[9.5px] font-mono tracking-[0.2em] text-[#8C6D4F] uppercase mb-1 block">// PIPELINE ARCHITECTURE FLOW</span>
+              <div className="flex flex-wrap gap-2">
+                {stackLayers.map((layer) => (
+                  <span 
+                    key={layer.name}
+                    className="px-2.5 py-1 text-[9px] font-mono border border-[#8C6D4F]/20 bg-[#0E0C0A] text-[#A8988B] rounded-sm hover:border-[#D4AF37]/50 transition-colors uppercase tracking-widest"
+                  >
+                    {layer.step} {layer.name}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
           </motion.div>
 
-          {/* Right Column: Dynamic Stack Infographic */}
-          <div className="lg:col-span-5 flex items-center justify-center relative">
-            <div className="w-full max-w-[420px] flex flex-col gap-3.5 relative">
-              {/* Vertical connector line */}
-              <div className="absolute left-6 top-6 bottom-6 w-[1px] bg-[#8C6D4F]/20 z-0" />
+          {/* Right Column: 3D Portrait Frame (5 Cols) */}
+          <div className="lg:col-span-5 flex items-center justify-center relative perspective-[1400px]">
+            <motion.div
+              ref={cardRef}
+              onMouseMove={handleMouseMove}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              style={{
+                rotateX: isCardHovered ? rotateX : 0,
+                rotateY: isCardHovered ? rotateY : 0,
+                transformStyle: 'preserve-3d',
+              }}
+              className="relative w-full max-w-[320px] aspect-[3/4] rounded-sm border border-[#8C6D4F]/40 bg-[#0E0C0A] p-2.5 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] transition-all duration-300 hover:border-[#D4AF37] group cursor-none"
+            >
+              {/* Corner brackets */}
+              <div className="absolute top-0 left-0 w-3.5 h-3.5 border-t border-l border-[#8C6D4F]/50 group-hover:border-[#D4AF37] transition-colors" />
+              <div className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b border-r border-[#8C6D4F]/50 group-hover:border-[#D4AF37] transition-colors" />
 
-              {stackLayers.map((layer, index) => (
-                <motion.div
-                  key={layer.name}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative p-4 pl-12 rounded-sm border border-[#8C6D4F]/25 bg-[#0E0C0A] hover:border-[#D4AF37]/60 transition-all duration-300 group z-10 text-left cursor-crosshair"
-                >
-                  {/* Corner minimal pins */}
-                  <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t border-l border-[#8C6D4F]/40 group-hover:border-[#D4AF37]" />
-                  <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b border-r border-[#8C6D4F]/40 group-hover:border-[#D4AF37]" />
-
-                  {/* Flow dot identifier */}
-                  <div className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 rounded-sm border border-[#8C6D4F]/30 bg-[#120F0C] flex items-center justify-center text-[7px] font-mono text-[#A8988B]">
-                    {layer.step}
-                  </div>
-
-                  <div className="flex flex-col">
-                    <span 
-                      className="text-xs font-semibold text-white tracking-widest uppercase group-hover:text-[#F7E7C4] transition-colors"
-                      style={{ fontFamily: "'Montserrat', sans-serif" }}
-                    >
-                      {layer.name}
-                    </span>
-                    <span className="text-[10px] font-mono text-[#A8988B] block mt-0.5">
-                      {layer.role}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+              {/* 3D Inner Content Container */}
+              <div 
+                className="w-full h-full overflow-hidden relative rounded-sm bg-black"
+                style={{ transform: 'translateZ(30px)' }}
+              >
+                <img 
+                  src="/mypic.png" 
+                  alt="Shaik Rameez Basha Portrait" 
+                  className="w-full h-full object-cover grayscale contrast-110 brightness-95 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                />
+                
+                {/* Dynamic Spotlight mix-blend color-dodge overlay */}
+                <motion.div 
+                  className="absolute inset-0 pointer-events-none mix-blend-color-dodge opacity-0 transition-opacity duration-300"
+                  style={{ 
+                    background: spotlightBg,
+                    opacity: isCardHovered ? 1 : 0 
+                  }}
+                />
+              </div>
+            </motion.div>
           </div>
 
         </div>
