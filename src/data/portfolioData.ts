@@ -1,51 +1,50 @@
-import type { Project, Milestone, TechCategory, ArchitectureLayer, SdlcStep } from '../types';
+import type { Project, Milestone, TechCategory, ArchitectureLayer, SdlcStep, WorkExperience, Publication } from '../types';
 
 export const projects: Project[] = [
   {
-    id: 'rotordyn',
-    title: 'RotorDyn',
-    category: 'Industrial Analytics Platform',
-    technologies: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'Supabase', 'Plotly.js', 'D3.js'],
-    description: 'A production-oriented industrial vibration analysis platform involving data ingestion, visualization, diagnostics, and desktop application architecture.',
-    overview: 'RotorDyn monitors and diagnoses rotating machinery in industrial environments. By analyzing high-frequency accelerometer vibration telemetry, the system detects anomalies, performs spectral analyses (FFT), and flags machinery faults before catastrophic failures occur.',
-    architecture: 'Implements a decoupled microservices design: high-throughput sensor telemetry ingestion workers stream raw data to a PostgreSQL buffer, while a FastAPI server exposes REST and WebSocket endpoints for real-time waterfall charts. Desktop components utilize PySide6.',
-    engineering: 'Engineered custom Fast Fourier Transform (FFT) post-processing workers in Python. Designed custom React SVG widgets and Plotly dashboards capable of rendering 100,000+ data coordinates concurrently without UI stutter.',
-    challenges: 'Optimizing real-time rendering performance for raw high-frequency waveforms. Resolved by building lightweight canvas wrappers that render static frame buffers, offloading FFT calculations to background Python worker threads.',
-    outcome: 'Enabled predictive maintenance schedules across multiple industrial installations, reducing diagnostic review times from hours to minutes.',
+    id: 'rtm',
+    title: 'Remote Treatment Monitoring Intelligence Layer',
+    category: 'Applied AI / Computer Vision',
+    technologies: ['Applied AI', 'Computer Vision', 'Explainable AI', 'Healthcare', 'Human-in-the-Loop'],
+    description: 'Designed and built an applied AI intelligence layer for asynchronous remote treatment monitoring workflows. The system combines public dataset ingestion, image-quality validation, preprocessing, explainable signals, priority triage concepts, and human-in-the-loop review support.',
+    overview: 'This clinician-support workflow intelligence layer reads patient image inputs, filters out low-resolution or badly lit captures, normalizes pixels, and overlays explainable attributions for clinician audit. It is built as clinician-support tool rather than an autonomous diagnostic system.',
+    architecture: 'Features a Python processing core that evaluates incoming image data, validates format limits, and projects Grad-CAM visual layers to a React dashboard via FastAPI REST interfaces.',
+    engineering: 'Built secure preprocessing wrappers and integrated human-in-the-loop triage dashboards, ensuring safety-conscious execution bounds and clear model explainability.',
+    challenges: 'Preventing diagnostic errors due to neural network focus errors. Solved by rendering visual gradient-weighted class activation mapping (Grad-CAM) layers for clinician validation.',
+    outcome: 'Completed a functional experimental prototype demonstrating explainable AI triage support without clinical claims or autonomous diagnostics.',
     pipelineSteps: [
-      { label: 'DATA', info: 'Raw accelerometer sensors capture machinery vibration telemetry.' },
-      { label: 'UPLOAD', info: 'Streams raw data packets to high-throughput ingestion endpoints.' },
-      { label: 'PARSING', info: 'Ingestion workers deserialize binary streams, compute FFT, and log records.' },
-      { label: 'ANALYSIS', info: 'Diagnostic engines evaluate spectral faults and generate anomaly scores.' },
-      { label: 'VISUALIZATION', info: 'React canvas charts render high-frequency spectrums and waterfalls.' },
-      { label: 'REPORTING', info: 'Automated PDF reports compile structural logs for engineering leads.' }
+      { label: 'INPUT', info: 'Ingests patient video or image streams in clinical dashboard.' },
+      { label: 'VALIDATION', info: 'Checks image resolution, lighting metrics, and formatting values.' },
+      { label: 'PREPROCESSING', info: 'Normalizes pixels and aligns region-of-interest coordinates.' },
+      { label: 'GRAD-CAM', info: 'Computes pixel-level gradients to map model focus overlays.' },
+      { label: 'TRIAGE', info: 'Renders priority flags and highlight zones for clinician review.' }
     ]
   },
   {
-    id: 'modelforge',
-    title: 'ModelForge',
-    category: 'MLOps / AI Infrastructure',
-    technologies: ['PyTorch', 'FastAPI', 'React', 'Docker', 'MongoDB', 'Redis'],
-    description: 'An advanced MLOps platform focused on machine learning workflow management, model evaluation, lifecycle tracking, and production AI deployment infrastructure.',
-    overview: 'ModelForge provides a unified control plane for tracking machine learning experiment configurations, managing model assets, and serving prediction pipelines with built-in telemetry.',
-    architecture: 'Built on microservice layers including FastAPI gateways, Redis task queues, Docker containers for sandboxed evaluations, and MongoDB for experiment metadata storage.',
-    engineering: 'Created a modular SDK for developers to log training hyperparameters, model weights, and performance metrics. Designed a real-time dashboard to compare training runs side-by-side.',
-    challenges: 'Handling concurrent large-file weights uploads (5GB+) without exhausting server memory. Solved by writing a chunked, direct-to-storage upload parser with validation hashes.',
-    outcome: 'Standardized model registration, reducing model deployment friction from days to a single automated CI/CD pipeline stage.',
+    id: 'biovision',
+    title: 'BioVision-Path',
+    category: 'Biomedical Computer Vision',
+    technologies: ['Computer Vision', 'PyTorch', 'Explainable AI', 'Biomedical AI', 'Machine Learning'],
+    description: 'Built a production-oriented, explainable multi-task biomedical computer vision pipeline covering image classification, cell segmentation, object detection, visual search, model evaluation, and Grad-CAM explainability.',
+    overview: 'BioVision-Path is an end-to-end biomedical computer vision workflow designed to evaluate cellular images. The focus is on the complete system workflow — combining detection, segmentation, and visual search under one runtime — rather than an isolated model.',
+    architecture: 'Employs a PyTorch model backend, ONNX runtime exports for low-latency CPU operations, and Grad-CAM hooks for debugging and verification.',
+    engineering: 'Wrote pipeline scripts that handle multiple vision tasks in parallel. Implemented Grad-CAM backpropagation loops to extract focus grids.',
+    challenges: 'Reducing inference latency across multiple sequential models. Solved by exporting model weights to ONNX format and downsampling intermediate tensors.',
+    outcome: 'Developed a robust multi-task AI verification platform displaying cellular segmentations and gradient paths, without clinical validation.',
     pipelineSteps: [
-      { label: 'DATA', info: 'Aggregates structured datasets and registers source metadata.' },
-      { label: 'TRAINING', info: 'Tracks training configurations, parameters, and loss metrics.' },
-      { label: 'EVALUATION', info: 'Benchmarks models against validation slices for regression checks.' },
-      { label: 'MANAGEMENT', info: 'Registers verified weights in the storage vault with unique version tags.' },
-      { label: 'DEPLOYMENT', info: 'Containers package model code and spin up low-latency REST endpoints.' }
+      { label: 'IMAGING', info: 'Ingests high-resolution biomedical image slices.' },
+      { label: 'DETECTION', info: 'Detects cellular boundaries and indexes regions of interest.' },
+      { label: 'SEGMENTATION', info: 'Performs semantic segmentation to isolate tissue components.' },
+      { label: 'GRAD-CAM', info: 'Runs backpropagation to extract gradient activation maps.' },
+      { label: 'SEARCH', info: 'Matches visual patterns against index databases for research.' }
     ]
   },
   {
     id: 'codeorigin',
     title: 'CodeOrigin',
     category: 'Technical Due Diligence Platform',
-    technologies: ['FastAPI', 'Python AST', 'React', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
-    description: 'A codebase intelligence platform designed to analyze software repositories, engineering quality, structural architecture, and compliance risk.',
+    technologies: ['Developer Tools', 'Code Intelligence', 'SBOM', 'Algorithms', 'Software Engineering'],
+    description: 'Built a technical due diligence and repository intelligence platform for analyzing software codebases. Implemented CycloneDX SBOM generation, codebase similarity analysis, technical debt analysis, and acquisition risk scoring.',
     overview: 'CodeOrigin scans software codebases to provide technical due diligence insights during company acquisitions. It audits licensing, identifies security vulnerabilities, and evaluates code complexity.',
     architecture: 'Uses a multi-process Python worker pool to parse Abstract Syntax Trees (AST) and run static analysis rules, storing analysis logs in PostgreSQL and rendering nodes in React.',
     engineering: 'Wrote an abstract syntax tree analyzer in Python to detect cyclical package dependencies and parse structural code quality. Built an interactive React-flow hierarchy visualizer.',
@@ -60,63 +59,164 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: 'infrasight',
-    title: 'InfraSight AI',
-    category: 'AI Infrastructure Audit Tool',
-    technologies: ['React', 'TypeScript', 'Node.js', 'FastAPI', 'Docker', 'OpenAI API'],
-    description: 'A full-stack AI-oriented system for analyzing cloud infrastructure layouts, identifying security gaps, and recommending cost optimizations.',
-    overview: 'InfraSight AI reads cloud configuration state files (e.g., Terraform, cloud provider configs) and applies natural language reasoning models to discover performance bottlenecks and cost leaks.',
-    architecture: 'Features a Node.js backend to parse infrastructure blueprints, a Python FastAPI microservice for running embedding searches, and a React interface displaying visual maps.',
-    engineering: 'Built a custom parser that reads infrastructure state files and generates structured vector descriptions. Integrated OpenAI model streams for conversational topology troubleshooting.',
-    challenges: 'Ensuring absolute privacy for sensitive system configuration blueprints. Resolved by building an on-premise preprocessing filter that scrubs secrets, API keys, and IP ranges prior to model inspection.',
-    outcome: 'Reduced average cloud spending by 25% and identified critical network firewall misconfigurations in minutes.',
+    id: 'campusbuddy',
+    title: 'CampusBuddy — Student Information & Face Recognition System',
+    category: 'Student Info & Biometrics',
+    technologies: ['Computer Vision', 'FastAPI', 'React', 'Mobile', 'ONNX'],
+    description: 'Built a student/faculty information portal and face recognition system combining React, Vite, CapacitorJS, FastAPI, Python, and MongoDB Atlas. Integrated YuNet face detection, SFace recognition, and ONNX-based inference.',
+    overview: 'This project integrates biometric computer vision workflows into an administrative portal. It supports real-time facial verification for student and faculty portal logins across mobile and web platforms.',
+    architecture: 'CapacitorJS and React mobile views communicate with a FastAPI microservice backend and a MongoDB Atlas data layer.',
+    engineering: 'Implemented YuNet face detection and SFace recognition models, exporting model runtimes to ONNX format to ensure lightweight, secure client-side execution.',
+    challenges: 'Securing biometric facial templates in database records. Solved by hashing face embeddings and implementing secure session tokens.',
+    outcome: 'Completed a functional experimental prototype for multi-platform biometric authentication and student portal workflows.',
     pipelineSteps: [
-      { label: 'BLUEPRINTS', info: 'Ingests cloud configuration states (Terraform/JSON).' },
-      { label: 'ANONYMIZER', info: 'Filters out secrets, credentials, and network IP addresses.' },
-      { label: 'EMBEDDING', info: 'Encodes topological components into vector space representation.' },
-      { label: 'REASONING', info: 'AI models query infrastructure nodes for security audits.' },
-      { label: 'TOPOLOGY', info: 'Renders full interactive cloud map diagrams with recommendation cards.' }
+      { label: 'CAMERA', info: 'Captures incoming video frame vectors on mobile/web.' },
+      { label: 'YUNET', info: 'Detects coordinates of facial boundary boxes in real-time.' },
+      { label: 'SFACE', info: 'Extracts 128-dimensional face embedding vectors from inputs.' },
+      { label: 'VERIFICATION', info: 'Matches embeddings against MongoDB Atlas templates.' },
+      { label: 'DASHBOARD', info: 'Launches student portal routes upon verification.' }
     ]
   },
   {
-    id: 'research',
-    title: 'Explainable AI Research',
-    category: 'Research / IEEE Publication',
-    technologies: ['Python', 'PyTorch', 'Explainable AI', 'SHAP', 'LIME', 'Matplotlib'],
-    description: 'Research work focused on explainable artificial intelligence (XAI), analyzing model interpretability layers, published in IEEE Xplore in 2026.',
-    overview: 'This academic research investigates model interpretability frameworks, analyzing how deep neural networks arrive at specific classifications and mapping feature activation paths.',
-    architecture: 'Employs SHAP (SHapley Additive exPlanations) and LIME (Local Interpretable Model-agnostic Explanations) mathematical libraries combined with PyTorch activation hooks.',
-    engineering: 'Authored neural activation hooks to extract intermediate hidden layer maps. Designed diagnostic visualizations showing pixel-level attribution mapping for convolutional models.',
-    challenges: 'Explaining multi-dimensional feature interactions in a way that non-technical users can interpret. Solved by rendering simplified gradient-weighted class activation mapping (Grad-CAM) layers.',
-    outcome: 'Research paper published in IEEE Xplore in 2026, offering new framework methodologies for validating safety-critical AI networks.',
+    id: 'sih',
+    title: 'SIH College Management & Intelligence Platform',
+    category: 'Internal College Management',
+    technologies: ['FastAPI', 'React', 'TypeScript', 'Workflow Automation', 'PostgreSQL'],
+    description: 'Built an internal Smart India Hackathon college management platform using FastAPI, Python, SQLAlchemy, React, and TypeScript. Implemented coordinator dashboards, shortlisting workflows, and judge provisioning.',
+    overview: 'This internal management system coordinates Hackathon registrations, judge evaluations, coordinator provisioning, and announcement streams, enforcing workflow state transitions.',
+    architecture: 'A React dashboard communicating with FastAPI endpoints, PostgreSQL databases, and SQLAlchemy database layers, guided by state-machine constraints.',
+    engineering: 'Designed provisioning workflows, spreadsheet generation modules, coordinator activation tokens, and evaluation auditing checkpoints.',
+    challenges: 'Handling concurrent judge scoring inputs while enforcing state constraints. Solved by creating auditable, transactional database locks.',
+    outcome: 'Deployed internal system resolving hackathon coordinator logistics and project evaluations.',
     pipelineSteps: [
-      { label: 'INPUT', info: 'Feeds high-dimensional data points through the active neural network.' },
-      { label: 'HOOKS', info: 'Registers PyTorch callbacks to extract weights and gradients.' },
-      { label: 'ATTRIBUTION', info: 'SHAP & LIME engines calculate mathematical feature importances.' },
-      { label: 'GRAD-CAM', info: 'Generates visual maps indicating focus zones.' },
-      { label: 'INTERPRET', info: 'Presents clear feature attribution charts for model validations.' }
+      { label: 'SPOC', info: 'Registers college details and provisions coordinator tokens.' },
+      { label: 'SUBMISSION', info: 'Accepts project files and maps structural metadata.' },
+      { label: 'JUDGING', info: 'Assigns judges to review files using a custom evaluation rubric.' },
+      { label: 'STATE-MACHINE', info: 'Tracks and locks evaluation phases at each gate.' },
+      { label: 'RESULTS', info: 'Generates printable CSV exports for team announcements.' }
     ]
   }
 ];
 
 export const skills: TechCategory[] = [
   {
-    name: 'Application Development',
-    skills: ['React', 'Vite', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind CSS']
+    name: 'AI / ML',
+    skills: [
+      'Python',
+      'Artificial Intelligence',
+      'Machine Learning',
+      'Deep Learning',
+      'Computer Vision',
+      'Natural Language Processing',
+      'Transformers',
+      'Explainable AI',
+      'PyTorch',
+      'ONNX',
+      'Grad-CAM'
+    ]
   },
   {
-    name: 'Backend Engineering',
-    skills: ['Python', 'FastAPI', 'Node.js', 'Express', 'REST APIs', 'WebSockets', 'JWT Authentication']
+    name: 'GENERATIVE AI',
+    skills: [
+      'Generative AI',
+      'LLM Applications',
+      'Prompt Engineering',
+      'Retrieval-Augmented Generation',
+      'Embeddings',
+      'AI Evaluation',
+      'AI Assistants',
+      'Human-in-the-Loop AI',
+      'Intelligent Workflow Systems'
+    ]
   },
   {
-    name: 'AI / Data Science',
-    skills: ['Machine Learning', 'Explainable AI', 'Data Processing', 'SHAP / LIME', 'Data Visualization']
+    name: 'ENGINEERING',
+    skills: [
+      'FastAPI',
+      'React',
+      'TypeScript',
+      'Full-Stack Development',
+      'Backend Development',
+      'Node.js',
+      'Express.js',
+      'REST APIs',
+      'WebSockets',
+      'PostgreSQL',
+      'Supabase',
+      'MongoDB',
+      'Docker',
+      'Authentication',
+      'Testing'
+    ]
   },
   {
-    name: 'Databases & Cloud',
-    skills: ['PostgreSQL', 'MongoDB', 'Supabase', 'Docker', 'Redis', 'Cloud Deployment']
+    name: 'DATA / ANALYTICS',
+    skills: [
+      'Pandas',
+      'Plotly.js',
+      'D3.js',
+      'CSV/Excel Processing',
+      'Data Processing',
+      'Telemetry Processing',
+      'FFT Analysis',
+      'Performance Optimization'
+    ]
   }
 ];
+
+export const experiences: WorkExperience[] = [
+  {
+    company: 'AfterQuery',
+    role: 'Full Stack Engineer',
+    period: 'May 2026 – Present',
+    bullets: [
+      'Work on full-stack engineering, debugging, testing, and software evaluation tasks across real-world software projects.',
+      'Review and validate implementations against technical requirements, expected behavior, and application/business logic.',
+      'Debug existing production-oriented codebases involving frontend, backend, APIs, databases, authentication, and workflow logic.',
+      'Investigate software defects, implement fixes, and verify behavior through focused technical testing.',
+      'Work with established codebases where correctness, maintainability, and production behavior matter.'
+    ]
+  },
+  {
+    company: 'RotorDyn',
+    role: 'Full Stack Engineer',
+    period: 'June 2026 – July 2026',
+    bullets: [
+      'Built a SaaS-based rotor and bearing vibration analysis platform using React, Vite, Python, FastAPI, Supabase, PostgreSQL, Pandas, and Plotly.js.',
+      'Developed frontend dashboards, authentication workflows, data-analysis interfaces, REST APIs, and backend services.',
+      'Built CSV/Excel telemetry processing workflows using Python and Pandas, including FFT-based vibration analysis.',
+      'Created interactive diagnostic plots with Plotly.js and improved large-dataset visualization using caching, browser storage, and downsampling.',
+      'Integrated AI-powered automated engineering report generation and in-app AI assistant capabilities.',
+      'Worked on production hardening, database security, Row-Level Security, exception handling, and automated testing.'
+    ]
+  }
+];
+
+export const publication: Publication = {
+  title: 'Explainable AI for Suicide Ideation Detection in Social Media Text',
+  publisher: 'IEEE',
+  conference: '2025 3rd DMIHER International Conference on Artificial Intelligence in Healthcare, Education and Industry (IDICAIHEI)',
+  date: '28–29 November 2025',
+  addedDate: '23 February 2026',
+  authors: ['G. Nagendram', 'Shaik Hussain Vali', 'Shaik Rameez Basha', 'Y. Venkatesh', 'Y. Ramesh', 'M. Shamila'],
+  doi: '10.1109/IDICAIHEI65991.2025.11377560',
+  url: 'https://ieeexplore.ieee.org/document/11377560/',
+  description: 'Research publication on explainable AI for detecting suicidal ideation in Brazilian Portuguese social media text using the Boamente dataset. The study evaluates traditional machine learning, CNN-BiLSTM architectures, and transformer-based models including BERTimbau, DistilBERT, and XLM-R, combining linguistic preprocessing with embedding-based text representations. The work explores AI-driven decision support for early identification and intervention in digital mental health contexts.',
+  highlights: [
+    'NLP',
+    'Transformers',
+    'BERT',
+    'BERTimbau',
+    'DistilBERT',
+    'XLM-R',
+    'CNN-BiLSTM',
+    'Attention',
+    'Random Forest',
+    'Embeddings',
+    'Explainable AI',
+    'Text Classification'
+  ]
+};
 
 export const architectureLayers: ArchitectureLayer[] = [
   {

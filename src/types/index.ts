@@ -43,3 +43,24 @@ export interface SdlcStep {
   title: string;
   description: string;
 }
+
+export interface WorkExperience {
+  company: string;
+  role: string;
+  period: string;
+  bullets: string[];
+}
+
+export interface Publication {
+  title: string;
+  publisher: string;
+  conference: string;
+  date: string;
+  addedDate: string;
+  authors: string[];
+  doi: string;
+  url: string;
+  description: string;
+  highlights: string[];
+}
+

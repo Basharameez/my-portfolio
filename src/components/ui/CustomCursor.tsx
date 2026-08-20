@@ -96,7 +96,7 @@ export const CustomCursor: React.FC = () => {
       
       {/* 1. Tight target dot directly under mouse coordinates */}
       <div 
-        className="absolute w-1.5 h-1.5 bg-red-600 rounded-full transform -translate-x-1/2 -translate-y-1/2"
+        className="absolute w-1.5 h-1.5 bg-[#D4AF37] rounded-full transform -translate-x-1/2 -translate-y-1/2"
         style={{
           left: `${mousePos.x}px`,
           top: `${mousePos.y}px`
@@ -105,9 +105,9 @@ export const CustomCursor: React.FC = () => {
 
       {/* 2. Inertial ring trailing with spring motion */}
       <div 
-        className={`absolute rounded-full border border-red-600/60 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-150 ${
+        className={`absolute rounded-full border border-[#D4AF37]/60 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-150 ${
           isClickable 
-            ? 'w-10 h-10 bg-red-600/10 border-red-600 shadow-[0_0_12px_rgba(211,18,18,0.3)]' 
+            ? 'w-10 h-10 bg-[#D4AF37]/10 border-[#D4AF37] shadow-[0_0_12px_rgba(212,175,55,0.3)]' 
             : 'w-6 h-6'
         }`}
         style={{
@@ -118,7 +118,7 @@ export const CustomCursor: React.FC = () => {
 
       {/* 3. Small telemetry readout labels next to the reticle */}
       <div 
-        className="absolute font-mono text-[8px] text-red-500 font-bold select-none whitespace-nowrap pl-4 pt-1 transition-opacity duration-300 pointer-events-none"
+        className="absolute font-mono text-[8px] text-[#D4AF37] font-bold select-none whitespace-nowrap pl-4 pt-1 transition-opacity duration-300 pointer-events-none"
         style={{
           left: `${cursorPos.x}px`,
           top: `${cursorPos.y}px`,
@@ -131,4 +131,5 @@ export const CustomCursor: React.FC = () => {
     </div>
   );
 };
+
 export default CustomCursor;
