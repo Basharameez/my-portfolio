@@ -139,7 +139,7 @@ export const Hero: React.FC<HeroProps> = ({ onQuickViewOpen }) => {
 
         </motion.div>
 
-        {/* Right Column: Tasteful SVG Gradient Technical Graphic */}
+        {/* Right Column: Tasteful SVG Gradient Technical Graphic with centered portrait */}
         <div className="lg:col-span-5 w-full flex justify-center items-center relative select-none">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -154,7 +154,7 @@ export const Hero: React.FC<HeroProps> = ({ onQuickViewOpen }) => {
               {/* Middle Ring */}
               <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="6 4" />
               {/* Inner Ring */}
-              <circle cx="100" cy="100" r="35" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 2" />
+              <circle cx="100" cy="100" r="44" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 2" />
               {/* Connection Axes */}
               <line x1="100" y1="5" x2="100" y2="195" stroke="currentColor" strokeWidth="0.25" strokeDasharray="5 5" />
               <line x1="5" y1="100" x2="195" y2="100" stroke="currentColor" strokeWidth="0.25" strokeDasharray="5 5" />
@@ -164,23 +164,32 @@ export const Hero: React.FC<HeroProps> = ({ onQuickViewOpen }) => {
             <div className="absolute w-[220px] h-[220px] flex items-center justify-center">
               <svg viewBox="0 0 100 100" className="w-full h-full text-[#D4AF37]/80">
                 {/* Data node */}
-                <circle cx="50" cy="15" r="3" fill="#D4AF37" className="animate-pulse" />
+                <circle cx="50" cy="10" r="3" fill="#D4AF37" className="animate-pulse" />
                 {/* Model node */}
-                <circle cx="15" cy="50" r="3.5" fill="#8C6D4F" />
+                <circle cx="10" cy="50" r="3.5" fill="#8C6D4F" />
                 {/* Intelligence node */}
-                <circle cx="50" cy="85" r="3" fill="#D4AF37" className="animate-pulse" />
+                <circle cx="50" cy="90" r="3" fill="#D4AF37" className="animate-pulse" />
                 {/* Human node */}
-                <circle cx="85" cy="50" r="3.5" fill="#8C6D4F" />
+                <circle cx="90" cy="50" r="3.5" fill="#8C6D4F" />
                 
                 {/* Connector loop */}
-                <path d="M 50 15 L 85 50 L 50 85 L 15 50 Z" fill="none" stroke="currentColor" strokeWidth="0.25" className="flow-connector" />
+                <path d="M 50 10 L 90 50 L 50 90 L 10 50 Z" fill="none" stroke="currentColor" strokeWidth="0.25" className="flow-connector" />
               </svg>
             </div>
 
-            {/* Micro readouts in center */}
-            <div className="absolute flex flex-col items-center justify-center font-mono text-[8px] text-[#A8988B]/60 tracking-wider">
+            {/* Centered Circular Portrait Image frame */}
+            <div className="absolute w-36 h-36 rounded-full overflow-hidden border border-[#8C6D4F]/50 shadow-[0_0_35px_rgba(212,175,55,0.18)] bg-[#0E0C0A] flex items-center justify-center transition-all duration-500 hover:border-[#D4AF37] hover:shadow-[0_0_45px_rgba(212,175,55,0.3)] group cursor-none">
+              <img 
+                src="/mypic.png" 
+                alt="Shaik Rameez Basha Portrait" 
+                className="w-full h-full object-cover grayscale contrast-110 brightness-95 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+              />
+            </div>
+
+            {/* Micro readouts below rings */}
+            <div className="absolute -bottom-4 flex flex-col items-center justify-center font-mono text-[8px] text-[#A8988B]/60 tracking-wider">
               <span>// SYSTEM CONFIG</span>
-              <span className="text-[#D4AF37] font-semibold mt-1">AI_CORE_ACTIVE</span>
+              <span className="text-[#D4AF37] font-semibold mt-0.5">AI_CORE_ACTIVE</span>
             </div>
 
           </motion.div>
