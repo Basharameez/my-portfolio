@@ -90,7 +90,7 @@ export const QuickView: React.FC<QuickViewProps> = ({ isOpen, onClose }) => {
                 </svg>
                 github.com/Basharameez
               </span>
-              <span>Andhra Pradesh, India</span>
+              <span>Piduguralla, Andhra Pradesh, India</span>
             </div>
           </div>
 
