@@ -237,7 +237,7 @@ export const About: React.FC = () => {
                 <img 
                   src="/mypic.png" 
                   alt="Shaik Rameez Basha Portrait" 
-                  className="w-full h-full object-cover grayscale contrast-110 brightness-95 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                 />
                 
                 {/* Dynamic Spotlight mix-blend color-dodge overlay */}
