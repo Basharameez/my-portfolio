@@ -41,6 +41,44 @@
 
 <br>
 
+<!-- FLOATING MOBILE BOTTOM NAVIGATION DOCK CONCEPT -->
+<table style="background-color: #111827; border: 1px solid #374151; border-radius: 20px; padding: 6px 12px;">
+<tr>
+<td align="center">
+  <a href="#home">
+    <img src="https://img.shields.io/badge/HOME-6366F1?style=for-the-badge&logo=homeassistant&logoColor=white" alt="Home" />
+  </a>
+</td>
+<td align="center">
+  <a href="#selected-builds">
+    <img src="https://img.shields.io/badge/BUILDS-06B6D4?style=for-the-badge&logo=appveyor&logoColor=white" alt="Builds" />
+  </a>
+</td>
+<td align="center">
+  <a href="#research">
+    <img src="https://img.shields.io/badge/RESEARCH-8B5CF6?style=for-the-badge&logo=ieee&logoColor=white" alt="Research" />
+  </a>
+</td>
+<td align="center">
+  <a href="#engineering-stack">
+    <img src="https://img.shields.io/badge/STACK-3B82F6?style=for-the-badge&logo=docker&logoColor=white" alt="Stack" />
+  </a>
+</td>
+<td align="center">
+  <a href="#verified-engineering">
+    <img src="https://img.shields.io/badge/METRICS-F59E0B?style=for-the-badge&logo=speedtest&logoColor=white" alt="Metrics" />
+  </a>
+</td>
+<td align="center">
+  <a href="#connect">
+    <img src="https://img.shields.io/badge/CONTACT-10B981?style=for-the-badge&logo=gmail&logoColor=white" alt="Contact" />
+  </a>
+</td>
+</tr>
+</table>
+
+<br>
+
 ```mermaid
 flowchart LR
     classDef cyan fill:#06B6D4,stroke:#0891B2,color:#FFFFFF,stroke-width:2px;
@@ -61,26 +99,13 @@ flowchart LR
 
 <br>
 
-<!-- MOBILE NAVIGATION OS BAR -->
-<table width="100%">
-<tr>
-<td width="16.6%" align="center"><a href="#home"><b><font color="#6366F1">HOME</font></b></a></td>
-<td width="16.6%" align="center"><a href="#selected-builds"><b><font color="#06B6D4">BUILDS</font></b></a></td>
-<td width="16.6%" align="center"><a href="#research"><b><font color="#8B5CF6">RESEARCH</font></b></a></td>
-<td width="16.6%" align="center"><a href="#engineering-stack"><b><font color="#3B82F6">STACK</font></b></a></td>
-<td width="16.6%" align="center"><a href="#verified-engineering"><b><font color="#F59E0B">METRICS</font></b></a></td>
-<td width="16.6%" align="center"><a href="#connect"><b><font color="#10B981">CONTACT</font></b></a></td>
-</tr>
-</table>
-
-<br>
-
 ---
 
-## 01 — HOME
+## HOME — AI ENGINEERING SYSTEM
 
 <div align="center">
-<h3>FEATURED SYSTEMS DASHBOARD</h3>
+
+### FEATURED SYSTEMS TILES
 
 <table width="100%">
 <tr>
@@ -185,7 +210,7 @@ flowchart LR
 </div>
 
 <p align="right">
-<a href="#home">↑ HOME</a>
+<a href="#home">↑ HOME DOCK</a>
 </p>
 
 ---
@@ -421,7 +446,7 @@ flowchart TD
 * **Repository Link:** [BioVision-Path Repository](https://github.com/Basharameez/biovision-path)
 
 <p align="right">
-<a href="#home">↑ HOME</a>
+<a href="#home">↑ HOME DOCK</a>
 </p>
 
 ---
@@ -459,7 +484,7 @@ flowchart TD
 </table>
 
 <p align="right">
-<a href="#home">↑ HOME</a>
+<a href="#home">↑ HOME DOCK</a>
 </p>
 
 ---
@@ -520,7 +545,7 @@ flowchart TD
 </table>
 
 <p align="right">
-<a href="#home">↑ HOME</a>
+<a href="#home">↑ HOME DOCK</a>
 </p>
 
 ---
@@ -618,7 +643,7 @@ flowchart TD
 </div>
 
 <p align="right">
-<a href="#home">↑ HOME</a>
+<a href="#home">↑ HOME DOCK</a>
 </p>
 
 ---
@@ -776,7 +801,7 @@ Let's collaborate on AI systems, scalable backend infrastructure, or full-stack 
 <br>
 
 <p align="right">
-<a href="#home">↑ HOME</a>
+<a href="#home">↑ HOME DOCK</a>
 </p>
 
 </div>
