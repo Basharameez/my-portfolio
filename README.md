@@ -57,7 +57,7 @@ flowchart LR
 
 ---
 
-## ⚡ ENGINEERING SIGNAL
+## ENGINEERING SIGNAL
 
 <table width="100%">
 <tr>
@@ -107,10 +107,10 @@ flowchart LR
 
 ---
 
-## 🚀 SELECTED BUILDS
+## SELECTED BUILDS
 
 ### `01` — APTIVUE
-> **AI-Native Recruitment Infrastructure** &nbsp;|&nbsp; `<img src="https://img.shields.io/badge/ACCENT-INDIGO_%2F_VIOLET-6366F1?style=flat-square" />`
+> **AI-Native Recruitment Infrastructure** &nbsp;|&nbsp; <img src="https://img.shields.io/badge/ACCENT-INDIGO_%2F_VIOLET-6366F1?style=flat-square" alt="Indigo / Violet Accent" />
 
 A high-throughput recruitment evaluation engine combining structured resume parsing, async queue processing, LLM semantic matching, and deterministic test-driven validation.
 
@@ -159,7 +159,7 @@ flowchart LR
 ---
 
 ### `02` — ROTORDYN
-> **Industrial Vibration Intelligence** &nbsp;|&nbsp; `<img src="https://img.shields.io/badge/ACCENT-CYAN_%2F_EMERALD-06B6D4?style=flat-square" />`
+> **Industrial Vibration Intelligence** &nbsp;|&nbsp; <img src="https://img.shields.io/badge/ACCENT-CYAN_%2F_EMERALD-06B6D4?style=flat-square" alt="Cyan / Emerald Accent" />
 
 An industrial-grade predictive maintenance platform that converts raw vibration signals into spectrum diagnostics, spectral peak detection, and ISO 10816 fault severity classification.
 
@@ -210,7 +210,7 @@ flowchart LR
 ---
 
 ### `03` — BIOROBUST
-> **ML Robustness & Computer Vision Benchmark** &nbsp;|&nbsp; `<img src="https://img.shields.io/badge/ACCENT-AMBER_%2F_ROSE-F59E0B?style=flat-square" />`
+> **ML Robustness & Computer Vision Benchmark** &nbsp;|&nbsp; <img src="https://img.shields.io/badge/ACCENT-AMBER_%2F_ROSE-F59E0B?style=flat-square" alt="Amber / Rose Accent" />
 
 A rigorous empirical evaluation framework assessing deep vision model performance and Expected Calibration Error (ECE) under extreme distribution shifts and synthetic image corruptions.
 
@@ -256,7 +256,7 @@ A rigorous empirical evaluation framework assessing deep vision model performanc
 ---
 
 ### `04` — BIOVISION-PATH
-> **Biomedical Computer Vision Suite** &nbsp;|&nbsp; `<img src="https://img.shields.io/badge/ACCENT-BLUE_%2F_CYAN-3B82F6?style=flat-square" />`
+> **Biomedical Computer Vision Suite** &nbsp;|&nbsp; <img src="https://img.shields.io/badge/ACCENT-BLUE_%2F_CYAN-3B82F6?style=flat-square" alt="Blue / Cyan Accent" />
 
 A multi-task computer vision system integrating classification, semantic segmentation, and object detection across histopathological datasets with integrated model interpretability.
 
@@ -316,16 +316,16 @@ flowchart TD
 
 ---
 
-## 🔬 RESEARCH & PUBLICATIONS
+## RESEARCH & PUBLICATIONS
 
 <table width="100%">
 <tr>
 <td style="background-color: #111827; border: 1px solid #8B5CF6; border-radius: 8px; padding: 16px;">
 
-### 📄 IEEE Xplore Publication
+### IEEE Xplore Publication
 **Title:** *Explainable AI for Suicide Ideation Detection in Social Media Text*
 
-**Identity Accent:** `<img src="https://img.shields.io/badge/IDENTITY-VIOLET_%2F_PURPLE-8B5CF6?style=flat-square" alt="Violet Accent" />`
+**Identity Accent:** <img src="https://img.shields.io/badge/IDENTITY-VIOLET_%2F_PURPLE-8B5CF6?style=flat-square" alt="Violet Accent" />
 
 <br>
 
@@ -350,7 +350,7 @@ flowchart TD
 
 ---
 
-## 🛠️ ENGINEERING STACK
+## ENGINEERING STACK
 
 <table width="100%">
 <tr>
@@ -409,28 +409,28 @@ flowchart TD
 
 ---
 
-## ⚙️ OTHER ENGINEERING SYSTEMS
+## OTHER ENGINEERING SYSTEMS
 
 <table width="100%">
 <tr>
 <td width="33%" valign="top">
 
 #### `CODEORIGIN`
-`<img src="https://img.shields.io/badge/CATEGORY-PURPLE-A855F7?style=flat-square" />`
+<img src="https://img.shields.io/badge/CATEGORY-PURPLE-A855F7?style=flat-square" alt="Purple Accent" />
 * Codebase intelligence & AST code parsing system.
 
 </td>
 <td width="33%" valign="top">
 
 #### `CAMPUSBUDDY`
-`<img src="https://img.shields.io/badge/CATEGORY-CYAN-06B6D4?style=flat-square" />`
+<img src="https://img.shields.io/badge/CATEGORY-CYAN-06B6D4?style=flat-square" alt="Cyan Accent" />
 * Automated computer vision attendance & tracking platform.
 
 </td>
 <td width="33%" valign="top">
 
 #### `SIH PLATFORM`
-`<img src="https://img.shields.io/badge/CATEGORY-BLUE-3B82F6?style=flat-square" />`
+<img src="https://img.shields.io/badge/CATEGORY-BLUE-3B82F6?style=flat-square" alt="Blue Accent" />
 * National hackathon evaluation & grading infrastructure.
 
 </td>
@@ -439,21 +439,21 @@ flowchart TD
 <td width="33%" valign="top">
 
 #### `CONTEST HOSTER`
-`<img src="https://img.shields.io/badge/CATEGORY-EMERALD-10B981?style=flat-square" />`
+<img src="https://img.shields.io/badge/CATEGORY-EMERALD-10B981?style=flat-square" alt="Emerald Accent" />
 * Secure code execution container sandboxing system.
 
 </td>
 <td width="33%" valign="top">
 
 #### `REMOTE TREATMENT`
-`<img src="https://img.shields.io/badge/CATEGORY-ROSE-F43F5E?style=flat-square" />`
+<img src="https://img.shields.io/badge/CATEGORY-ROSE-F43F5E?style=flat-square" alt="Rose Accent" />
 * Intelligent patient telemetry & monitoring workflow.
 
 </td>
 <td width="33%" valign="top">
 
 #### `IMAGE SHARPENING`
-`<img src="https://img.shields.io/badge/CATEGORY-AMBER-F59E0B?style=flat-square" />`
+<img src="https://img.shields.io/badge/CATEGORY-AMBER-F59E0B?style=flat-square" alt="Amber Accent" />
 * Hardware-accelerated DSP image restoration pipeline.
 
 </td>
@@ -464,7 +464,7 @@ flowchart TD
 
 ---
 
-## ✅ VERIFIED ENGINEERING
+## VERIFIED ENGINEERING
 
 <div align="center">
 
@@ -499,7 +499,7 @@ flowchart TD
 
 ---
 
-## 🔄 HOW I BUILD
+## HOW I BUILD
 
 ```mermaid
 flowchart LR
@@ -523,14 +523,14 @@ flowchart LR
 
 ---
 
-## 💡 ENGINEERING PRINCIPLES
+## ENGINEERING PRINCIPLES
 
 <table width="100%">
 <tr>
 <td width="33%" valign="top">
 
 #### `01` BUILD BEYOND THE MODEL
-`<img src="https://img.shields.io/badge/ACCENT-INDIGO-6366F1?style=flat-square" />`
+<img src="https://img.shields.io/badge/ACCENT-INDIGO-6366F1?style=flat-square" alt="Indigo Accent" />
 <br><br>
 A model is only 10% of a production system. Real value comes from robust data parsing, async background queues, API reliability, and intuitive user interfaces.
 
@@ -538,7 +538,7 @@ A model is only 10% of a production system. Real value comes from robust data pa
 <td width="33%" valign="top">
 
 #### `02` MEASURE EVERYTHING
-`<img src="https://img.shields.io/badge/ACCENT-AMBER-F59E0B?style=flat-square" />`
+<img src="https://img.shields.io/badge/ACCENT-AMBER-F59E0B?style=flat-square" alt="Amber Accent" />
 <br><br>
 Never guess calibration or accuracy. Evaluate under synthetic corruption, measure distribution shift, calculate ECE, and back up assertions with test suites.
 
@@ -546,7 +546,7 @@ Never guess calibration or accuracy. Evaluate under synthetic corruption, measur
 <td width="33%" valign="top">
 
 #### `03` DESIGN FOR REAL SOFTWARE
-`<img src="https://img.shields.io/badge/ACCENT-EMERALD-10B981?style=flat-square" />`
+<img src="https://img.shields.io/badge/ACCENT-EMERALD-10B981?style=flat-square" alt="Emerald Accent" />
 <br><br>
 Write modular, testable, type-safe code that scales gracefully. Maintain strict test suites and prioritize system predictability over shiny hacks.
 
@@ -558,7 +558,7 @@ Write modular, testable, type-safe code that scales gracefully. Maintain strict 
 
 ---
 
-## 🎯 CURRENT FOCUS
+## CURRENT FOCUS
 
 ```mermaid
 flowchart TD
@@ -592,7 +592,7 @@ flowchart TD
 
 <div align="center">
 
-## 🚀 BUILDING SOMETHING INTERESTING?
+## BUILDING SOMETHING INTERESTING?
 
 Let's collaborate on AI systems, scalable backend infrastructure, or full-stack software applications.
 
@@ -614,11 +614,17 @@ Let's collaborate on AI systems, scalable backend infrastructure, or full-stack 
 
 <br>
 
-`<img src="https://img.shields.io/badge/AI%2FML-06B6D4?style=flat-square" />`
-`<img src="https://img.shields.io/badge/FULL--STACK-3B82F6?style=flat-square" />`
-`<img src="https://img.shields.io/badge/SYSTEM_DESIGN-10B981?style=flat-square" />`
-`<img src="https://img.shields.io/badge/COMPUTER_VISION-8B5CF6?style=flat-square" />`
-`<img src="https://img.shields.io/badge/LLMs-F59E0B?style=flat-square" />`
+<p>
+  <img src="https://img.shields.io/badge/AI%2FML-06B6D4?style=flat-square" alt="AI/ML" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/FULL--STACK-3B82F6?style=flat-square" alt="Full-Stack" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/SYSTEM_DESIGN-10B981?style=flat-square" alt="System Design" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/COMPUTER_VISION-8B5CF6?style=flat-square" alt="Computer Vision" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/LLMs-F59E0B?style=flat-square" alt="LLMs" />
+</p>
 
 <br><br>
 
