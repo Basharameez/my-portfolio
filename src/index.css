@@ -1,28 +1,27 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Montserrat:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
   color-scheme: dark;
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Inter', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
-  --font-montserrat: 'Montserrat', sans-serif;
   
-  --accent: #D4AF37;          /* Gold */
+  --accent: #D4AF37;          /* Gold / Amber */
   --accent-rgb: 212, 175, 55;
   --accent-muted: rgba(212, 175, 55, 0.08);
   --accent-bronze: #8C6D4F;   /* Raw Bronze */
-  --bg-primary: #000000;      /* Absolute Black */
-  --bg-secondary: #0E0C0A;    /* Obsidian Black */
-  --bg-tertiary: #120F0C;     /* Rich Dark Brown-Black */
-  --border-subtle: rgba(140, 109, 79, 0.25);
-  --border-medium: rgba(212, 175, 55, 0.5);
+  --bg-primary: #070709;      /* Cinematic Dark Charcoal */
+  --bg-secondary: #0E0E14;    /* Obsidian Glass Surface */
+  --bg-tertiary: #14141E;     /* Elevated Glass Surface */
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-medium: rgba(212, 175, 55, 0.35);
 }
 
 body {
   margin: 0;
   background-color: var(--bg-primary);
-  color: #E8DFD8;
+  color: #F1ECE6;
   font-family: var(--font-body);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -37,7 +36,7 @@ body {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1C1612;
+  background: #1C1A24;
   border-radius: 3px;
   border: 1px solid var(--border-subtle);
 }
@@ -45,46 +44,61 @@ body {
   background: var(--accent);
 }
 
-/* Editorial dot background pattern */
-.editorial-dot-pattern {
-  background-image: radial-gradient(rgba(140, 109, 79, 0.04) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
 /* Subtle Technical Grid Background */
 .tech-grid-pattern {
-  background-size: 60px 60px;
-  background-image: linear-gradient(to right, rgba(140, 109, 79, 0.02) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(140, 109, 79, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
 }
 
-/* Custom visual layout elements */
-.lab-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
+/* Cinematic Glassmorphic Card Utilities */
+.glass-card {
+  background: rgba(14, 14, 20, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.lab-card:hover {
-  border-color: var(--accent);
-  background: var(--bg-tertiary);
-  box-shadow: 0 16px 45px rgba(212, 175, 55, 0.08);
+
+.glass-card:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
 }
 
-/* Text attribution classes */
-.text-mono-label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.25em;
-  color: var(--accent);
-  text-transform: uppercase;
+.glass-panel {
+  background: rgba(10, 10, 14, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.7);
 }
 
-/* Technical Accent Lines */
-.glow-accent {
-  box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+/* Ambient Glowing Lights */
+.ambient-glow-gold {
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
 }
 
-/* Typography settings */
+.ambient-glow-[#D4AF37] {
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.ambient-glow-indigo {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+/* Keyframe animations */
+@keyframes ambientPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.08); }
+}
+
+.glow-pulse {
+  animation: ambientPulse 6s ease-in-out infinite;
+}
+
+/* Typography & Hierarchy */
 h1, h2, h3, h4, .font-display {
   font-family: var(--font-display);
 }
@@ -95,7 +109,7 @@ h1, h2, h3, h4, .font-display {
 
 /* Selection */
 ::selection {
-  background-color: rgba(212, 175, 55, 0.2);
+  background-color: rgba(212, 175, 55, 0.25);
   color: #ffffff;
 }
 
@@ -103,22 +117,4 @@ h1, h2, h3, h4, .font-display {
 html {
   scroll-behavior: smooth;
   background-color: var(--bg-primary);
-}
-
-/* Pipeline Flow animations */
-@keyframes flow-horizontal {
-  0% { stroke-dashoffset: 24; }
-  100% { stroke-dashoffset: 0; }
-}
-
-.flow-connector {
-  stroke-dasharray: 6 3;
-  animation: flow-horizontal 1.2s linear infinite;
-}
-
-/* Hide cursor on desktop-capable devices for custom cursor */
-@media (hover: hover) {
-  .custom-cursor-active {
-    cursor: none;
-  }
 }

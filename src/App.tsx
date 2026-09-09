@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { Hero } from './components/hero/Hero';
-import { About } from './components/about/About';
-import { GenAI } from './components/about/GenAI';
 import { ProjectExplorer } from './components/projects/ProjectExplorer';
-import { ProjectFocus } from './components/projects/ProjectFocus';
+import { SecondaryWork } from './components/projects/SecondaryWork';
+import { Research } from './components/about/Research';
+import { ProductionCredibility } from './components/about/ProductionCredibility';
 import { ExpertiseMap } from './components/expertise/ExpertiseMap';
 import { ArchitectureCanvas } from './components/architecture/ArchitectureCanvas';
 import { Timeline } from './components/timeline/Timeline';
-import { Research } from './components/about/Research';
 import { Contact } from './components/contact/Contact';
 import { QuickView } from './components/quickview/QuickView';
+import { ProjectFocus } from './components/projects/ProjectFocus';
 import { projects } from './data/portfolioData';
 import { CustomCursor } from './components/ui/CustomCursor';
 
@@ -22,58 +22,58 @@ export const App: React.FC = () => {
   const activeProject = projects.find(p => p.id === activeProjectId);
 
   return (
-    <div className="min-h-screen bg-[#050505] text-[#f3f3f3] selection:bg-[#00f0ff]/20 selection:text-[#ffffff]">
-      
-      {/* Custom Inertial Cursor reticle */}
+    <div className="min-h-screen bg-[#070709] text-[#F1ECE6] selection:bg-[#D4AF37]/30 selection:text-white relative">
+
+      {/* Custom Cursor reticle */}
       <CustomCursor />
 
       {/* Navigation bar */}
       <Navbar onQuickViewOpen={() => setQuickViewOpen(true)} />
 
-      {/* Main content grid */}
-      <main>
-        {/* Home hero landing */}
+      {/* Main content flow */}
+      <main className="relative z-10">
+        {/* 01 // Home Hero Landing */}
         <Hero onQuickViewOpen={() => setQuickViewOpen(true)} />
 
-        {/* 01 // About system */}
-        <About />
+        {/* 02 // Featured Engineering Work (Aptivue, RotorDyn, BioRobust) */}
+        <ProjectExplorer />
 
-        {/* 02 // Interactive project explorer */}
-        <ProjectExplorer onProjectSelect={(id) => setActiveProjectId(id)} />
-
-        {/* 03 // Generative AI & Intelligent Applications */}
-        <GenAI />
-
-        {/* 04 // Skills relationship map */}
-        <ExpertiseMap />
-
-        {/* 05 // Architecture Stack layers */}
+        {/* 03 // Architecture & SDLC Stack Canvas */}
         <ArchitectureCanvas />
 
-        {/* 06 // SDLC build cycle and timeline milestones */}
-        <Timeline />
+        {/* 04 // Secondary Engineering Work (Problem -> Approach -> Result) */}
+        <SecondaryWork />
 
-        {/* 07 // Research & IEEE publications */}
+        {/* 05 // Research Credibility & IEEE Publication */}
         <Research />
 
-        {/* 08 // Contact signals portal */}
+        {/* 06 // Production Engineering Maturity & Test Suite Evidence */}
+        <ProductionCredibility />
+
+        {/* 07 // Categorized Skills & Tech Matrix */}
+        <ExpertiseMap />
+
+        {/* 08 // Professional Experience & Timeline */}
+        <Timeline />
+
+        {/* 09 // Direct Engineering Contact Portal */}
         <Contact />
       </main>
 
-      {/* Global footer */}
+      {/* Footer */}
       <Footer />
 
-      {/* Recruiter Summary mode modal overlay */}
-      <QuickView 
-        isOpen={quickViewOpen} 
-        onClose={() => setQuickViewOpen(false)} 
+      {/* Quick View Drawer Modal */}
+      <QuickView
+        isOpen={quickViewOpen}
+        onClose={() => setQuickViewOpen(false)}
       />
 
-      {/* Deeper Case-study focused workspace modal overlay */}
+      {/* Detailed Project Deep Dive Modal */}
       {activeProject && (
-        <ProjectFocus 
-          project={activeProject} 
-          onClose={() => setActiveProjectId(null)} 
+        <ProjectFocus
+          project={activeProject}
+          onClose={() => setActiveProjectId(null)}
         />
       )}
 

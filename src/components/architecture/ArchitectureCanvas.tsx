@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Server, Terminal, Database, ShieldAlert, Cpu } from 'lucide-react';
+import { ArrowRight, Server, Terminal, Database, ShieldAlert, Cpu, CheckCircle2 } from 'lucide-react';
 import { architectureLayers } from '../../data/portfolioData';
 
 export const ArchitectureCanvas: React.FC = () => {
@@ -30,7 +30,7 @@ export const ArchitectureCanvas: React.FC = () => {
             className="text-[11px] font-medium tracking-[0.35em] uppercase text-[#D4AF37]"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
-            05 / SYSTEM ARCHITECTURES
+            05 / SYSTEM ARCHITECTURES & 3D TOPOLOGY
           </span>
           <div className="w-20 h-[1px] bg-gradient-to-r from-[#D4AF37]/80 via-[#8C6D4F]/40 to-transparent" />
         </div>
@@ -48,10 +48,10 @@ export const ArchitectureCanvas: React.FC = () => {
         </h2>
       </div>
 
-      <div className="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         
         {/* Left Side: Clickable Stack of Layers */}
-        <div className="lg:col-span-6 flex flex-col gap-3 text-left">
+        <div className="lg:col-span-5 flex flex-col gap-3 text-left">
           {architectureLayers.map((layer) => {
             const isActive = activeLayerId === layer.id;
             return (
@@ -92,9 +92,11 @@ export const ArchitectureCanvas: React.FC = () => {
           })}
         </div>
 
-        {/* Right Side: Active layer specifications */}
-        <div className="lg:col-span-6 h-full text-left">
-          <div className="bg-[#0E0C0A] border border-[#8C6D4F]/25 rounded-sm p-6 min-h-[340px] h-full flex flex-col justify-between relative">
+        {/* Center/Right Side: Active layer specifications */}
+        <div className="lg:col-span-7 flex flex-col md:flex-row gap-6">
+          
+          {/* Active Layer Details */}
+          <div className="flex-1 bg-[#0E0C0A] border border-[#8C6D4F]/25 rounded-sm p-6 flex flex-col justify-between relative text-left">
             
             {/* Corner pins */}
             <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t border-l border-[#D4AF37]/50" />
@@ -136,10 +138,45 @@ export const ArchitectureCanvas: React.FC = () => {
 
             <div className="text-[8px] font-mono text-[#8C6D4F]/60 border-t border-[#8C6D4F]/15 pt-4 mt-6 flex justify-between">
               <span>MODULE ID: Layer-{activeLayer.id.toUpperCase()}</span>
-              <span>STANDARDS CODE: POSIX_COMPLIANT</span>
+              <span>STANDARDS: POSIX_COMPLIANT</span>
             </div>
 
           </div>
+
+          {/* 2D System Topology HUD */}
+          <div className="w-full md:w-64 bg-[#0E0C0A] border border-[#8C6D4F]/25 rounded-sm p-5 flex flex-col justify-between relative text-left">
+            <div className="flex items-center justify-between border-b border-[#8C6D4F]/20 pb-3 mb-4">
+              <span className="text-[9px] font-mono text-[#D4AF37] uppercase tracking-widest font-bold">
+                SYSTEM METRICS
+              </span>
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            </div>
+
+            <div className="space-y-3 font-mono text-[10px]">
+              <div className="p-2.5 rounded bg-black/60 border border-[#8C6D4F]/20 flex justify-between items-center">
+                <span className="text-[#B3A497]">LAYER STATUS</span>
+                <span className="text-emerald-400 font-bold flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3 text-emerald-400" /> ONLINE
+                </span>
+              </div>
+
+              <div className="p-2.5 rounded bg-black/60 border border-[#8C6D4F]/20 flex justify-between items-center">
+                <span className="text-[#B3A497]">INTEGRATED TOOLS</span>
+                <span className="text-[#D4AF37] font-bold">{activeLayer.skills.length} MODULES</span>
+              </div>
+
+              <div className="p-2.5 rounded bg-black/60 border border-[#8C6D4F]/20 flex justify-between items-center">
+                <span className="text-[#B3A497]">ISOLATION</span>
+                <span className="text-white font-bold">CONTAINERIZED</span>
+              </div>
+            </div>
+
+            <div className="mt-4 pt-3 border-t border-[#8C6D4F]/20 text-[8px] font-mono text-[#8C6D4F] flex justify-between">
+              <span>SECURITY: AUDITED</span>
+              <span>VERIFIED: 100%</span>
+            </div>
+          </div>
+
         </div>
 
       </div>
