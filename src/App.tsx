@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Navbar } from './components/layout/Navbar';
-import { FloatingDock } from './components/layout/FloatingDock';
 import { Footer } from './components/layout/Footer';
 import { Hero } from './components/hero/Hero';
 import { ProjectExplorer } from './components/projects/ProjectExplorer';
@@ -19,94 +18,58 @@ import { CustomCursor } from './components/ui/CustomCursor';
 export const App: React.FC = () => {
   const [quickViewOpen, setQuickViewOpen] = useState(false);
   const [activeProjectId, setActiveProjectId] = useState<string | null>(null);
-  const [activeSection, setActiveSection] = useState('home');
 
   const activeProject = projects.find(p => p.id === activeProjectId);
 
-  // Active section scroll tracking
-  useEffect(() => {
-    const sectionIds = ['home', 'work', 'research', 'skills', 'metrics', 'contact'];
-
-    const handleScroll = () => {
-      const scrollPos = window.scrollY + 200;
-
-      for (let i = sectionIds.length - 1; i >= 0; i--) {
-        const sectionId = sectionIds[i];
-        const el = document.getElementById(sectionId === 'metrics' ? 'production-credibility' : sectionId);
-        if (el && el.offsetTop <= scrollPos) {
-          setActiveSection(sectionId);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleNavigate = (sectionId: string) => {
-    setActiveSection(sectionId);
-    const targetId = sectionId === 'metrics' ? 'production-credibility' : sectionId;
-    const el = document.getElementById(targetId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-[#080B12] text-[#F8FAFC] selection:bg-[#6366F1]/30 selection:text-white relative font-sans">
+    <div className="min-h-screen bg-[#070709] text-[#F1ECE6] selection:bg-[#D4AF37]/30 selection:text-white relative">
 
-      {/* Reticle Cursor */}
+      {/* Custom Cursor reticle */}
       <CustomCursor />
 
-      {/* Top Header Navbar */}
+      {/* Navigation bar */}
       <Navbar onQuickViewOpen={() => setQuickViewOpen(true)} />
 
-      {/* Main Content Flow */}
-      <main className="relative z-10 pb-24">
-        {/* 01 // Home Screen Landing & System Status Dashboard */}
+      {/* Main content flow */}
+      <main className="relative z-10">
+        {/* 01 // Home Hero Landing */}
         <Hero onQuickViewOpen={() => setQuickViewOpen(true)} />
 
-        {/* 02 // Builds Screen: Aptivue, RotorDyn, BioRobust, BioVision-Path */}
+        {/* 02 // Featured Engineering Work (Aptivue, RotorDyn, BioRobust) */}
         <ProjectExplorer />
 
-        {/* 03 // Architecture Canvas */}
+        {/* 03 // Architecture & SDLC Stack Canvas */}
         <ArchitectureCanvas />
 
-        {/* 04 // Installed & Secondary Work */}
+        {/* 04 // Secondary Engineering Work (Problem -> Approach -> Result) */}
         <SecondaryWork />
 
-        {/* 05 // Research Screen: IEEE Publication & Explainable AI */}
+        {/* 05 // Research Credibility & IEEE Publication */}
         <Research />
 
-        {/* 06 // Metrics Screen: Verified Test Evidence Dashboard */}
-        <div id="metrics">
-          <ProductionCredibility />
-        </div>
+        {/* 06 // Production Engineering Maturity & Test Suite Evidence */}
+        <ProductionCredibility />
 
-        {/* 07 // Stack Screen: Categorized Engineering Stack */}
+        {/* 07 // Categorized Skills & Tech Matrix */}
         <ExpertiseMap />
 
-        {/* 08 // Timeline & Milestones */}
+        {/* 08 // Professional Experience & Timeline */}
         <Timeline />
 
-        {/* 09 // Contact Screen: Direct Engineering Communication Portal */}
+        {/* 09 // Direct Engineering Contact Portal */}
         <Contact />
       </main>
-
-      {/* Signature Floating Bottom Navigation Dock */}
-      <FloatingDock activeSection={activeSection} onNavigate={handleNavigate} />
 
       {/* Footer */}
       <Footer />
 
-      {/* Recruiter QuickView Modal */}
+      {/* Quick View Drawer Modal */}
       <QuickView
         isOpen={quickViewOpen}
         onClose={() => setQuickViewOpen(false)}
       />
 
-      {/* Project Deep Dive Focus Modal */}
+      {/* Detailed Project Deep Dive Modal */}
       {activeProject && (
         <ProjectFocus
           project={activeProject}
