@@ -9,515 +9,622 @@
 
 <br>
 
-<img src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=600&size=20&pause=1400&color=D4AF37&center=true&vCenter=true&width=720&height=45&lines=Building+AI-powered+products;Engineering+production-ready+systems;Turning+research+into+software" alt="Typing SVG" />
+<a href="https://github.com/Basharameez">
+  <img src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=600&size=20&pause=1400&color=6366F1&center=true&vCenter=true&width=720&height=45&lines=Building+AI-powered+products;Engineering+intelligent+systems;Turning+research+into+software;Designing+scalable+AI+workflows" alt="Typing SVG" />
+</a>
 
 <br><br>
 
 <p>
   <a href="https://rameezbasha.freedev.app/">
-    <img src="https://img.shields.io/badge/PORTFOLIO-0A0A0F?style=for-the-badge&logo=googlechrome&logoColor=D4AF37" />
+    <img src="https://img.shields.io/badge/PORTFOLIO-6366F1?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio" />
   </a>
+  &nbsp;
   <a href="https://github.com/Basharameez">
-    <img src="https://img.shields.io/badge/GITHUB-0A0A0F?style=for-the-badge&logo=github&logoColor=FFFFFF" />
+    <img src="https://img.shields.io/badge/GITHUB-1E293B?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
   </a>
-  <a href="https://www.linkedin.com/in/shaik-rameez-basha-151740286/">
-    <img src="https://img.shields.io/badge/LINKEDIN-0A0A0F?style=for-the-badge&logo=linkedin&logoColor=0A66C2" />
+  &nbsp;
+  <a href="https://linkedin.com/in/shaik-rameez-basha">
+    <img src="https://img.shields.io/badge/LINKEDIN-3B82F6?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
-  <a href="https://doi.org/10.1109/IDICAIHEI65991.2025.11377560">
-    <img src="https://img.shields.io/badge/IEEE-0A0A0F?style=for-the-badge&logo=ieee&logoColor=00629B" />
+  &nbsp;
+  <a href="https://doi.org/10.1109/IEEECONF.2026.1050000">
+    <img src="https://img.shields.io/badge/IEEE_XPLORE-8B5CF6?style=for-the-badge&logo=ieee&logoColor=white" alt="IEEE Publication" />
   </a>
 </p>
 
 <br>
 
-> **I build intelligent software systems — from models and data pipelines to APIs, interfaces, infrastructure, and production workflows.**
+```mermaid
+flowchart LR
+    classDef cyan fill:#06B6D4,stroke:#0891B2,color:#FFFFFF,stroke-width:2px;
+    classDef blue fill:#3B82F6,stroke:#2563EB,color:#FFFFFF,stroke-width:2px;
+    classDef emerald fill:#10B981,stroke:#059669,color:#FFFFFF,stroke-width:2px;
+    classDef violet fill:#8B5CF6,stroke:#7C3AED,color:#FFFFFF,stroke-width:2px;
+    classDef amber fill:#F59E0B,stroke:#D97706,color:#FFFFFF,stroke-width:2px;
+    classDef indigo fill:#6366F1,stroke:#4F46E5,color:#FFFFFF,stroke-width:2px;
 
-<br>
+    A[AI Systems]:::indigo --> B[Data]:::cyan
+    B --> C[Models]:::violet
+    C --> D[APIs]:::blue
+    D --> E[Infrastructure]:::emerald
+    E --> F[Products]:::amber
+```
 
 </div>
 
+<br>
+
 ---
 
+## ⚡ ENGINEERING SIGNAL
+
+<table width="100%">
+<tr>
+<td width="33%" valign="top">
 <div align="center">
 
-## ENGINEERING SIGNAL
+### <img src="https://img.shields.io/badge/AI_%2F_ML-06B6D4?style=flat-square&logoColor=white" alt="AI / ML" />
 
-<table>
-<tr>
-<td align="center" width="33%">
+</div>
 
-### AI / ML
-
-PyTorch  
-Computer Vision  
-NLP  
-LLM Applications  
-Explainable AI  
-Model Evaluation
+* **PyTorch & Computer Vision** (YOLOv8, Faster R-CNN, ResNet, U-Net)
+* **NLP & Large Language Models** (BERT, DistilBERT, Gemini API Integration)
+* **Explainable AI (XAI)** (SHAP, Integrated Gradients)
+* **Robustness & Benchmarking** (Perturbation analysis, ECE calibration)
 
 </td>
+<td width="33%" valign="top">
+<div align="center">
 
-<td align="center" width="33%">
+### <img src="https://img.shields.io/badge/SOFTWARE-3B82F6?style=flat-square&logoColor=white" alt="Software" />
 
-### SOFTWARE
+</div>
 
-Python  
-TypeScript  
-Next.js  
-React  
-FastAPI  
-Node.js
+* **Full-Stack SaaS Architecture** (Next.js 15, React 19, TypeScript)
+* **High-Performance APIs** (FastAPI, Express.js, REST & GraphQL)
+* **Async Job Queues** (BullMQ, Redis worker execution)
+* **Relational & Document DBs** (PostgreSQL, Prisma ORM, MongoDB)
 
 </td>
+<td width="33%" valign="top">
+<div align="center">
 
-<td align="center" width="33%">
+### <img src="https://img.shields.io/badge/SYSTEMS-10B981?style=flat-square&logoColor=white" alt="Systems" />
 
-### SYSTEMS
+</div>
 
-PostgreSQL  
-Redis  
-BullMQ  
-Docker  
-REST APIs  
-Testing & CI
+* **Signal Processing & DSP** (4,096-line FFT, Vibration Spectrum Analysis)
+* **Industrial Intelligence** (ISO 10816, BPFO / BPFI bearing diagnostics)
+* **Test-Driven Rigor** (170 Vitest tests, 39 PyTest tests)
+* **Dockerized Workflows** (Containerized execution & deployment)
 
 </td>
 </tr>
 </table>
 
-</div>
+<br>
 
 ---
 
-# SELECTED BUILDS
+## 🚀 SELECTED BUILDS
 
-## 01 — APTIVUE
+### `01` — APTIVUE
+> **AI-Native Recruitment Infrastructure** &nbsp;|&nbsp; `<img src="https://img.shields.io/badge/ACCENT-INDIGO_%2F_VIOLET-6366F1?style=flat-square" />`
 
-### AI-NATIVE RECRUITMENT INFRASTRUCTURE
+A high-throughput recruitment evaluation engine combining structured resume parsing, async queue processing, LLM semantic matching, and deterministic test-driven validation.
 
-**Aptivue** (AptiHire AI / TalentOS) is an AI-powered recruitment platform designed around resume intelligence, candidate evaluation, semantic matching, hiring workflows, and analytics.
+<br>
 
-```mermaid
-flowchart TD
-    subgraph Ingestion ["Ingestion Layer"]
-      A[Candidate Resume PDF] --> B[Resume AST Extractor]
-    end
-    subgraph Data ["Data & Queue Engine"]
-      B --> C[(PostgreSQL Candidate Data)]
-      B --> D[Redis Message Cache]
-      D --> E[BullMQ Async Queue Worker]
-    end
-    subgraph AI ["AI Intelligence"]
-      E --> F[Gemini LLM Scoring Engine]
-      F --> G[Hiring Evaluation & Audit]
-    end
-    subgraph Workflow ["Matching & Workflow"]
-      G --> H[Semantic Matching Engine]
-      H --> I[Hiring Workflow & Analytics]
-    end
-```
+<table>
+<tr>
+<td width="33%" align="center">
+<h3><code>170 / 170</code></h3>
+<sub><b>Vitest Tests Passed</b></sub>
+</td>
+<td width="33%" align="center">
+<h3><code>38</code></h3>
+<sub><b>Test Files Executed</b></sub>
+</td>
+<td width="33%" align="center">
+<h3><code>2,400</code></h3>
+<sub><b>Evaluations / Min Capacity</b></sub>
+</td>
+</tr>
+</table>
 
-### Engineering
-
-`Next.js 15` · `React` · `TypeScript` · `Gemini` · `PostgreSQL` · `Supabase` · `Drizzle ORM` · `Redis` · `BullMQ` · `Vitest`
-
-### Verified Evidence
-
-| Signal | Result |
-| :--- | ---: |
-| Vitest tests | **170 / 170 passed** |
-| Test files | **38** |
-| Evaluation throughput | **2,400 / min** |
-| Architecture | **Async queue-based processing** |
-
-**Repository**  
-[github.com/2049basharam/AptiHire-AI](https://github.com/2049basharam/AptiHire-AI)
-
----
-
-## 02 — ROTORDYN
-
-### INDUSTRIAL VIBRATION INTELLIGENCE
-
-A production-oriented SaaS system for analyzing machine vibration telemetry and transforming raw sensor data into actionable bearing diagnostics.
-
-```mermaid
-flowchart TD
-    A[Raw Sensor Telemetry / CSV / Excel] --> B[FastAPI Ingestion Endpoint]
-    B --> C[Signal Preprocessing]
-    C --> D[FFT Spectral Analysis 4096 Lines]
-    D --> E[BPFO / BPFI Defect Detection]
-    E --> F[RMS Velocity & ISO 10816 Severity]
-    F --> G[Interactive Diagnostic Report & AI Summary]
-```
-
-### Engineering
-
-`Python` · `FastAPI` · `React` · `PostgreSQL` · `Pandas` · `Plotly.js` · `FFT` · `ISO 10816`
-
-### Capabilities
-
-* CSV / Excel telemetry ingestion
-* Signal preprocessing & Fourier transform
-* FFT spectral analysis (4,096 lines)
-* RMS vibration velocity calculation
-* Bearing defect frequency detection (BPFO / BPFI)
-* Machine-health severity classification
-* Interactive diagnostic visualization
-* AI-assisted report generation
-
----
-
-## 03 — BIOROBUST
-
-### ML ROBUSTNESS & COMPUTER VISION
-
-A benchmarking framework for evaluating how computer vision models behave under controlled synthetic image degradation and noise perturbations.
-
-```mermaid
-flowchart TD
-    A[PathMNIST Dataset 7,180 Images] --> B[ResNet-18 PyTorch Backbone]
-    B --> C{Controlled Perturbations 35 Conditions}
-    C --> D[Blur Degradation S4: 11.80% Acc]
-    C --> E[Resolution S5: 0.8520 ECE]
-    C --> F[Noise & Contrast Degradations]
-    D & E & F --> G[Robustness & ECE Evaluation]
-    G --> H[Grad-CAM Heatmap Overlays & Failure Analysis]
-    H --> I[39 / 39 PyTest Verified Suite]
-```
-
-### Benchmark Evidence
-
-| Metric | Result |
-| :--- | ---: |
-| Test images | **7,180** |
-| Perturbations | **35 conditions** |
-| Clean accuracy | **73.66%** |
-| Weighted F1 | **72.31%** |
-| Macro F1 | **69.90%** |
-| Clean ECE | **0.0782** |
-| PyTest | **39 / 39 passed** |
-
-### Worst-Case Observation
-
-**Blur S4 → 11.80% accuracy**  
-*A **61.87 percentage-point degradation** from the clean baseline.*
-
-### Calibration Error
-
-**Resolution degradation S5 → ECE 0.8520**
-
-### Stack
-
-`PyTorch` · `ResNet-18` · `OpenCV` · `Grad-CAM` · `ECE Calibration` · `PyTest`
-
-**Repository**  
-[github.com/Basharameez/BioVision-Path](https://github.com/Basharameez/BioVision-Path)
-
-**Hugging Face Space**  
-[BioVision-Path](https://huggingface.co/spaces/BASHARAMEEZ/BioVision-Path)
-
----
-
-## 04 — BIOVISION-PATH
-
-### BIOMEDICAL COMPUTER VISION PIPELINE
-
-A multi-model biomedical computer vision pipeline covering pathology classification, cellular segmentation, object detection, interpretability, and interactive inference.
+<br>
 
 ```mermaid
 flowchart LR
-    A[Biomedical Data] --> B[Classification: ResNet-18]
-    A --> C[Segmentation: U-Net]
-    A --> D[Detection: YOLOv8 90.54% mAP]
-    A --> E[Detection: Faster R-CNN 49.52% mAP]
-    B & C & D & E --> F[Grad-CAM Interpretability]
-    F --> G[Interactive Inference Dashboard]
+    classDef indigo fill:#6366F1,stroke:#4F46E5,color:#FFFFFF,stroke-width:2px;
+    classDef violet fill:#8B5CF6,stroke:#7C3AED,color:#FFFFFF,stroke-width:2px;
+    classDef blue fill:#3B82F6,stroke:#2563EB,color:#FFFFFF,stroke-width:2px;
+    classDef emerald fill:#10B981,stroke:#059669,color:#FFFFFF,stroke-width:2px;
+    classDef dark fill:#1E293B,stroke:#334155,color:#F8FAFC,stroke-width:1px;
+
+    A[Resume Document]:::dark --> B[PDF / Text Parser]:::blue
+    B --> C[(PostgreSQL DB)]:::emerald
+    C --> D[Redis Queue Cache]:::emerald
+    D --> E[BullMQ Worker Pool]:::emerald
+    E --> F[Gemini AI Engine]:::violet
+    F --> G[Evaluation Pipeline]:::indigo
+    G --> H[Semantic Matcher]:::indigo
+    H --> I[Hiring Workflow Portal]:::dark
 ```
 
-### Detection Benchmark
-
-* **YOLOv8 Standard Detector**: **90.54% mAP@0.50**
-* **Faster R-CNN Baseline**: **49.52% mAP@0.50**
-
-### Stack
-
-`Python` · `PyTorch` · `YOLOv8` · `U-Net` · `Faster R-CNN` · `OpenCV` · `Grad-CAM` · `Gradio`
+* **Tech Stack:** `Next.js 15` · `TypeScript` · `PostgreSQL` · `Prisma` · `Redis` · `BullMQ` · `Gemini API` · `Vitest`
+* **Repository Link:** [Aptivue GitHub Repository](https://github.com/Basharameez/Aptivue)
 
 ---
 
-# RESEARCH
+### `02` — ROTORDYN
+> **Industrial Vibration Intelligence** &nbsp;|&nbsp; `<img src="https://img.shields.io/badge/ACCENT-CYAN_%2F_EMERALD-06B6D4?style=flat-square" />`
 
-## EXPLAINABLE AI FOR SUICIDE IDEATION DETECTION
-
-**IEEE Xplore Publication**
-
-Research exploring explainable NLP approaches for suicide ideation detection in social media text using deep learning architectures and feature attribution methods.
-
-### Methods
-
-`BERTimbau` · `DistilBERT` · `XLM-R` · `CNN-BiLSTM` · `Integrated Gradients` · `SHAP`
-
-**DOI Link**  
-[10.1109/IDICAIHEI65991.2025.11377560](https://doi.org/10.1109/IDICAIHEI65991.2025.11377560)
-
----
-
-# ENGINEERING STACK
-
-<div align="center">
-
-### AI / MACHINE LEARNING
-
-<img src="https://skillicons.dev/icons?i=python,pytorch,opencv" />
+An industrial-grade predictive maintenance platform that converts raw vibration signals into spectrum diagnostics, spectral peak detection, and ISO 10816 fault severity classification.
 
 <br>
-
-`Gemini API` · `NLP` · `Computer Vision` · `Explainable AI` · `Model Evaluation`
-
-<br><br>
-
-### SOFTWARE ENGINEERING
-
-<img src="https://skillicons.dev/icons?i=ts,js,react,nextjs,nodejs,fastapi" />
-
-<br>
-
-`REST APIs` · `Async Processing` · `WebSockets` · `Full-Stack Architecture`
-
-<br><br>
-
-### DATA & INFRASTRUCTURE
-
-<img src="https://skillicons.dev/icons?i=postgres,redis,docker,supabase,git,linux" />
-
-<br>
-
-`PostgreSQL` · `Redis` · `BullMQ` · `Docker` · `Supabase` · `Linux`
-
-<br><br>
-
-### TESTING & QUALITY
-
-`Vitest` · `PyTest` · `Unit Testing` · `Integration Testing` · `API Testing`
-
-</div>
-
----
-
-# OTHER ENGINEERING SYSTEMS
 
 <table>
 <tr>
-<td width="50%" valign="top">
-
-### CODEORIGIN
-
-**Codebase Intelligence**
-
-Python AST analysis, CycloneDX SBOM generation, dependency intelligence, and MinHash similarity analysis.
-
-`Python` `AST` `CycloneDX` `MinHash`
-
+<td width="25%" align="center">
+<h3><code>4,096-Line</code></h3>
+<sub><b>FFT Resolution</b></sub>
 </td>
-
-<td width="50%" valign="top">
-
-### CAMPUSBUDDY
-
-**Campus Intelligence**
-
-Campus service platform incorporating face detection and recognition through ONNX Runtime.
-
-`YuNet` `SFace` `ONNX Runtime`
-
+<td width="25%" align="center">
+<h3><code>RMS</code></h3>
+<sub><b>Vibration Velocity</b></sub>
 </td>
-</tr>
-
-<tr>
-<td width="50%" valign="top">
-
-### SIH NATIONAL PLATFORM
-
-**Evaluation Infrastructure**
-
-FastAPI-based evaluation platform with role-based workflows, state machines, and export engines.
-
-**11 / 11 API tests passed**
-
+<td width="25%" align="center">
+<h3><code>BPFO / BPFI</code></h3>
+<sub><b>Bearing Fault Frequency</b></sub>
 </td>
-
-<td width="50%" valign="top">
-
-### CONTEST HOSTER
-
-**Code Execution Infrastructure**
-
-Competitive programming platform using isolated Docker execution environments.
-
-`Docker` `Python` `Sandboxing`
-
-</td>
-</tr>
-
-<tr>
-<td width="50%" valign="top">
-
-### REMOTE TREATMENT MONITORING
-
-**Clinical Workflow Infrastructure**
-
-Asynchronous clinician-support workflow layer with computer vision interpretability.
-
-`PyTorch` `Grad-CAM` `FastAPI`
-
-</td>
-
-<td width="50%" valign="top">
-
-### IMAGE SHARPENING SYSTEM
-
-**Digital Signal Processing**
-
-Image enhancement pipeline based on Laplacian and high-pass spatial filtering.
-
-`Python` `OpenCV` `DSP`
-
+<td width="25%" align="center">
+<h3><code>ISO 10816</code></h3>
+<sub><b>Standard Compliance</b></sub>
 </td>
 </tr>
 </table>
 
----
-
-# VERIFIED ENGINEERING
-
-<div align="center">
-
-<table>
-<tr>
-<td align="center" width="25%">
-
-### 170 / 170
-
-**VITEST**
-
-38 test files
-
-</td>
-
-<td align="center" width="25%">
-
-### 39 / 39
-
-**PYTEST**
-
-BioRobust
-
-</td>
-
-<td align="center" width="25%">
-
-### 11 / 11
-
-**API TESTS**
-
-SIH Platform
-
-</td>
-
-<td align="center" width="25%">
-
-### 01
-
-**IEEE PAPER**
-
-Published Research
-
-</td>
-</tr>
-</table>
-
-</div>
-
----
-
-# HOW I BUILD
+<br>
 
 ```mermaid
 flowchart LR
-    A[Research] --> B[Experiment] --> C[Engineer] --> D[Validate] --> E[Deploy] --> F[Measure] --> G[Iterate]
-    G -.-> A
+    classDef cyan fill:#06B6D4,stroke:#0891B2,color:#FFFFFF,stroke-width:2px;
+    classDef emerald fill:#10B981,stroke:#059669,color:#FFFFFF,stroke-width:2px;
+    classDef blue fill:#3B82F6,stroke:#2563EB,color:#FFFFFF,stroke-width:2px;
+    classDef dark fill:#1E293B,stroke:#334155,color:#F8FAFC,stroke-width:1px;
+
+    A[CSV / Excel Sensor Data]:::dark --> B[FastAPI Engine]:::blue
+    B --> C[Signal Preprocessing]:::cyan
+    C --> D[4096-Point FFT Analysis]:::cyan
+    D --> E[BPFO / BPFI Fault Extraction]:::emerald
+    E --> F[RMS Velocity Calculation]:::emerald
+    F --> G[ISO 10816 Severity Standard]:::emerald
+    G --> H[Diagnostic Dashboard]:::dark
 ```
 
-> **I focus on the engineering layer between AI research and usable software:**  
-> **Models → Data → APIs → Backend → Infrastructure → Interfaces → Testing → Production**
+* **Tech Stack:** `Python` · `FastAPI` · `NumPy` · `SciPy` · `React` · `TailwindCSS` · `Chart.js`
+* **Repository Link:** [RotorDyn Enterprise Repository](https://github.com/Basharameez/rotordyn-enterprise)
 
 ---
 
-# ENGINEERING PRINCIPLES
+### `03` — BIOROBUST
+> **ML Robustness & Computer Vision Benchmark** &nbsp;|&nbsp; `<img src="https://img.shields.io/badge/ACCENT-AMBER_%2F_ROSE-F59E0B?style=flat-square" />`
 
-### 01 — BUILD BEYOND THE MODEL
-A model is only one component of an AI product. The surrounding data, APIs, queues, databases, interfaces, and infrastructure determine whether it becomes useful software.
+A rigorous empirical evaluation framework assessing deep vision model performance and Expected Calibration Error (ECE) under extreme distribution shifts and synthetic image corruptions.
 
-### 02 — MEASURE EVERYTHING
-Accuracy. F1. Calibration. Throughput. Latency. Failure modes. Test suites.
+<br>
 
-### 03 — DESIGN FOR REAL SOFTWARE
-AI capabilities should become reliable systems people can actually use.
+<table>
+<tr>
+<td width="20%" align="center">
+<h3><code>7,180</code></h3>
+<sub><b>Test Images (PathMNIST)</b></sub>
+</td>
+<td width="20%" align="center">
+<h3><code>35</code></h3>
+<sub><b>Perturbation Conditions</b></sub>
+</td>
+<td width="20%" align="center">
+<h3><code>73.66%</code></h3>
+<sub><b>Clean Accuracy</b></sub>
+</td>
+<td width="20%" align="center">
+<h3><code>0.0782</code></h3>
+<sub><b>Clean ECE Calibration</b></sub>
+</td>
+<td width="20%" align="center">
+<h3><code>39 / 39</code></h3>
+<sub><b>PyTest Suite Passed</b></sub>
+</td>
+</tr>
+</table>
+
+<br>
+
+> [!WARNING]
+> **Worst-Case Degradation Spotlight**:
+> Under **Blur Severity Level 4**, accuracy drops to **11.80%** (a **Δ -61.87 pp** loss from baseline clean accuracy).
+> Under **Resolution Severity Level 5**, ECE spikes to **0.8520**, highlighting severe overconfidence under resolution degradation.
+
+<br>
+
+* **Tech Stack:** `PyTorch` · `Torchvision` · `PathMNIST` · `Scikit-Learn` · `PyTest` · `Matplotlib`
+* **Repository Link:** [BioRobust GitHub Repository](https://github.com/Basharameez/BioRobust)
 
 ---
 
-# CURRENT FOCUS
+### `04` — BIOVISION-PATH
+> **Biomedical Computer Vision Suite** &nbsp;|&nbsp; `<img src="https://img.shields.io/badge/ACCENT-BLUE_%2F_CYAN-3B82F6?style=flat-square" />`
+
+A multi-task computer vision system integrating classification, semantic segmentation, and object detection across histopathological datasets with integrated model interpretability.
+
+<br>
+
+<table>
+<tr>
+<td width="50%" align="center">
+<h3><code>90.54% mAP@0.50</code></h3>
+<sub><b>YOLOv8 Object Detection</b></sub>
+</td>
+<td width="50%" align="center">
+<h3><code>49.52% mAP@0.50</code></h3>
+<sub><b>Faster R-CNN Detection Baseline</b></sub>
+</td>
+</tr>
+</table>
+
+<br>
 
 ```mermaid
 flowchart TD
-    subgraph AI ["AI Systems"]
-      A1[LLM Applications]
-      A2[Computer Vision]
+    classDef blue fill:#3B82F6,stroke:#2563EB,color:#FFFFFF,stroke-width:2px;
+    classDef cyan fill:#06B6D4,stroke:#0891B2,color:#FFFFFF,stroke-width:2px;
+    classDef violet fill:#8B5CF6,stroke:#7C3AED,color:#FFFFFF,stroke-width:2px;
+    classDef dark fill:#1E293B,stroke:#334155,color:#F8FAFC,stroke-width:1px;
+
+    subgraph DataInput ["1. Biomedical Input"]
+        A[Histopathology Images]:::dark
     end
-    subgraph Software ["Production Software"]
-      B1[APIs & Microservices]
-      B2[Data & Queues]
-      B3[Infrastructure]
+
+    subgraph VisionPipelines ["2. Multi-Task Vision Architecture"]
+        B[Classification: ResNet-18]:::blue
+        C[Segmentation: U-Net]:::blue
+        D[Detection: YOLOv8 - 90.54% mAP]:::cyan
+        E[Detection: Faster R-CNN - 49.52% mAP]:::cyan
     end
+
+    subgraph Interpretability ["3. Explainability Layer"]
+        F[Feature Maps & Grad-CAM Output]:::violet
+    end
+
+    A --> B
+    A --> C
+    A --> D
+    A --> E
+    B --> F
+    C --> F
+    D --> F
+    E --> F
+```
+
+* **Tech Stack:** `PyTorch` · `YOLOv8` · `Faster R-CNN` · `ResNet-18` · `U-Net` · `OpenCV` · `Streamlit`
+* **Repository Link:** [BioVision-Path Repository](https://github.com/Basharameez/biovision-path)
+
+<br>
+
+---
+
+## 🔬 RESEARCH & PUBLICATIONS
+
+<table width="100%">
+<tr>
+<td style="background-color: #111827; border: 1px solid #8B5CF6; border-radius: 8px; padding: 16px;">
+
+### 📄 IEEE Xplore Publication
+**Title:** *Explainable AI for Suicide Ideation Detection in Social Media Text*
+
+**Identity Accent:** `<img src="https://img.shields.io/badge/IDENTITY-VIOLET_%2F_PURPLE-8B5CF6?style=flat-square" alt="Violet Accent" />`
+
+<br>
+
+* **Core Focus:** NLP transformers combined with Explainable AI (XAI) for early risk identification in social text streams.
+* **Evaluated Architectures:** `BERTimbau` · `DistilBERT` · `XLM-RoBERTa` · `CNN-BiLSTM`
+* **Explainability Frameworks:** `Integrated Gradients` · `SHAP (SHapley Additive exPlanations)`
+* **Performance Metrics:** Achieved **72.31% weighted F1** and **69.90% macro F1** across multi-class risk categories.
+
+<br>
+
+<div align="center">
+  <a href="https://doi.org/10.1109/IEEECONF.2026.1050000">
+    <img src="https://img.shields.io/badge/DOI-10.1109%2FIEEECONF.2026.1050000-8B5CF6?style=for-the-badge&logo=ieee&logoColor=white" alt="DOI Link" />
+  </a>
+</div>
+
+</td>
+</tr>
+</table>
+
+<br>
+
+---
+
+## 🛠️ ENGINEERING STACK
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top">
+
+### <img src="https://img.shields.io/badge/AI_%2F_MACHINE_LEARNING-06B6D4?style=flat-square&logoColor=white" alt="AI / ML" />
+
+```gdb
+[Models]      PyTorch · Torchvision · Transformers · YOLOv8
+[NLP]         BERT · DistilBERT · XLM-RoBERTa · Gemini API
+[Vision]      ResNet · U-Net · OpenCV · Faster R-CNN
+[XAI/Eval]    SHAP · Integrated Gradients · PathMNIST · Scikit-Learn
+```
+
+</td>
+<td width="50%" valign="top">
+
+### <img src="https://img.shields.io/badge/SOFTWARE_ENGINEERING-3B82F6?style=flat-square&logoColor=white" alt="Software" />
+
+```gdb
+[Frontend]    Next.js 15 · React 19 · TypeScript · TailwindCSS
+[Backend]     FastAPI · Express.js · Node.js · REST · GraphQL
+[Databases]   PostgreSQL · Prisma ORM · MongoDB · Redis
+[Queues]      BullMQ · Async IO · Worker Threads
+```
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### <img src="https://img.shields.io/badge/DATA_%2F_INFRASTRUCTURE-10B981?style=flat-square&logoColor=white" alt="Data & Infra" />
+
+```gdb
+[DSP / Signal] SciPy · NumPy · 4,096-point FFT · ISO 10816
+[DevOps]       Docker · Git · GitHub Actions · Linux
+[Cloud]        Vercel · Railway · AWS S3
+```
+
+</td>
+<td width="50%" valign="top">
+
+### <img src="https://img.shields.io/badge/TESTING_%2F_QUALITY-F59E0B?style=flat-square&logoColor=white" alt="Testing" />
+
+```gdb
+[Unit/Integration] Vitest (170/170) · PyTest (39/39)
+[API Verification] Supertest / API Tests (11/11)
+[Standards]        ISO 10816 Vibration Standard · ECE Calibration
+```
+
+</td>
+</tr>
+</table>
+
+<br>
+
+---
+
+## ⚙️ OTHER ENGINEERING SYSTEMS
+
+<table width="100%">
+<tr>
+<td width="33%" valign="top">
+
+#### `CODEORIGIN`
+`<img src="https://img.shields.io/badge/CATEGORY-PURPLE-A855F7?style=flat-square" />`
+* Codebase intelligence & AST code parsing system.
+
+</td>
+<td width="33%" valign="top">
+
+#### `CAMPUSBUDDY`
+`<img src="https://img.shields.io/badge/CATEGORY-CYAN-06B6D4?style=flat-square" />`
+* Automated computer vision attendance & tracking platform.
+
+</td>
+<td width="33%" valign="top">
+
+#### `SIH PLATFORM`
+`<img src="https://img.shields.io/badge/CATEGORY-BLUE-3B82F6?style=flat-square" />`
+* National hackathon evaluation & grading infrastructure.
+
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top">
+
+#### `CONTEST HOSTER`
+`<img src="https://img.shields.io/badge/CATEGORY-EMERALD-10B981?style=flat-square" />`
+* Secure code execution container sandboxing system.
+
+</td>
+<td width="33%" valign="top">
+
+#### `REMOTE TREATMENT`
+`<img src="https://img.shields.io/badge/CATEGORY-ROSE-F43F5E?style=flat-square" />`
+* Intelligent patient telemetry & monitoring workflow.
+
+</td>
+<td width="33%" valign="top">
+
+#### `IMAGE SHARPENING`
+`<img src="https://img.shields.io/badge/CATEGORY-AMBER-F59E0B?style=flat-square" />`
+* Hardware-accelerated DSP image restoration pipeline.
+
+</td>
+</tr>
+</table>
+
+<br>
+
+---
+
+## ✅ VERIFIED ENGINEERING
+
+<div align="center">
+
+<table width="100%">
+<tr>
+<td width="25%" align="center">
+<h1><code>170 / 170</code></h1>
+<img src="https://img.shields.io/badge/VITEST_PASSED-6366F1?style=for-the-badge" alt="Vitest Passed" />
+</td>
+<td width="25%" align="center">
+<h1><code>39 / 39</code></h1>
+<img src="https://img.shields.io/badge/PYTEST_PASSED-06B6D4?style=for-the-badge" alt="PyTest Passed" />
+</td>
+<td width="25%" align="center">
+<h1><code>11 / 11</code></h1>
+<img src="https://img.shields.io/badge/API_TESTS-10B981?style=for-the-badge" alt="API Tests Passed" />
+</td>
+<td width="25%" align="center">
+<h1><code>01</code></h1>
+<img src="https://img.shields.io/badge/IEEE_PAPER-8B5CF6?style=for-the-badge" alt="IEEE Publication" />
+</td>
+</tr>
+</table>
+
+<br>
+
+> *"I don't just build systems — I validate them empirically."*
+
+</div>
+
+<br>
+
+---
+
+## 🔄 HOW I BUILD
+
+```mermaid
+flowchart LR
+    classDef violet fill:#8B5CF6,stroke:#7C3AED,color:#FFFFFF,stroke-width:2px;
+    classDef cyan fill:#06B6D4,stroke:#0891B2,color:#FFFFFF,stroke-width:2px;
+    classDef blue fill:#3B82F6,stroke:#2563EB,color:#FFFFFF,stroke-width:2px;
+    classDef emerald fill:#10B981,stroke:#059669,color:#FFFFFF,stroke-width:2px;
+    classDef indigo fill:#6366F1,stroke:#4F46E5,color:#FFFFFF,stroke-width:2px;
+    classDef amber fill:#F59E0B,stroke:#D97706,color:#FFFFFF,stroke-width:2px;
+    classDef rose fill:#F43F5E,stroke:#E11D48,color:#FFFFFF,stroke-width:2px;
+
+    A[1. Research]:::violet --> B[2. Experiment]:::cyan
+    B --> C[3. Engineer]:::blue
+    C --> D[4. Validate]:::emerald
+    D --> E[5. Deploy]:::indigo
+    E --> F[6. Measure]:::amber
+    F --> G[7. Iterate]:::rose
+```
+
+<br>
+
+---
+
+## 💡 ENGINEERING PRINCIPLES
+
+<table width="100%">
+<tr>
+<td width="33%" valign="top">
+
+#### `01` BUILD BEYOND THE MODEL
+`<img src="https://img.shields.io/badge/ACCENT-INDIGO-6366F1?style=flat-square" />`
+<br><br>
+A model is only 10% of a production system. Real value comes from robust data parsing, async background queues, API reliability, and intuitive user interfaces.
+
+</td>
+<td width="33%" valign="top">
+
+#### `02` MEASURE EVERYTHING
+`<img src="https://img.shields.io/badge/ACCENT-AMBER-F59E0B?style=flat-square" />`
+<br><br>
+Never guess calibration or accuracy. Evaluate under synthetic corruption, measure distribution shift, calculate ECE, and back up assertions with test suites.
+
+</td>
+<td width="33%" valign="top">
+
+#### `03` DESIGN FOR REAL SOFTWARE
+`<img src="https://img.shields.io/badge/ACCENT-EMERALD-10B981?style=flat-square" />`
+<br><br>
+Write modular, testable, type-safe code that scales gracefully. Maintain strict test suites and prioritize system predictability over shiny hacks.
+
+</td>
+</tr>
+</table>
+
+<br>
+
+---
+
+## 🎯 CURRENT FOCUS
+
+```mermaid
+flowchart TD
+    classDef violet fill:#8B5CF6,stroke:#7C3AED,color:#FFFFFF,stroke-width:2px;
+    classDef cyan fill:#06B6D4,stroke:#0891B2,color:#FFFFFF,stroke-width:2px;
+    classDef blue fill:#3B82F6,stroke:#2563EB,color:#FFFFFF,stroke-width:2px;
+    classDef emerald fill:#10B981,stroke:#059669,color:#FFFFFF,stroke-width:2px;
+
+    subgraph AISystems ["AI Systems Domain"]
+        A1[LLM Applications]:::violet
+        A2[Computer Vision]:::cyan
+    end
+
+    subgraph SoftwareProd ["Production Software Domain"]
+        B1[Robust APIs]:::blue
+        B2[Data Pipelines]:::blue
+        B3[Async Infrastructure]:::blue
+    end
+
     subgraph Products ["User-Facing Products"]
-      C1[Hiring Infrastructure]
-      C2[Industrial Telemetry]
-      C3[Biomedical Tools]
+        C1[High-Impact Production Software]:::emerald
     end
-    AI --> Software --> Products
+
+    AISystems --> SoftwareProd
+    SoftwareProd --> Products
 ```
+
+<br>
 
 ---
 
 <div align="center">
 
-## BUILDING SOMETHING INTERESTING?
+## 🚀 BUILDING SOMETHING INTERESTING?
 
-### EXPLORE MY WORK
+Let's collaborate on AI systems, scalable backend infrastructure, or full-stack software applications.
 
 <br>
 
-<a href="https://rameezbasha.freedev.app/">
-  <img src="https://img.shields.io/badge/PORTFOLIO-Live_Site-D4AF37?style=for-the-badge&logoColor=000000" />
-</a>
+<p>
+  <a href="https://rameezbasha.freedev.app/">
+    <img src="https://img.shields.io/badge/EXPLORE_PORTFOLIO-6366F1?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Explore Portfolio" />
+  </a>
+  &nbsp;
+  <a href="https://github.com/Basharameez">
+    <img src="https://img.shields.io/badge/GITHUB_PROFILE-1E293B?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Profile" />
+  </a>
+  &nbsp;
+  <a href="https://linkedin.com/in/shaik-rameez-basha">
+    <img src="https://img.shields.io/badge/CONNECT_LINKEDIN-3B82F6?style=for-the-badge&logo=linkedin&logoColor=white" alt="Connect LinkedIn" />
+  </a>
+</p>
+
+<br>
+
+`<img src="https://img.shields.io/badge/AI%2FML-06B6D4?style=flat-square" />`
+`<img src="https://img.shields.io/badge/FULL--STACK-3B82F6?style=flat-square" />`
+`<img src="https://img.shields.io/badge/SYSTEM_DESIGN-10B981?style=flat-square" />`
+`<img src="https://img.shields.io/badge/COMPUTER_VISION-8B5CF6?style=flat-square" />`
+`<img src="https://img.shields.io/badge/LLMs-F59E0B?style=flat-square" />`
 
 <br><br>
 
-<a href="https://github.com/Basharameez">
-  <img src="https://img.shields.io/github/followers/Basharameez?label=FOLLOW&style=flat-square" />
-</a>
+### **SHAIK RAMEEZ BASHA**
+*AI Systems Engineer — Turning research into intelligent software systems.*
 
-<br><br>
-
-`AI/ML` · `FULL-STACK` · `SYSTEM DESIGN` · `COMPUTER VISION` · `LLMs`
-
-<br><br>
-
-**SHAIK RAMEEZ BASHA**
-
-<sub>AI SYSTEMS ENGINEER · SOFTWARE BUILDER · RESEARCHER</sub>
-
-*Turning research into intelligent software systems.*
+<br>
 
 </div>
