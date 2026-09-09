@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Cpu, Database, CheckCircle2, ArrowRight, FileText } from 'lucide-react';
+import { Terminal, Cpu, Database, CheckCircle2, ArrowRight, FileText, Activity } from 'lucide-react';
 
 const GithubIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24">
@@ -22,145 +22,162 @@ export const Hero: React.FC<HeroProps> = ({ onQuickViewOpen }) => {
   const [activeTab, setActiveTab] = useState<'ingest' | 'eval' | 'queue' | 'tests'>('eval');
 
   return (
-    <section id="home" className="relative w-full min-h-[92vh] bg-[#070709] text-[#F1ECE6] overflow-hidden flex items-center pt-28 pb-20 px-6 sm:px-12 lg:px-20 border-b border-white/10">
+    <section id="home" className="relative w-full min-h-[90vh] bg-[#080B12] text-[#F8FAFC] overflow-hidden flex items-center pt-24 pb-16 px-6 sm:px-12 lg:px-20 border-b border-[#263247]">
       
-      {/* Subtle Technical Grid Background */}
-      <div className="absolute inset-0 tech-grid-pattern opacity-30 pointer-events-none" />
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/4 left-1/6 w-[450px] h-[450px] bg-[#6366F1]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/6 w-[400px] h-[400px] bg-[#06B6D4]/10 rounded-full blur-[140px] pointer-events-none" />
 
-      {/* Ambient Glowing Background Lights */}
-      <div className="absolute top-1/4 left-1/6 w-[500px] h-[500px] bg-[#D4AF37]/10 rounded-full blur-[160px] pointer-events-none glow-pulse" />
-      <div className="absolute bottom-1/4 right-1/6 w-[450px] h-[450px] bg-[#6366F1]/10 rounded-full blur-[160px] pointer-events-none glow-pulse" />
-
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center relative z-10">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
         
-        {/* Left Column: Headline, Positioning Statement & CTAs */}
+        {/* Left Column: Headline, Positioning Statement & Status Cards */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-7 flex flex-col items-start text-left"
         >
-          {/* Status Pill Badge */}
-          <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-[#12121A]/80 border border-white/15 backdrop-blur-md mb-6 shadow-lg">
-            <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse" />
-            <span className="text-xs font-mono tracking-widest text-[#D4AF37] uppercase font-semibold">
-              AI/ML &bull; FULL-STACK &bull; BACKEND ARCHITECTURE
+          {/* Status Badge Pill */}
+          <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-[#111827] border border-[#263247] mb-5 shadow-lg">
+            <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
+            <span className="text-xs font-mono tracking-widest text-[#10B981] uppercase font-semibold">
+              SYSTEM STATUS: ONLINE
             </span>
           </div>
 
           {/* Primary Identity Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.05] mb-6 font-display">
-            AI/ML + Full-Stack<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] via-[#F7E7C4] to-[#D4AF37]">
-              Software Engineer
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.05] mb-5 font-display">
+            SHAIK RAMEEZ BASHA
+            <span className="block text-2xl sm:text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#6366F1] via-[#8B5CF6] to-[#06B6D4] mt-2 font-mono">
+              AI SYSTEMS ENGINEER
             </span>
           </h1>
 
-          {/* Supporting Statement */}
-          <p className="text-sm sm:text-base md:text-lg font-normal text-neutral-300 leading-relaxed max-w-2xl mb-10 font-sans">
-            I build production-oriented AI systems and full-stack software, combining AI engineering, backend architecture, frontend systems, data processing, testing, and deployment.
+          {/* Positioning Statement */}
+          <p className="text-sm sm:text-base md:text-lg font-normal text-[#94A3B8] leading-relaxed max-w-2xl mb-8 font-sans">
+            I build intelligent software systems — from models and data pipelines to APIs, interfaces, infrastructure, and production workflows.
           </p>
 
           {/* Action CTAs */}
-          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-            {/* Primary CTA */}
+          <div className="flex flex-wrap items-center gap-3 mb-10">
             <a
               href="#work"
-              className="inline-flex items-center space-x-2.5 px-6 py-3.5 bg-[#D4AF37] hover:bg-[#c29f2e] text-black text-xs sm:text-sm font-bold tracking-wider uppercase transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] rounded-lg"
+              className="inline-flex items-center space-x-2.5 px-5 py-3 bg-[#6366F1] hover:bg-[#4F46E5] text-white text-xs sm:text-sm font-bold tracking-wider uppercase transition-all shadow-lg shadow-[#6366F1]/30 rounded-xl"
             >
-              <span>View Engineering Work</span>
+              <span>Explore Build Systems</span>
               <ArrowRight className="w-4 h-4" />
             </a>
 
-            {/* Secondary CTA: GitHub */}
             <a
               href="https://github.com/Basharameez"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 px-4 py-3.5 bg-white/5 hover:bg-white/10 border border-white/15 text-white text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all rounded-lg backdrop-blur-md"
+              className="inline-flex items-center space-x-2 px-4 py-3 bg-[#111827] hover:bg-[#172033] border border-[#263247] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all rounded-xl"
             >
               <GithubIcon className="w-4 h-4" />
               <span>GitHub</span>
             </a>
 
-            {/* Secondary CTA: LinkedIn */}
             <a
-              href="https://www.linkedin.com/in/shaik-rameezbasha-151740286/"
+              href="https://www.linkedin.com/in/shaik-rameez-basha-151740286/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 px-4 py-3.5 bg-white/5 hover:bg-white/10 border border-white/15 text-white text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all rounded-lg backdrop-blur-md"
+              className="inline-flex items-center space-x-2 px-4 py-3 bg-[#111827] hover:bg-[#172033] border border-[#263247] text-[#3B82F6] text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all rounded-xl"
             >
-              <LinkedinIcon className="w-4 h-4 text-[#D4AF37]" />
+              <LinkedinIcon className="w-4 h-4 text-[#3B82F6]" />
               <span>LinkedIn</span>
             </a>
 
-            {/* Recruiter Download CTA */}
             <button
               onClick={onQuickViewOpen}
-              className="inline-flex items-center space-x-2 px-4 py-3.5 bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 border border-[#D4AF37]/40 hover:border-[#D4AF37] text-[#D4AF37] text-xs sm:text-sm font-mono font-bold tracking-wider uppercase transition-all cursor-pointer rounded-lg backdrop-blur-md"
+              className="inline-flex items-center space-x-2 px-4 py-3 bg-[#111827] hover:bg-[#172033] border border-[#263247] text-[#F59E0B] text-xs sm:text-sm font-mono font-bold tracking-wider uppercase transition-all cursor-pointer rounded-xl"
             >
-              <FileText className="w-4 h-4" />
+              <FileText className="w-4 h-4 text-[#F59E0B]" />
               <span>Resume</span>
             </button>
           </div>
+
+          {/* System Status Dashboard Cards (AI/ML, Software, Systems) */}
+          <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-[#263247]">
+            <div className="p-3.5 rounded-xl bg-[#111827] border border-[#263247]">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-[10px] font-mono font-bold text-[#06B6D4] uppercase">AI / ML</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#06B6D4]" />
+              </div>
+              <p className="text-[11px] text-[#94A3B8]">PyTorch · Vision · NLP · LLM Apps · XAI</p>
+            </div>
+            
+            <div className="p-3.5 rounded-xl bg-[#111827] border border-[#263247]">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-[10px] font-mono font-bold text-[#3B82F6] uppercase">SOFTWARE</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
+              </div>
+              <p className="text-[11px] text-[#94A3B8]">Next.js 15 · React · TS · FastAPI · Node.js</p>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-[#111827] border border-[#263247]">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-[10px] font-mono font-bold text-[#10B981] uppercase">SYSTEMS</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+              </div>
+              <p className="text-[11px] text-[#94A3B8]">PostgreSQL · Redis · BullMQ · Docker · Testing</p>
+            </div>
+          </div>
+
         </motion.div>
 
-        {/* Right Column: Rich Glassmorphic Interactive Product Showcase Card */}
+        {/* Right Column: Mobile OS Interactive Showcase Card */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.15 }}
           className="lg:col-span-5 w-full flex flex-col justify-center items-center relative select-none"
         >
-          {/* Glass Card Container */}
-          <div className="w-full max-w-[440px] glass-card rounded-2xl p-6 sm:p-7 text-left relative overflow-hidden">
+          <div className="w-full max-w-[440px] bg-[#111827] border border-[#263247] rounded-2xl p-6 text-left relative overflow-hidden shadow-2xl">
             
-            {/* Top ambient glow bar */}
-            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
-
-            {/* Header Status Bar */}
-            <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-5">
+            {/* Header Bar */}
+            <div className="flex items-center justify-between border-b border-[#263247] pb-3.5 mb-4">
               <div className="flex items-center space-x-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                <Activity className="w-4 h-4 text-[#6366F1]" />
                 <span className="text-xs font-mono font-bold text-white uppercase tracking-wider">
-                  APTIVUE AI DEMO HUD
+                  APTIVUE SYSTEM HUD
                 </span>
               </div>
-              <span className="text-[10px] font-mono text-[#D4AF37] bg-[#D4AF37]/10 border border-[#D4AF37]/30 px-2 py-0.5 rounded">
+              <span className="text-[10px] font-mono text-[#6366F1] bg-[#6366F1]/10 border border-[#6366F1]/40 px-2 py-0.5 rounded-full">
                 FLAGSHIP #1
               </span>
             </div>
 
-            {/* Interactive Showcase Navigation Tabs */}
-            <div className="grid grid-cols-4 gap-1.5 p-1 rounded-lg bg-black/60 border border-white/10 mb-5 text-[9px] font-mono">
+            {/* Interactive Tabs */}
+            <div className="grid grid-cols-4 gap-1 p-1 rounded-xl bg-[#080B12] border border-[#263247] mb-4 text-[9px] font-mono">
               <button
                 onClick={() => setActiveTab('ingest')}
-                className={`py-1.5 rounded transition-all cursor-pointer ${
-                  activeTab === 'ingest' ? 'bg-[#D4AF37] text-black font-bold' : 'text-neutral-400 hover:text-white'
+                className={`py-1.5 rounded-lg transition-all cursor-pointer ${
+                  activeTab === 'ingest' ? 'bg-[#6366F1] text-white font-bold' : 'text-[#94A3B8] hover:text-white'
                 }`}
               >
                 INGEST
               </button>
               <button
                 onClick={() => setActiveTab('eval')}
-                className={`py-1.5 rounded transition-all cursor-pointer ${
-                  activeTab === 'eval' ? 'bg-[#D4AF37] text-black font-bold' : 'text-neutral-400 hover:text-white'
+                className={`py-1.5 rounded-lg transition-all cursor-pointer ${
+                  activeTab === 'eval' ? 'bg-[#8B5CF6] text-white font-bold' : 'text-[#94A3B8] hover:text-white'
                 }`}
               >
                 AI EVAL
               </button>
               <button
                 onClick={() => setActiveTab('queue')}
-                className={`py-1.5 rounded transition-all cursor-pointer ${
-                  activeTab === 'queue' ? 'bg-[#D4AF37] text-black font-bold' : 'text-neutral-400 hover:text-white'
+                className={`py-1.5 rounded-lg transition-all cursor-pointer ${
+                  activeTab === 'queue' ? 'bg-[#06B6D4] text-white font-bold' : 'text-[#94A3B8] hover:text-white'
                 }`}
               >
                 BULLMQ
               </button>
               <button
                 onClick={() => setActiveTab('tests')}
-                className={`py-1.5 rounded transition-all cursor-pointer ${
-                  activeTab === 'tests' ? 'bg-[#D4AF37] text-black font-bold' : 'text-neutral-400 hover:text-white'
+                className={`py-1.5 rounded-lg transition-all cursor-pointer ${
+                  activeTab === 'tests' ? 'bg-[#10B981] text-white font-bold' : 'text-[#94A3B8] hover:text-white'
                 }`}
               >
                 TESTS
@@ -168,17 +185,17 @@ export const Hero: React.FC<HeroProps> = ({ onQuickViewOpen }) => {
             </div>
 
             {/* Tab View Content */}
-            <div className="min-h-[165px] flex flex-col justify-between p-4 rounded-xl bg-black/70 border border-white/10 font-mono text-xs mb-5">
+            <div className="min-h-[160px] flex flex-col justify-between p-4 rounded-xl bg-[#080B12] border border-[#263247] font-mono text-xs mb-4">
               {activeTab === 'ingest' && (
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-[#D4AF37]">
+                  <div className="flex items-center gap-2 text-[#3B82F6]">
                     <Terminal className="w-3.5 h-3.5" />
                     <span className="font-bold uppercase text-[10px]">DOCUMENT PARSER // RESUME EXTRACTION</span>
                   </div>
-                  <p className="text-[11px] text-neutral-300 font-sans leading-relaxed">
-                    Extracts unstructured PDF/DOCX candidate resume streams using <code className="text-[#D4AF37]">pdf-parse</code> and <code className="text-[#D4AF37]">mammoth</code> into structured JSON experience blocks.
+                  <p className="text-[11px] text-[#94A3B8] font-sans leading-relaxed">
+                    Extracts unstructured PDF/DOCX candidate resume streams using <code className="text-[#3B82F6]">pdf-parse</code> and <code className="text-[#3B82F6]">mammoth</code> into structured JSON blocks.
                   </p>
-                  <div className="text-[9px] text-neutral-400 pt-2 border-t border-white/10 flex justify-between">
+                  <div className="text-[9px] text-[#94A3B8] pt-2 border-t border-[#263247] flex justify-between">
                     <span>FORMAT: PDF / DOCX</span>
                     <span>LATENCY: &lt;140ms</span>
                   </div>
@@ -187,14 +204,14 @@ export const Hero: React.FC<HeroProps> = ({ onQuickViewOpen }) => {
 
               {activeTab === 'eval' && (
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-[#D4AF37]">
+                  <div className="flex items-center gap-2 text-[#8B5CF6]">
                     <Cpu className="w-3.5 h-3.5" />
                     <span className="font-bold uppercase text-[10px]">AI EVALUATION // GEMINI LLM API</span>
                   </div>
-                  <p className="text-[11px] text-neutral-300 font-sans leading-relaxed">
+                  <p className="text-[11px] text-[#94A3B8] font-sans leading-relaxed">
                     Evaluates candidate skill vectors against standardized job rubrics using Gemini LLM models and generates structured scoring signals.
                   </p>
-                  <div className="text-[9px] text-neutral-400 pt-2 border-t border-white/10 flex justify-between">
+                  <div className="text-[9px] text-[#94A3B8] pt-2 border-t border-[#263247] flex justify-between">
                     <span>MODEL: Gemini API</span>
                     <span>OUTPUT: Relational Scores</span>
                   </div>
@@ -203,14 +220,14 @@ export const Hero: React.FC<HeroProps> = ({ onQuickViewOpen }) => {
 
               {activeTab === 'queue' && (
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-emerald-400">
+                  <div className="flex items-center gap-2 text-[#06B6D4]">
                     <Database className="w-3.5 h-3.5" />
                     <span className="font-bold uppercase text-[10px]">ASYNC ENGINE // BULLMQ + REDIS</span>
                   </div>
-                  <p className="text-[11px] text-neutral-300 font-sans leading-relaxed">
+                  <p className="text-[11px] text-[#94A3B8] font-sans leading-relaxed">
                     Decouples document parsing and AI evaluation prompts into background worker queues running on BullMQ and Redis to maintain fluid 60fps UI sessions.
                   </p>
-                  <div className="text-[9px] text-neutral-400 pt-2 border-t border-white/10 flex justify-between">
+                  <div className="text-[9px] text-[#94A3B8] pt-2 border-t border-[#263247] flex justify-between">
                     <span>QUEUE: Redis Worker</span>
                     <span>WORKERS: Decoupled</span>
                   </div>
@@ -219,14 +236,14 @@ export const Hero: React.FC<HeroProps> = ({ onQuickViewOpen }) => {
 
               {activeTab === 'tests' && (
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-emerald-400">
+                  <div className="flex items-center gap-2 text-[#10B981]">
                     <CheckCircle2 className="w-3.5 h-3.5" />
                     <span className="font-bold uppercase text-[10px]">VERIFIED TEST EVIDENCE // VITEST</span>
                   </div>
                   <div className="text-2xl font-bold text-white font-mono">
-                    170/170 <span className="text-xs font-normal text-emerald-400">PASSED</span>
+                    170/170 <span className="text-xs font-normal text-[#10B981]">PASSED</span>
                   </div>
-                  <p className="text-[11px] text-neutral-300 font-sans leading-relaxed">
+                  <p className="text-[11px] text-[#94A3B8] font-sans leading-relaxed">
                     Comprehensive Vitest unit &amp; integration test suite covering candidate evaluation, database persistence, and API routes across 38 test files.
                   </p>
                 </div>
@@ -235,17 +252,17 @@ export const Hero: React.FC<HeroProps> = ({ onQuickViewOpen }) => {
 
             {/* Bottom Metrics Bar */}
             <div className="grid grid-cols-3 gap-2 text-center font-mono">
-              <div className="p-2.5 rounded-lg bg-black/60 border border-white/10">
-                <div className="text-[9px] text-neutral-400 uppercase">VITEST SUITE</div>
-                <div className="text-xs font-bold text-emerald-400 mt-0.5">170/170 Passed</div>
+              <div className="p-2 rounded-lg bg-[#080B12] border border-[#263247]">
+                <div className="text-[9px] text-[#94A3B8] uppercase">VITEST SUITE</div>
+                <div className="text-xs font-bold text-[#10B981] mt-0.5">170/170</div>
               </div>
-              <div className="p-2.5 rounded-lg bg-black/60 border border-white/10">
-                <div className="text-[9px] text-neutral-400 uppercase">FRAMEWORK</div>
-                <div className="text-xs font-bold text-[#D4AF37] mt-0.5">Next.js 15</div>
+              <div className="p-2 rounded-lg bg-[#080B12] border border-[#263247]">
+                <div className="text-[9px] text-[#94A3B8] uppercase">FRAMEWORK</div>
+                <div className="text-xs font-bold text-[#6366F1] mt-0.5">Next.js 15</div>
               </div>
-              <div className="p-2.5 rounded-lg bg-black/60 border border-white/10">
-                <div className="text-[9px] text-neutral-400 uppercase">WORKER QUEUE</div>
-                <div className="text-xs font-bold text-sky-400 mt-0.5">BullMQ Redis</div>
+              <div className="p-2 rounded-lg bg-[#080B12] border border-[#263247]">
+                <div className="text-[9px] text-[#94A3B8] uppercase">WORKER QUEUE</div>
+                <div className="text-xs font-bold text-[#06B6D4] mt-0.5">BullMQ Redis</div>
               </div>
             </div>
 
