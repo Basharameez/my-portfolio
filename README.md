@@ -95,92 +95,60 @@ Testing & CI
 
 ### AI-NATIVE RECRUITMENT INFRASTRUCTURE
 
-**Aptivue** is an AI-powered recruitment platform designed around resume intelligence, candidate evaluation, semantic matching, hiring workflows, and analytics.
+**Aptivue** (AptiHire AI / TalentOS) is an AI-powered recruitment platform designed around resume intelligence, candidate evaluation, semantic matching, hiring workflows, and analytics.
 
-```text
-RESUME
-   │
-   ▼
-┌──────────────────┐
-│  RESUME PARSER   │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ REDIS / BULLMQ   │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│   GEMINI / LLM   │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ HIRING EVALUATION│
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ MATCHING + DATA  │
-└──────────────────┘
+```mermaid
+flowchart TD
+    subgraph Ingestion ["Ingestion Layer"]
+      A[Candidate Resume PDF] --> B[Resume AST Extractor]
+    end
+    subgraph Data ["Data & Queue Engine"]
+      B --> C[(PostgreSQL Candidate Data)]
+      B --> D[Redis Message Cache]
+      D --> E[BullMQ Async Queue Worker]
+    end
+    subgraph AI ["AI Intelligence"]
+      E --> F[Gemini LLM Scoring Engine]
+      F --> G[Hiring Evaluation & Audit]
+    end
+    subgraph Workflow ["Matching & Workflow"]
+      G --> H[Semantic Matching Engine]
+      H --> I[Hiring Workflow & Analytics]
+    end
 ```
 
 ### Engineering
 
-`Next.js 15` · `React` · `TypeScript` · `Gemini` · `PostgreSQL` · `Supabase` · `Drizzle` · `Redis` · `BullMQ` · `Vitest`
+`Next.js 15` · `React` · `TypeScript` · `Gemini` · `PostgreSQL` · `Supabase` · `Drizzle ORM` · `Redis` · `BullMQ` · `Vitest`
 
-### Verified
+### Verified Evidence
 
-| Signal                |                           Result |
-| --------------------- | -------------------------------: |
-| Vitest tests          |             **170 / 170 passed** |
-| Test files            |                           **38** |
-| Evaluation throughput |                  **2,400 / min** |
-| Architecture          | **Async queue-based processing** |
+| Signal | Result |
+| :--- | ---: |
+| Vitest tests | **170 / 170 passed** |
+| Test files | **38** |
+| Evaluation throughput | **2,400 / min** |
+| Architecture | **Async queue-based processing** |
 
-**Repository**
-
+**Repository**  
 [github.com/2049basharam/AptiHire-AI](https://github.com/2049basharam/AptiHire-AI)
 
 ---
 
-# 02 — ROTORDYN
+## 02 — ROTORDYN
 
 ### INDUSTRIAL VIBRATION INTELLIGENCE
 
 A production-oriented SaaS system for analyzing machine vibration telemetry and transforming raw sensor data into actionable bearing diagnostics.
 
-```text
-RAW SENSOR DATA
-       │
-       ▼
-┌──────────────────┐
-│   FASTAPI API    │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ SIGNAL PROCESSING│
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│  FFT ANALYSIS    │
-│   4096 LINES     │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ BPFO / BPFI      │
-│ DEFECT MARKERS   │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ MACHINE HEALTH   │
-│     REPORT       │
-└──────────────────┘
+```mermaid
+flowchart TD
+    A[Raw Sensor Telemetry / CSV / Excel] --> B[FastAPI Ingestion Endpoint]
+    B --> C[Signal Preprocessing]
+    C --> D[FFT Spectral Analysis 4096 Lines]
+    D --> E[BPFO / BPFI Defect Detection]
+    E --> F[RMS Velocity & ISO 10816 Severity]
+    F --> G[Interactive Diagnostic Report & AI Summary]
 ```
 
 ### Engineering
@@ -190,101 +158,87 @@ RAW SENSOR DATA
 ### Capabilities
 
 * CSV / Excel telemetry ingestion
+* Signal preprocessing & Fourier transform
+* FFT spectral analysis (4,096 lines)
 * RMS vibration velocity calculation
-* FFT spectral analysis
-* Bearing defect frequency detection
-* Machine health severity classification
+* Bearing defect frequency detection (BPFO / BPFI)
+* Machine-health severity classification
 * Interactive diagnostic visualization
 * AI-assisted report generation
 
 ---
 
-# 03 — BIOROBUST
+## 03 — BIOROBUST
 
 ### ML ROBUSTNESS & COMPUTER VISION
 
-A benchmarking framework for evaluating how computer vision models behave under controlled image degradation.
+A benchmarking framework for evaluating how computer vision models behave under controlled synthetic image degradation and noise perturbations.
 
-```text
-                    PATHMNIST
-                       │
-                       ▼
-                 RESNET-18
-                       │
-          ┌────────────┼────────────┐
-          ▼            ▼            ▼
-        BLUR       RESOLUTION     NOISE
-          │            │            │
-          └────────────┼────────────┘
-                       ▼
-                ROBUSTNESS
-                EVALUATION
-                       │
-          ┌────────────┼────────────┐
-          ▼            ▼            ▼
-      ACCURACY        F1          ECE
+```mermaid
+flowchart TD
+    A[PathMNIST Dataset 7,180 Images] --> B[ResNet-18 PyTorch Backbone]
+    B --> C{Controlled Perturbations 35 Conditions}
+    C --> D[Blur Degradation S4: 11.80% Acc]
+    C --> E[Resolution S5: 0.8520 ECE]
+    C --> F[Noise & Contrast Degradations]
+    D & E & F --> G[Robustness & ECE Evaluation]
+    G --> H[Grad-CAM Heatmap Overlays & Failure Analysis]
+    H --> I[39 / 39 PyTest Verified Suite]
 ```
 
-### Benchmark
+### Benchmark Evidence
 
-| Metric         |             Result |
-| -------------- | -----------------: |
-| Test images    |          **7,180** |
-| Perturbations  |  **35 conditions** |
-| Clean accuracy |         **73.66%** |
-| Weighted F1    |         **72.31%** |
-| Macro F1       |         **69.90%** |
-| Clean ECE      |         **0.0782** |
-| PyTest         | **39 / 39 passed** |
+| Metric | Result |
+| :--- | ---: |
+| Test images | **7,180** |
+| Perturbations | **35 conditions** |
+| Clean accuracy | **73.66%** |
+| Weighted F1 | **72.31%** |
+| Macro F1 | **69.90%** |
+| Clean ECE | **0.0782** |
+| PyTest | **39 / 39 passed** |
 
-### Worst-case observation
+### Worst-Case Observation
 
-**Blur S4 → 11.80% accuracy**
+**Blur S4 → 11.80% accuracy**  
+*A **61.87 percentage-point degradation** from the clean baseline.*
 
-A **61.87 percentage-point degradation** from the clean baseline.
+### Calibration Error
+
+**Resolution degradation S5 → ECE 0.8520**
 
 ### Stack
 
 `PyTorch` · `ResNet-18` · `OpenCV` · `Grad-CAM` · `ECE Calibration` · `PyTest`
 
-**Repository**
-
+**Repository**  
 [github.com/Basharameez/BioVision-Path](https://github.com/Basharameez/BioVision-Path)
 
-**Hugging Face**
-
+**Hugging Face Space**  
 [BioVision-Path](https://huggingface.co/spaces/BASHARAMEEZ/BioVision-Path)
 
 ---
 
-# 04 — BIOVISION-PATH
+## 04 — BIOVISION-PATH
 
 ### BIOMEDICAL COMPUTER VISION PIPELINE
 
-A multi-model computer vision pipeline covering classification, segmentation, object detection, interpretability, and interactive inference.
+A multi-model biomedical computer vision pipeline covering pathology classification, cellular segmentation, object detection, interpretability, and interactive inference.
 
-```text
-PATHOLOGY DATA
-      │
-      ├──────────────► CLASSIFICATION
-      │                  ResNet-18
-      │
-      ├──────────────► SEGMENTATION
-      │                  U-Net
-      │
-      ├──────────────► DETECTION
-      │                  YOLOv8
-      │                  Faster R-CNN
-      │
-      └──────────────► INTERPRETABILITY
-                         Grad-CAM
+```mermaid
+flowchart LR
+    A[Biomedical Data] --> B[Classification: ResNet-18]
+    A --> C[Segmentation: U-Net]
+    A --> D[Detection: YOLOv8 90.54% mAP]
+    A --> E[Detection: Faster R-CNN 49.52% mAP]
+    B & C & D & E --> F[Grad-CAM Interpretability]
+    F --> G[Interactive Inference Dashboard]
 ```
 
 ### Detection Benchmark
 
-**YOLOv8:** `90.54% mAP@0.50`
-
-**Faster R-CNN:** `49.52% mAP@0.50`
+* **YOLOv8 Standard Detector**: **90.54% mAP@0.50**
+* **Faster R-CNN Baseline**: **49.52% mAP@0.50**
 
 ### Stack
 
@@ -298,14 +252,13 @@ PATHOLOGY DATA
 
 **IEEE Xplore Publication**
 
-Research exploring explainable NLP approaches for suicide ideation detection in social media text.
+Research exploring explainable NLP approaches for suicide ideation detection in social media text using deep learning architectures and feature attribution methods.
 
 ### Methods
 
 `BERTimbau` · `DistilBERT` · `XLM-R` · `CNN-BiLSTM` · `Integrated Gradients` · `SHAP`
 
-**DOI**
-
+**DOI Link**  
 [10.1109/IDICAIHEI65991.2025.11377560](https://doi.org/10.1109/IDICAIHEI65991.2025.11377560)
 
 ---
@@ -344,7 +297,7 @@ Research exploring explainable NLP approaches for suicide ideation detection in 
 
 <br><br>
 
-### TESTING
+### TESTING & QUALITY
 
 `Vitest` · `PyTest` · `Unit Testing` · `Integration Testing` · `API Testing`
 
@@ -352,23 +305,23 @@ Research exploring explainable NLP approaches for suicide ideation detection in 
 
 ---
 
-# OTHER BUILDS
+# OTHER ENGINEERING SYSTEMS
 
 <table>
 <tr>
-<td width="50%">
+<td width="50%" valign="top">
 
 ### CODEORIGIN
 
 **Codebase Intelligence**
 
-Python AST analysis, SBOM generation, dependency intelligence, and MinHash similarity analysis.
+Python AST analysis, CycloneDX SBOM generation, dependency intelligence, and MinHash similarity analysis.
 
 `Python` `AST` `CycloneDX` `MinHash`
 
 </td>
 
-<td width="50%">
+<td width="50%" valign="top">
 
 ### CAMPUSBUDDY
 
@@ -376,13 +329,13 @@ Python AST analysis, SBOM generation, dependency intelligence, and MinHash simil
 
 Campus service platform incorporating face detection and recognition through ONNX Runtime.
 
-`YuNet` `SFace` `ONNX`
+`YuNet` `SFace` `ONNX Runtime`
 
 </td>
 </tr>
 
 <tr>
-<td width="50%">
+<td width="50%" valign="top">
 
 ### SIH NATIONAL PLATFORM
 
@@ -394,7 +347,7 @@ FastAPI-based evaluation platform with role-based workflows, state machines, and
 
 </td>
 
-<td width="50%">
+<td width="50%" valign="top">
 
 ### CONTEST HOSTER
 
@@ -408,19 +361,19 @@ Competitive programming platform using isolated Docker execution environments.
 </tr>
 
 <tr>
-<td width="50%">
+<td width="50%" valign="top">
 
 ### REMOTE TREATMENT MONITORING
 
-**Clinical Workflow**
+**Clinical Workflow Infrastructure**
 
-Asynchronous clinician-support workflow with computer vision interpretability.
+Asynchronous clinician-support workflow layer with computer vision interpretability.
 
-`PyTorch` `Grad-CAM`
+`PyTorch` `Grad-CAM` `FastAPI`
 
 </td>
 
-<td width="50%">
+<td width="50%" valign="top">
 
 ### IMAGE SHARPENING SYSTEM
 
@@ -490,57 +443,69 @@ Published Research
 
 # HOW I BUILD
 
-```text
-       RESEARCH
-           │
-           ▼
-    ┌──────────────┐
-    │ EXPERIMENT   │
-    └──────┬───────┘
-           │
-           ▼
-    ┌──────────────┐
-    │   ENGINEER   │
-    └──────┬───────┘
-           │
-           ▼
-    ┌──────────────┐
-    │   VALIDATE   │
-    └──────┬───────┘
-           │
-           ▼
-    ┌──────────────┐
-    │   DEPLOY     │
-    └──────┬───────┘
-           │
-           ▼
-    ┌──────────────┐
-    │   MEASURE    │
-    └──────────────┘
+```mermaid
+flowchart LR
+    A[Research] --> B[Experiment] --> C[Engineer] --> D[Validate] --> E[Deploy] --> F[Measure] --> G[Iterate]
+    G -.-> A
 ```
 
-I focus on the layer between **AI research and usable software**:
+> **I focus on the engineering layer between AI research and usable software:**  
+> **Models → Data → APIs → Backend → Infrastructure → Interfaces → Testing → Production**
 
-**Models → APIs → Data → Infrastructure → Interfaces → Testing → Production**
+---
+
+# ENGINEERING PRINCIPLES
+
+### 01 — BUILD BEYOND THE MODEL
+A model is only one component of an AI product. The surrounding data, APIs, queues, databases, interfaces, and infrastructure determine whether it becomes useful software.
+
+### 02 — MEASURE EVERYTHING
+Accuracy. F1. Calibration. Throughput. Latency. Failure modes. Test suites.
+
+### 03 — DESIGN FOR REAL SOFTWARE
+AI capabilities should become reliable systems people can actually use.
+
+---
+
+# CURRENT FOCUS
+
+```mermaid
+flowchart TD
+    subgraph AI ["AI Systems"]
+      A1[LLM Applications]
+      A2[Computer Vision]
+    end
+    subgraph Software ["Production Software"]
+      B1[APIs & Microservices]
+      B2[Data & Queues]
+      B3[Infrastructure]
+    end
+    subgraph Products ["User-Facing Products"]
+      C1[Hiring Infrastructure]
+      C2[Industrial Telemetry]
+      C3[Biomedical Tools]
+    end
+    AI --> Software --> Products
+```
 
 ---
 
 <div align="center">
 
-## CURRENTLY BUILDING
+## BUILDING SOMETHING INTERESTING?
 
-### AI SYSTEMS THAT FEEL LIKE SOFTWARE — NOT JUST MODELS.
+### EXPLORE MY WORK
 
 <br>
 
 <a href="https://rameezbasha.freedev.app/">
-<img src="https://img.shields.io/badge/EXPLORE_MY_WORK-D4AF37?style=for-the-badge&logoColor=000000" />
+  <img src="https://img.shields.io/badge/PORTFOLIO-Live_Site-D4AF37?style=for-the-badge&logoColor=000000" />
 </a>
 
 <br><br>
 
 <a href="https://github.com/Basharameez">
-<img src="https://img.shields.io/github/followers/Basharameez?label=FOLLOW&style=flat-square" />
+  <img src="https://img.shields.io/github/followers/Basharameez?label=FOLLOW&style=flat-square" />
 </a>
 
 <br><br>
@@ -552,5 +517,7 @@ I focus on the layer between **AI research and usable software**:
 **SHAIK RAMEEZ BASHA**
 
 <sub>AI SYSTEMS ENGINEER · SOFTWARE BUILDER · RESEARCHER</sub>
+
+*Turning research into intelligent software systems.*
 
 </div>
