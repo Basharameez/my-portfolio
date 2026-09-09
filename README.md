@@ -19,11 +19,11 @@
 
 <p>
   <a href="https://rameezbasha.freedev.app/">
-    <img src="https://img.shields.io/badge/PORTFOLIO-6366F1?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio" />
+    <img src="https://img.shields.io/badge/INTERACTIVE_OS_PORTFOLIO-6366F1?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Interactive Portfolio" />
   </a>
   &nbsp;
   <a href="https://github.com/Basharameez">
-    <img src="https://img.shields.io/badge/GITHUB-1E293B?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+    <img src="https://img.shields.io/badge/GITHUB-111827?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
   </a>
   &nbsp;
   <a href="https://www.linkedin.com/in/shaik-rameez-basha-151740286/">
@@ -41,8 +41,8 @@
 
 <br>
 
-<!-- FLOATING MOBILE BOTTOM NAVIGATION DOCK CONCEPT -->
-<table style="background-color: #111827; border: 1px solid #374151; border-radius: 20px; padding: 6px 12px;">
+<!-- SYSTEM NAVIGATION DOCK (STATIC GITHUB VISUAL REPRESENTATION) -->
+<table style="background-color: #111827; border: 1px solid #263247; border-radius: 20px; padding: 6px 12px;">
 <tr>
 <td align="center">
   <a href="#home">
@@ -230,17 +230,13 @@ Aptivue (AptiHire AI / TalentOS) is an AI-powered recruitment evaluation platfor
 
 <table>
 <tr>
-<td width="33%" align="center">
+<td width="50%" align="center">
 <h3><code>170 / 170</code></h3>
-<sub><b>Vitest Tests Passed</b></sub>
+<sub><b>Vitest Unit & Integration Tests Passed</b></sub>
 </td>
-<td width="33%" align="center">
+<td width="50%" align="center">
 <h3><code>38</code></h3>
 <sub><b>Test Files Executed</b></sub>
-</td>
-<td width="33%" align="center">
-<h3><code>2,400</code></h3>
-<sub><b>Evaluations / Min Capacity</b></sub>
 </td>
 </tr>
 </table>
@@ -384,7 +380,7 @@ flowchart TD
 <br>
 
 > [!WARNING]
-> **Worst-Case Degradation Spotlight**:
+> **Failure Analysis Spotlight**:
 > Under **Blur Severity Level 4**, accuracy drops to **11.80%** (a **Δ -61.87 pp** loss from clean baseline).
 > Under **Resolution Severity Level 5**, ECE spikes to **0.8520**, highlighting severe overconfidence under resolution degradation.
 
@@ -763,11 +759,11 @@ Let's collaborate on AI systems, scalable backend infrastructure, or full-stack 
 
 <p>
   <a href="https://rameezbasha.freedev.app/">
-    <img src="https://img.shields.io/badge/EXPLORE_PORTFOLIO-6366F1?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Explore Portfolio" />
+    <img src="https://img.shields.io/badge/INTERACTIVE_OS_PORTFOLIO-6366F1?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Interactive Portfolio" />
   </a>
   &nbsp;
   <a href="https://github.com/Basharameez">
-    <img src="https://img.shields.io/badge/GITHUB_PROFILE-1E293B?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Profile" />
+    <img src="https://img.shields.io/badge/GITHUB_PROFILE-111827?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Profile" />
   </a>
   &nbsp;
   <a href="https://www.linkedin.com/in/shaik-rameez-basha-151740286/">
